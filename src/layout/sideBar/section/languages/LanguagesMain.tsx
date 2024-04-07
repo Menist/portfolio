@@ -3,8 +3,8 @@ import styled from "styled-components";
 import {LanguagesFragment} from "./LanguagesFragment";
 import {SidebarTitle} from "../../../../components/SidebarTitle";
 import {SidebarLine} from "../../../../components/SidebarLine";
-
 export const LanguagesMain = () => {
+
     return (
         <LanguagesMainStyled>
             <SidebarTitle text={"Languages"}></SidebarTitle>

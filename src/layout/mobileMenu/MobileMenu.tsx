@@ -15,11 +15,9 @@ export const MobileMenu = () => {
             <BurgerBtn isOpen={menuIsOpen} onClick={onBurgerBtnClick}>
                 <span></span>
             </BurgerBtn>
-            {/*<MobileMenuWrap>*/}
                 <MobileMenuPopup isOpen={menuIsOpen} onClick={()=>{setMenuIsOpen(false)}}>
                         <Menu></Menu>
                 </MobileMenuPopup>
-            {/*</MobileMenuWrap>*/}
         </StyledMobileMenu>
     );
 };

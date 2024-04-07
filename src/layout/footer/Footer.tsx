@@ -15,7 +15,6 @@ const FooterSection=styled.footer`
     background-color: ${theme.colors.background};
     padding-top: 18px;
     padding-bottom: 18px;
-
     text-align: center;
   }
 
@@ -23,9 +22,11 @@ const FooterSection=styled.footer`
     color: black;
     padding-right: 25px;
   }
+  
   @media screen and (max-width: 1091px) {
     margin-bottom: 80px;
   }
+  
   @media screen and (max-width: 425px) {
     margin-bottom: 65px;
   }
