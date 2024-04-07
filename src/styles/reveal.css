@@ -1,0 +1,29 @@
+.css-zvi4ix {
+    display: flex;
+    max-width: 31.5%;
+}
+
+a {
+    padding-top: 0;
+    font-size: 18px;
+}
+
+@media screen and (max-width: 1216px) {
+    .css-zvi4ix {
+        flex: 0 0 48%;
+    }
+}
+
+@media screen and (max-width: 989px) {
+    .css-zvi4ix {
+        flex: 0 0 80%;
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 969px) {
+    .css-zvi4ix {
+        flex: 0 0 100%;
+        justify-content: center;
+    }
+}

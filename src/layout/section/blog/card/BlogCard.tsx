@@ -3,18 +3,17 @@ import styled from "styled-components";
 import {CardLink} from "../../../../components/Link";
 import {theme} from "../../../../styles/Theme";
 
-type BlogCardPropsType={
+type BlogCardPropsType = {
     title: string
-    text:string
-    textLink:string
+    text: string
+    textLink: string
     src: string
     srcSet: string
 }
-export const BlogCard = (props:BlogCardPropsType) => {
+export const BlogCard = (props: BlogCardPropsType) => {
     return (
         <BlogCardStyled>
-                <BlogCardImg image={props.src} srcSet={props.srcSet}/>
-
+            <BlogCardImg image={props.src} srcSet={props.srcSet}/>
             <Wrapper>
                 <BlogCardTitle>{props.title}</BlogCardTitle>
                 <BlogCardText>{props.text}</BlogCardText>
@@ -23,19 +22,22 @@ export const BlogCard = (props:BlogCardPropsType) => {
         </BlogCardStyled>
     );
 };
- const BlogCardStyled= styled.div`
+const BlogCardStyled = styled.div`
   display: flex;
   justify-content: space-between;
   flex: 0 0 31.5%;
+  //min-width: 330px;
+  //max-width: 415px;
   flex-wrap: wrap;
-   
-  a{
+
+  a {
     padding-top: 0;
     font-size: 18px;
   }
 
   @media screen and (max-width: 1216px) {
     flex: 0 0 48%;
+    //min-width: 355px;
   }
 
   @media screen and (max-width: 989px) {
@@ -46,13 +48,13 @@ export const BlogCard = (props:BlogCardPropsType) => {
     flex: 0 0 100%;
     justify-content: center;
   }
-  
+
 `
-const BlogCardTitle= styled.h4`
+const BlogCardTitle = styled.h4`
   font-weight: 500;
   text-transform: capitalize;
 `
-const BlogCardText= styled.p`
+const BlogCardText = styled.p`
   font-weight: 400;
   padding: 10px 0;
 `
@@ -63,16 +65,16 @@ const BlogCardImg = styled.div<{ image: string, srcSet: string }>`
   background-position: center center;
   height: 300px;
   width: 100%;
-  
+
   @media (min-resolution: 2dppx) {
     background-image: ${(props) => `url(${props.srcSet})`};
   }
 `
-const Wrapper=styled.div`
+const Wrapper = styled.div`
   padding: 25px;
   background-color: ${theme.colors.background};
-  
-  a{
+
+  a {
     display: inline-block;
   }
 `

@@ -24,15 +24,15 @@ const items = [
         title: 'Contacts',
         href: 'contacts'
     }
-
 ]
 export const Menu = () => {
     return (
         <StyledMenu>
             <ul>
-                {items.map((item) => {
+                {items.map((item, index) => {
                     return <li>
                         <MenuLink
+                            key={index}
                             smooth={true}
                             to={item.href}
                             activeClass="active"
