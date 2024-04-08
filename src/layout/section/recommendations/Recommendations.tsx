@@ -9,10 +9,11 @@ import img2 from "../../../assets/img/section/recommendations/recommendations2.w
 import img2x from "../../../assets/img/section@2x/recommendations/recom2_@2x.webp";
 import img3 from "../../../assets/img/section/recommendations/recommendations3.webp";
 import img3x from "../../../assets/img/section@2x/recommendations/recom3_@2x.webp";
+import {Fade} from "react-awesome-reveal";
 export const Recommendations = () => {
     return (
+        <Fade cascade damping={.9}>
         <RecommendationsStyled>
-
             <BlockTitle
                 title={"recommendations"}
                 subTitle={"Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. lorem ipsum"}></BlockTitle>
@@ -50,8 +51,8 @@ export const Recommendations = () => {
             <RecommendationsBtn></RecommendationsBtn>
             <RecommendationsBtn></RecommendationsBtn>
             </FlexWrapper>
-
         </RecommendationsStyled>
+        </Fade>
     );
 };
 const RecommendationsStyle = styled.div`

@@ -12,16 +12,17 @@ type BlogCardPropsType = {
 }
 export const BlogCard = (props: BlogCardPropsType) => {
     return (
-        <BlogCardStyled>
-            <BlogCardImg image={props.src} srcSet={props.srcSet}/>
-            <Wrapper>
-                <BlogCardTitle>{props.title}</BlogCardTitle>
-                <BlogCardText>{props.text}</BlogCardText>
-                <CardLink link={"Lean more"}></CardLink>
-            </Wrapper>
-        </BlogCardStyled>
+                <BlogCardStyled >
+                    <BlogCardImg image={props.src} srcSet={props.srcSet}/>
+                    <Wrapper>
+                        <BlogCardTitle >{props.title}</BlogCardTitle>
+                        <BlogCardText>{props.text}</BlogCardText>
+                        <CardLink link={"Lean more"}></CardLink>
+                    </Wrapper>
+                </BlogCardStyled>
     );
 };
+
 const BlogCardStyled = styled.div`
   display: flex;
   justify-content: space-between;
@@ -48,8 +49,16 @@ const BlogCardStyled = styled.div`
     flex: 0 0 100%;
     justify-content: center;
   }
-
 `
+const Wrapper = styled.div`
+  padding: 25px;
+  background-color: ${theme.colors.background};
+
+  a {
+    display: inline-block;
+  }
+`
+
 const BlogCardTitle = styled.h4`
   font-weight: 500;
   text-transform: capitalize;
@@ -70,11 +79,5 @@ const BlogCardImg = styled.div<{ image: string, srcSet: string }>`
     background-image: ${(props) => `url(${props.srcSet})`};
   }
 `
-const Wrapper = styled.div`
-  padding: 25px;
-  background-color: ${theme.colors.background};
 
-  a {
-    display: inline-block;
-  }
-`
+

@@ -1,7 +1,9 @@
 import React from 'react';
 import styled from "styled-components";
 import {FlexWrapper} from "../../../components/FlexWrapper";
+import {Fade} from "react-awesome-reveal";
 import {theme} from "../../../styles/Theme";
+
 
 type EducationStyledComponentPropsType = {
     firstTitle: string
@@ -12,19 +14,23 @@ type EducationStyledComponentPropsType = {
 }
 export const EducationStyled = (props: EducationStyledComponentPropsType) => {
     return (
-        <EducationStyledComponent>
-            <FlexWrapper align={'flex-start'} gap={"12%"}>
-                <FlexWrapper flex={"0 1 25%"} gap={"25px"}>
-                    <FirstTitleEducation>{props.firstTitle}</FirstTitleEducation>
-                    <SubTitleTitleEducation>{props.subTitle}</SubTitleTitleEducation>
-                    <EducationData>{props.data}</EducationData>
+            <EducationStyledComponent>
+                <Fade cascade damping={.5}>
+
+                <FlexWrapper align={'flex-start'} gap={"12%"}>
+                    <FlexWrapper flex={"0 1 25%"} gap={"25px"}>
+                        <FirstTitleEducation>{props.firstTitle}</FirstTitleEducation>
+                        <SubTitleTitleEducation>{props.subTitle}</SubTitleTitleEducation>
+                        <EducationData>{props.data}</EducationData>
+                    </FlexWrapper>
+                    <FlexWrapper flex={"0 1 63%"} gap={"20px 0"}>
+                        <SecondTitleEducation>{props.secondTitle}</SecondTitleEducation>
+                        <TextEducation>{props.text}</TextEducation>
+                    </FlexWrapper>
                 </FlexWrapper>
-                <FlexWrapper flex={"0 1 63%"} gap={"20px 0"}>
-                    <SecondTitleEducation>{props.secondTitle}</SecondTitleEducation>
-                    <TextEducation>{props.text}</TextEducation>
-                </FlexWrapper>
-            </FlexWrapper>
-        </EducationStyledComponent>
+                </Fade>
+
+            </EducationStyledComponent>
     );
 };
 
@@ -32,16 +38,17 @@ const EducationStyledComponent = styled.div`
   background-color: #ffffff;
   padding: 37px 29px 30px 38px;
 
-  &:after {
-    content: "";
-    display: block;
-    background-color: #F0F0F6;
-    height: 1px;
-  }
-
-  &:last-child::after {
-    content: none;
-  }
+  border-bottom: 1px solid #F0F0F6;
+  //&:after {
+  //  content: "";
+  //  display: block;
+  //  background-color: #F0F0F6;
+  //  height: 1px;
+  //}
+  //
+  //&:last-child::after {
+  //  content: none;
+  //}
 
   @media screen and (max-width: 1300px) {
     ${FlexWrapper} {
@@ -65,7 +72,7 @@ const EducationStyledComponent = styled.div`
   }
   @media screen and (max-width: 720px) {
     max-width: 80%;
-  } 
+  }
   @media screen and (max-width: 596px) {
     max-width: 100%;
   }

@@ -36,11 +36,13 @@ const StyledHeader = styled.header`
       padding: 10px;
     }
   }
+  
   @media screen and (max-width: 768px) {
     &::after {
       content: none;
     }
   }
+  
   @media screen and (max-width: 768px) {
     ${FlexWrapper} {
       display: none;

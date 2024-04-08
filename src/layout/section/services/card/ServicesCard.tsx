@@ -4,6 +4,7 @@ import {Icon} from "../../../../components/icon/Icon";
 import styled from "styled-components";
 import {theme} from "../../../../styles/Theme";
 import {CardLink} from "../../../../components/Link";
+import {Fade} from "react-awesome-reveal";
 
 type ServicesCardPropsType = {
     iconId: string
@@ -14,11 +15,14 @@ type ServicesCardPropsType = {
 export const ServicesCard = (props: ServicesCardPropsType) => {
     return (
         <ServicesCardStyled>
+            <Fade cascade damping={.2}>
             {props.iconId && <Icon iconId={props.iconId} height={"75"} width={"75"} viewBox={"0 0 75 75"}/>}
             <ServicesCardTitle>{props.title}</ServicesCardTitle>
             <ServicesCardText>{props.text}</ServicesCardText>
             {props.link && <CardLink link={"order now"}></CardLink>}
+            </Fade>
         </ServicesCardStyled>
+
     );
 };
 

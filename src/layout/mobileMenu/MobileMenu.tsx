@@ -47,7 +47,7 @@ const BurgerBtn = styled.button<{ isOpen: boolean }>`
   width: 50px;
   height: 49px;
   text-align: center;
-  z-index: 100;
+  z-index: 100; !important;
   cursor: pointer;
   background-color: rgba(255, 180, 0, 0.59);
   border: 2px solid transparent;

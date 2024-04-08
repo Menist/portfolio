@@ -1,9 +1,11 @@
 import React from 'react';
 import {FlexWrapper} from "../../../components/FlexWrapper";
 import styled from "styled-components";
+import {Fade} from "react-awesome-reveal";
 
 export const Map = () => {
     return (
+        <Fade cascade damping={.9}>
         <SectionMap>
             <FlexWrapper>
                 <iframe title={'yandexMap'}
@@ -13,6 +15,7 @@ export const Map = () => {
                 </iframe>
             </FlexWrapper>
         </SectionMap>
+        </Fade>
     );
 };
  const SectionMap=styled.section`

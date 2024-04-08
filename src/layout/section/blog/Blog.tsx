@@ -9,8 +9,9 @@ import img2 from "../../../assets/img/section/blog/blog02.webp";
 import img2x from "../../../assets/img/section@2x/blog/blog2_@2x.webp";
 import img3 from "../../../assets/img/section/blog/blog03.webp";
 import img3x from "../../../assets/img/section@2x/blog/blog3_@2x.webp";
-// import {Fade} from "react-awesome-reveal";
-import '../../../styles/reveal.css';
+import {Fade} from "react-awesome-reveal";
+// import '../../../styles/reveal.css';
+import 'animate.css';
 
 const blogData = [
     {
@@ -37,11 +38,12 @@ const blogData = [
 ];
 export const Blog = () => {
     return (
+        <Fade cascade damping={.9}>
         <BlogSection id={'blog'}>
             <BlockTitle title={'blog'}
                         subTitle={"Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. lorem ipsum"}></BlockTitle>
-            <FlexWrapper justify={"space-between"}>
-                {/*<Fade direction={"up"}>*/}
+            <FlexWrapper className={'animate__fadeIn'} justify={"space-between"}>
+                {/*<Fade cascade={true}>*/}
                     {blogData.map((blogItem, index) => (
                         <BlogCard
                             key={index}
@@ -55,10 +57,14 @@ export const Blog = () => {
                 {/*</Fade>*/}
             </FlexWrapper>
         </BlogSection>
+        </Fade>
     );
 };
 
 
+const Wrap = styled.div`
+display: contents;
+`
 const BlogSection = styled.section`
   ${FlexWrapper} {
     @media screen and (max-width: 989px) {
@@ -71,9 +77,11 @@ const BlogSection = styled.section`
     max-width: 65%;
     margin: 0 auto;
   }
+
   @media screen and (max-width: 885px) {
     max-width: 80%;
   }
+  
   @media screen and (max-width: 556px) {
     max-width: 100%;
   }

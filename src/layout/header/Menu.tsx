@@ -2,6 +2,7 @@ import React from 'react';
 import styled from "styled-components";
 import {theme} from "../../styles/Theme";
 import {Link} from "react-scroll";
+import {Fade} from "react-awesome-reveal";
 
 const items = [
     {
@@ -27,6 +28,7 @@ const items = [
 ]
 export const Menu = () => {
     return (
+        <Fade cascade damping={.3}>
         <StyledMenu>
             <ul>
                 {items.map((item, index) => {
@@ -44,6 +46,7 @@ export const Menu = () => {
                 })}
             </ul>
         </StyledMenu>
+        </Fade>
     );
 };
 
@@ -109,7 +112,6 @@ const MenuLink = styled(Link)``
       li {
         padding-top: 10px;
       }
-
     }
   }
 `

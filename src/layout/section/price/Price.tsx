@@ -3,13 +3,16 @@ import styled from "styled-components";
 import {FlexWrapper} from "../../../components/FlexWrapper";
 import {PriceCard} from "./PriceCard/PriceCard";
 import {BlockTitle} from "../../../components/SectionTitle/BlockTitle";
+import {Fade} from "react-awesome-reveal";
 
 export const Price = () => {
     return (
+        <Fade cascade damping={.9}>
         <PriceSection>
             <BlockTitle title={'Price plans'}
                         subTitle={'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. lorem ipsum'}></BlockTitle>
             <FlexWrapper wrap={"wrap"} justify={"space-between"}>
+
                 <PriceCard
                     name={"silver"}
                     price={"$0.00"}
@@ -39,6 +42,7 @@ export const Price = () => {
                 />
             </FlexWrapper>
         </PriceSection>
+        </Fade>
     );
 };
 const PriceSection = styled.section`

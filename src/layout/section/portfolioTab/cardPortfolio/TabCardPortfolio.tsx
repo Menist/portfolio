@@ -1,3 +1,4 @@
+
 import React from 'react';
 import styled from "styled-components";
 import { theme } from "../../../../styles/Theme";
@@ -7,9 +8,10 @@ type CardPortfolioPropsType={
     srcSet:string
     overLay:string
     img:string
+    type:string
 }
 
-export const CardPortfolio = (props: CardPortfolioPropsType) => {
+export const TabCardPortfolio = (props: CardPortfolioPropsType) => {
     return (
             <CardLink href={'#'}>
                 <CardImg src={props.src} srcSet={`${props.srcSet} 2x`}></CardImg>

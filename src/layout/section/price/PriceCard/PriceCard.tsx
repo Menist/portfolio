@@ -4,6 +4,7 @@ import {Icon} from "../../../../components/icon/Icon";
 import {FlexWrapper} from "../../../../components/FlexWrapper";
 import {theme} from "../../../../styles/Theme";
 import {PriceCardBtn} from "../PriceCardBtn";
+import {Fade} from "react-awesome-reveal";
 
 type PriceCardPropType = {
     name: string
@@ -19,31 +20,34 @@ type PriceCardPropType = {
 export const PriceCard = (props: PriceCardPropType) => {
     return (
         <PriceCardStyled>
-            <PlansName>{props.name}</PlansName>
-            <PlansPrice>{props.price}
-                <span>{props.span}</span>
-            </PlansPrice>
-            <PlansDescription>{props.description}</PlansDescription>
-            <FlexWrapper gap={"10"} direction={"column"} width={"100%"}>
-                <FlexWrapper justify={"center"} width={"100%"} padding={"15px 0 0 10px"}>
-                    <Icon iconId={props.iconId} height={props.height} width={props.width}/>
-                    <PriceServices>{props.services}</PriceServices>
+            <Fade direction={"up"}>
+                <PlansName>{props.name}</PlansName>
+                <PlansPrice>{props.price}
+                    <span>{props.span}</span>
+                </PlansPrice>
+                <PlansDescription>{props.description}</PlansDescription>
+                <FlexWrapper gap={"10"} direction={"column"} width={"100%"}>
+                    <FlexWrapper justify={"center"} width={"100%"} padding={"15px 0 0 10px"}>
+                        <Icon iconId={props.iconId} height={props.height} width={props.width}/>
+                        <PriceServices>{props.services}</PriceServices>
+                    </FlexWrapper>
+                    <FlexWrapper justify={"center"} width={"100%"} padding={"15px 0 0 10px"}>
+                        <Icon iconId={props.iconId} height={props.height} width={props.width}/>
+                        <PriceServices>{props.services}</PriceServices>
+                    </FlexWrapper>
+                    <FlexWrapper justify={"center"} width={"100%"} padding={"15px 0 0 10px"}>
+                        <Icon iconId={props.iconId} height={props.height} width={props.width}/>
+                        <PriceServices>{props.services}</PriceServices>
+                    </FlexWrapper>
+                    <FlexWrapper justify={"center"} width={"100%"} padding={"15px 0 0 10px"}>
+                        <Icon iconId={props.iconId} height={props.height} width={props.width}/>
+                        <PriceServices>{props.services}</PriceServices>
+                    </FlexWrapper>
                 </FlexWrapper>
-                <FlexWrapper justify={"center"} width={"100%"} padding={"15px 0 0 10px"}>
-                    <Icon iconId={props.iconId} height={props.height} width={props.width}/>
-                    <PriceServices>{props.services}</PriceServices>
-                </FlexWrapper>
-                <FlexWrapper justify={"center"} width={"100%"} padding={"15px 0 0 10px"}>
-                    <Icon iconId={props.iconId} height={props.height} width={props.width}/>
-                    <PriceServices>{props.services}</PriceServices>
-                </FlexWrapper>
-                <FlexWrapper justify={"center"} width={"100%"} padding={"15px 0 0 10px"}>
-                    <Icon iconId={props.iconId} height={props.height} width={props.width}/>
-                    <PriceServices>{props.services}</PriceServices>
-                </FlexWrapper>
-            </FlexWrapper>
-            <PriceCardBtn textBtn={"order now"}></PriceCardBtn>
+                <PriceCardBtn textBtn={"order now"}></PriceCardBtn>
+                </Fade>
         </PriceCardStyled>
+
     );
 };
 const PriceCardStyled = styled.div`
@@ -93,31 +97,32 @@ const PriceCardStyled = styled.div`
 
   @media screen and (max-width: 1340px) {
     flex: 1 0 45%;
-    }
   }
+}
 
-  @media screen and (max-width: 1129px) {
-    flex: 1 0 65%;
-    ${FlexWrapper} {
-      justify-content: center;
-    }
+@media screen and (max-width: 1129px) {
+  flex: 1 0 65%;
+  ${FlexWrapper} {
+    justify-content: center;
   }
+}
 
-  @media screen and (max-width: 1091px) {
-    flex: 1 0 45%;
-  }
+@media screen and (max-width: 1091px) {
+  flex: 1 0 45%;
+}
 
-  @media screen and (max-width: 943px) {
-    flex: 1 0 75%;
-  }
-  @media screen and (max-width: 885px) {
-    flex: 1 0 40%;
-    justify-content: flex-start;
-  }
+@media screen and (max-width: 943px) {
+  flex: 1 0 75%;
+}
 
-  @media screen and (max-width: 636px) {
-    flex: 1 0 100%;
-  }
+@media screen and (max-width: 885px) {
+  flex: 1 0 40%;
+  justify-content: flex-start;
+}
+
+@media screen and (max-width: 636px) {
+  flex: 1 0 100%;
+}
 `
 
 const PlansName = styled.h3`

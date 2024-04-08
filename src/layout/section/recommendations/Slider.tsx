@@ -11,6 +11,7 @@ import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
 import '../../../styles/slider.css';
 import {RecommendationsCard} from "./card/RecommendationsCard";
+import {Fade} from "react-awesome-reveal";
 
 const items = [
     <RecommendationsCard
@@ -35,11 +36,11 @@ const items = [
         icon={"star"}
         title={"Great Quality!"}
         text={"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vitae nulla diam in ac dictum a urna viverra morbi. Morbi donec amet...."}
-        name={"Talan Westervelt"}
+        name={"Talan Wetevelt"}
         prof={"Business man"}
         src={img3}
         srcSet={img3x}
-    />,    <RecommendationsCard
+    />, <RecommendationsCard
         icon={"star"}
         title={"Great Quality!"}
         text={"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vitae nulla diam in ac dictum a urna viverra morbi. Morbi donec amet...."}
@@ -61,7 +62,7 @@ const items = [
         icon={"star"}
         title={"Great Quality!"}
         text={"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vitae nulla diam in ac dictum a urna viverra morbi. Morbi donec amet...."}
-        name={"Talan Westervelt"}
+        name={"Talan Wetevelt"}
         prof={"Business man"}
         src={img3}
         srcSet={img3x}
@@ -88,7 +89,7 @@ const items = [
         icon={"star"}
         title={"Great Quality!"}
         text={"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vitae nulla diam in ac dictum a urna viverra morbi. Morbi donec amet...."}
-        name={"Talan Westervelt"}
+        name={"Talan Wetevelt"}
         prof={"Business man"}
         src={img3}
         srcSet={img3x}
@@ -102,23 +103,25 @@ const responsive = {
 };
 
 export const Slider = () => (
-    <RecommendationsStyled>
-        <BlockTitle
-            title={"recommendations"}
-            subTitle={"Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. lorem ipsum"}></BlockTitle>
-        <AliceCarousel
-            responsive={responsive}
-            // autoPlay
-            autoPlayStrategy="none"
-            autoPlayInterval={1500}
-            animationDuration={1500}
-            // animationType="fadeout"
-            // infinite
-            touchTracking={false}
-            disableButtonsControls
-            items={items}
-        />
-    </RecommendationsStyled>
+    <Fade cascade damping={.3}>
+        <RecommendationsStyled>
+            <BlockTitle
+                title={"recommendations"}
+                subTitle={"Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. lorem ipsum"}></BlockTitle>
+            <AliceCarousel
+                responsive={responsive}
+                autoPlay
+                autoPlayStrategy="none"
+                autoPlayInterval={1500}
+                animationDuration={1500}
+                // animationType="fadeout"
+                infinite
+                touchTracking={false}
+                disableButtonsControls
+                items={items}
+            />
+        </RecommendationsStyled>
+     </Fade>
 );
 
 const RecommendationsStyled = styled.section`

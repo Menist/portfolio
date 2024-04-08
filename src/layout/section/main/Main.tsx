@@ -14,36 +14,46 @@ import img5 from '../../../assets/img/section/main/decoration/4.svg';
 import img6 from '../../../assets/img/section/main/decoration/5.svg';
 import img7 from '../../../assets/img/section/main/decoration/6.svg';
 import img8 from '../../../assets/img/section/main/decoration/8.svg';
+import {Fade} from "react-awesome-reveal";
 
 export const AboutMe = () => {
     return (
+        <Fade cascade damping={.9}>
         <MainSection>
             <FlexWrapper align={"center"}
                          justify={"space-around"}
                          padding={"30px 50px 0 50px"}
                          color={theme.colors.background}>
                 <FlexWrapperDiw>
-                    <TextTitle>I’m Rayan Adlrdard
-                        <p>I’m Rayan Adlrdard <span>Front-end</span> Developer</p>
-                        <Typewriter
-                            options={{
-                                strings: ['<span>Front-end</span> Developer'],
-                                autoStart: true,
-                                loop: true,
-                                delay:150,
-                            }}
-                        />
+
+                    <Fade direction={"down"}>
+                        <TextTitle>I’m Rayan Adlrdard
+                            <p>I’m Rayan Adlrdard <span>Front-end</span> Developer</p>
+                            <Typewriter
+                                options={{
+                                    strings: ['<span>Front-end</span> Developer'],
+                                    autoStart: true,
+                                    loop: true,
+                                    delay: 150,
+                                }}
+                            />
                         </TextTitle>
+                    </Fade>
+                    <Fade cascade damping={.2}>
                     <TextSubTitle>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et, volutpat feugiat placerat
                         lobortis.
                         Natoque rutrum semper sed suspendisse nunc lectus.</TextSubTitle>
-                    <StraightLink textBtn={"hire me"}></StraightLink>
+                    </Fade>
+                    <Fade direction={"up"}>
+                        <StraightLink textBtn={"hire me"}></StraightLink>
+                        </Fade>
                 </FlexWrapperDiw>
                 <FlexWrapper flex={"1.5"} justify={"end"}>
                     <Img src={img1} srcSet={`${img1x} 2x`}/>
                 </FlexWrapper>
             </FlexWrapper>
         </MainSection>
+        </Fade>
     );
 };
 
@@ -53,7 +63,8 @@ const FlexWrapperDiw = styled.div`
   gap: 20px 0;
   flex-direction: column;
   @media screen and (max-width: 1271px) {
-      align-self: center;
+    align-self: center;
+  }
 `
 const MainSection = styled.section`
 
@@ -84,9 +95,10 @@ const MainSection = styled.section`
 
 `
 const TextTitle = styled.h1`
-  p{
+  p {
     display: none;
   }
+
   span {
     color: ${theme.colors.primary};
   }

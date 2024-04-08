@@ -3,9 +3,11 @@ import {Form} from "./formElement/Form";
 import styled from "styled-components";
 import {FlexWrapper} from "../../../components/FlexWrapper";
 import {Contact} from "./formElement/Contact";
+import {Fade} from "react-awesome-reveal";
 
 export const GeneralFormFile = () => {
     return (
+        <Fade cascade damping={19}>
         <GeneralFormFileSection id={'contacts'}>
             <FlexWrapper justify={"space-between"}>
                 <Form></Form>
@@ -40,6 +42,7 @@ export const GeneralFormFile = () => {
                 </FlexWrapper>
             </FlexWrapper>
         </GeneralFormFileSection>
+        </Fade>
     );
 };
 

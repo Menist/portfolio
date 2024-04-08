@@ -2,8 +2,8 @@ import React from 'react';
 import styled from "styled-components";
 import {theme} from "../styles/Theme";
 import {Icon} from "./icon/Icon";
-
-
+import {Link} from "react-scroll";
+import 'animate.css';
 
 type StraightButtonPropsType = {
     textBtn: string;
@@ -11,14 +11,27 @@ type StraightButtonPropsType = {
 
 export const StraightLink = (props: StraightButtonPropsType) => {
     return (
-            <Link href={'#'}>
-                {props.textBtn}
-                <Icon iconId={"arrow"} width={"10.67"} height={"10.37"} viewBox={"0 0 10.67 10.37"}/>
-            </Link>
+            <Wrap>
+                <Links
+                    to={'contacts'}
+                    spy={true}
+                    smooth={true}
+                >
+                    {props.textBtn}
+                    <Icon iconId={"arrow"} width={"10.67"} height={"10.37"} viewBox={"0 0 10.67 10.37"}/>
+                </Links>
+             </Wrap>
+
     );
 };
 
-const Link = styled.a`
+const Wrap = styled.div`
+  display: flex;
+  @media screen and (max-width: 1156px) {
+    justify-content: center;
+  }
+`
+const Links = styled(Link)`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -39,6 +52,7 @@ const Link = styled.a`
     background-color: ${theme.colors.background};
     transition: ${theme.animation.transitionBackground};
   }
+
   @media screen and (max-width: 1156px) {
     align-self: center;
   }

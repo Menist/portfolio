@@ -12,15 +12,10 @@ export const theme = {
         textSize: "15px",
         lineHeight: "24px"
     },
-    media:{
-        tablet:"screen and (max-width: 768px)",
-        mobile:"screen and (max-width: 567px)",
-        paddingBottom:"10px"
-    },
     animation:{
         transitionWidth: "width .3s ease-out",
         transitionAll: "all .9s ease",
         transitionBackground: "background .3s ease-out",
-        transitionColor: "color .3s ease-out"
+        transitionColor: "color .3s ease-out",
     }
 }
