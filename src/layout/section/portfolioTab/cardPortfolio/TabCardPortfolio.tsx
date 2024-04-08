@@ -2,6 +2,7 @@
 import React from 'react';
 import styled from "styled-components";
 import { theme } from "../../../../styles/Theme";
+import {Fade} from "react-awesome-reveal";
 
 type CardPortfolioPropsType={
     src:string
@@ -13,6 +14,7 @@ type CardPortfolioPropsType={
 
 export const TabCardPortfolio = (props: CardPortfolioPropsType) => {
     return (
+        <Fade cascade damping={.9}>
             <CardLink href={'#'}>
                 <CardImg src={props.src} srcSet={`${props.srcSet} 2x`}></CardImg>
                 <HoverOverlay>
@@ -20,6 +22,7 @@ export const TabCardPortfolio = (props: CardPortfolioPropsType) => {
                     <OverlayImage></OverlayImage>
                 </HoverOverlay>
             </CardLink>
+        </Fade>
     );
 };
 

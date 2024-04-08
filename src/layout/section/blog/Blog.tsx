@@ -10,7 +10,6 @@ import img2x from "../../../assets/img/section@2x/blog/blog2_@2x.webp";
 import img3 from "../../../assets/img/section/blog/blog03.webp";
 import img3x from "../../../assets/img/section@2x/blog/blog3_@2x.webp";
 import {Fade} from "react-awesome-reveal";
-// import '../../../styles/reveal.css';
 import 'animate.css';
 
 const blogData = [
@@ -61,10 +60,6 @@ export const Blog = () => {
     );
 };
 
-
-const Wrap = styled.div`
-display: contents;
-`
 const BlogSection = styled.section`
   ${FlexWrapper} {
     @media screen and (max-width: 989px) {

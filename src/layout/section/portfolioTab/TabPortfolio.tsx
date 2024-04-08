@@ -25,8 +25,8 @@ const projects = [
     {src: img3, type: 'spa', srcSet: img3x, overLay: img0, img: img0x},
     {src: img4, type: 'landing page', srcSet: img4x, overLay: img0, img: img0x},
     {src: img5, type: 'landing page', srcSet: img5x, overLay: img0, img: img0x},
-    {src: img6, type: 'spa', srcSet: img6x, overLay: img0, img: img0x},
-]
+    {src: img6, type: 'react', srcSet: img6x, overLay: img0, img: img0x},
+];
 export const TabPortfolio = () => {
     const [currentFilterStatus, setCurrentFilterStatus] = useState('all');
 
@@ -53,21 +53,21 @@ export const TabPortfolio = () => {
                                               overLay={img0}
                                               img={img0x}/>
                         ))}
-
                     </Fade>
-
                 </Container>
             </PortfolioSection>
         </Fade>
     );
 };
 
-const PortfolioSection = styled.section``
+const PortfolioSection = styled.section`
+
+`
 const Container = styled.div`
   display: grid;
   width: 100%;
   grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
   column-gap: 20px;
   row-gap: 20px;
-  margin-top: 10px;
+  margin-top: 30px;
 `

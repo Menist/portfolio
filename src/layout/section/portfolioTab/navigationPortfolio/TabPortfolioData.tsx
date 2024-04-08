@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from "styled-components";
 import {theme} from "../../../../styles/Theme";
+import {Fade} from "react-awesome-reveal";
 
 const items = [
     {
@@ -39,19 +40,21 @@ export const MenuTab = ({changeFilter}: {changeFilter: (filter: string)=> void})
         <StyledMenu>
             <nav>
                 <ul>
+                <Fade cascade={true} damping={.2}>
                     {items.map((item, index) => {
                         return <li key={index}>
                             <button onClick={()=>changeFilter(item.status)}>{item.title}</button>
                         </li>
                     })}
+                </Fade>
                 </ul>
             </nav>
         </StyledMenu>
     );
 };
 const StyledMenu = styled.div`
+
   nav {
-    padding-bottom: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -64,8 +67,11 @@ const StyledMenu = styled.div`
       gap: 20px;
     }
 
-    a {
+    button {
       color: ${theme.colors.headerText};
+      cursor: pointer;
+      font-size: 18px;
+
 
       &:hover {
         color: ${theme.colors.primary};
@@ -73,17 +79,11 @@ const StyledMenu = styled.div`
       }
     }
 
-    @media screen and (max-width: 820px) {
-      ul {
-        font-size: 18px;
-      }
-    }
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 767px) {
       ul {
         width: 100%;
         position: inherit;
-        top: 50%;
-        left: 50%;
+        justify-content: center;
         margin-right: 0;
         transform: none;
         transition: none;
@@ -101,7 +101,19 @@ const StyledMenu = styled.div`
     @media screen and (max-width: 499px) {
       cursor: grab;
       overflow-x: scroll;
+      padding-bottom: 10px;
+      color: ${theme.colors.primary};
       max-width: calc(98vw - 60px);
+      
+      &::-webkit-scrollbar {
+        height: 5px;
+        border: 1px solid ${theme.colors.accent};
+        border-radius: 30px;
+      }
+      &::-webkit-scrollbar-thumb {
+        border-radius: 30px;
+        background-color: ${theme.colors.primary};
+      }
       ul {
         justify-content: flex-start;
 
