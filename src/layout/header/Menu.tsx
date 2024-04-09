@@ -32,9 +32,8 @@ export const Menu = () => {
         <StyledMenu>
             <ul>
                 {items.map((item, index) => {
-                    return <li>
+                    return <li key={index}>
                         <MenuLink
-                            key={index}
                             smooth={true}
                             to={item.href}
                             activeClass="active"

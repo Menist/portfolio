@@ -59,8 +59,8 @@ export const NavBar = () => {
     return (
         <Nav>
             <ul>
-                {items.map((item) => {
-                    return <li>
+                {items.map((item, index) => {
+                    return <li key={index}>
                         <MenuLink
                             smooth={true}
                             to={item.href}

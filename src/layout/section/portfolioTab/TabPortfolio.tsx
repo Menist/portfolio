@@ -30,12 +30,11 @@ const projects = [
 export const TabPortfolio = () => {
     const [currentFilterStatus, setCurrentFilterStatus] = useState('all');
 
-    let filteredProjects = projects
+    let filteredProjects = projects;
 
     if (currentFilterStatus !== 'all') {
         filteredProjects = projects.filter(project => project.type === currentFilterStatus)
     }
-
     return (
         <Fade cascade damping={.9}>
             <PortfolioSection id={'portfolio'}>
@@ -46,12 +45,14 @@ export const TabPortfolio = () => {
 
                 <Container>
                     <Fade cascade={true} damping={.2}>
-                        {filteredProjects.map(project => (
+                        {filteredProjects.map((project, index) => (
                             <TabCardPortfolio type={project.type}
                                               src={project.src}
                                               srcSet={img1x}
                                               overLay={img0}
-                                              img={img0x}/>
+                                              img={img0x}
+                                              key={index}
+                            />
                         ))}
                     </Fade>
                 </Container>
