@@ -7,46 +7,46 @@ const items = [
     {
         title: 'All',
         href: '',
-        status:'all'
+        status: 'all'
     },
     {
         title: 'Services',
         href: 'services',
-        status:'spa'
+        status: 'spa'
     },
     {
         title: 'Education',
         href: 'education',
-        status:'react'
+        status: 'react'
     },
     {
         title: 'Portfolio',
         href: 'portfolio',
-        status:'landing page'
+        status: 'landing page'
     },
     {
         title: 'Blog',
         href: 'blog',
-        status:'react'
+        status: 'react'
     },
     {
         title: 'Contacts',
         href: 'contacts',
-        status:'landing page'
+        status: 'landing page'
     }
 ]
-export const MenuTab = ({changeFilter}: {changeFilter: (filter: string)=> void}) => {
+export const MenuTab = ({changeFilter}: { changeFilter: (filter: string) => void }) => {
     return (
         <StyledMenu>
             <nav>
                 <ul>
-                <Fade cascade={true} damping={.2}>
-                    {items.map((item, index) => {
-                        return <li key={index}>
-                            <button onClick={()=>changeFilter(item.status)}>{item.title}</button>
-                        </li>
-                    })}
-                </Fade>
+                    <Fade cascade={true} damping={.2}>
+                        {items.map((item, index) => {
+                            return <li key={index}>
+                                <button onClick={() => changeFilter(item.status)}>{item.title}</button>
+                            </li>
+                        })}
+                    </Fade>
                 </ul>
             </nav>
         </StyledMenu>
@@ -104,16 +104,18 @@ const StyledMenu = styled.div`
       padding-bottom: 10px;
       color: ${theme.colors.primary};
       max-width: calc(98vw - 60px);
-      
+
       &::-webkit-scrollbar {
         height: 5px;
         border: 1px solid ${theme.colors.accent};
         border-radius: 30px;
       }
+
       &::-webkit-scrollbar-thumb {
         border-radius: 30px;
         background-color: ${theme.colors.primary};
       }
+
       ul {
         justify-content: flex-start;
 

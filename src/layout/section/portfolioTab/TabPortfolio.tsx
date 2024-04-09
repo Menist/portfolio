@@ -23,7 +23,7 @@ const projects = [
     {src: img1, type: 'spa', srcSet: img1x, overLay: img0, img: img0x},
     {src: img2, type: 'react', srcSet: img2x, overLay: img0, img: img0x},
     {src: img3, type: 'spa', srcSet: img3x, overLay: img0, img: img0x},
-    {src: img4, type: 'landing page', srcSet: img4x, overLay: img0, img: img0x},
+    {src: img4, type: 'react', srcSet: img4x, overLay: img0, img: img0x},
     {src: img5, type: 'landing page', srcSet: img5x, overLay: img0, img: img0x},
     {src: img6, type: 'react', srcSet: img6x, overLay: img0, img: img0x},
 ];
@@ -33,7 +33,7 @@ export const TabPortfolio = () => {
     let filteredProjects = projects;
 
     if (currentFilterStatus !== 'all') {
-        filteredProjects = projects.filter(project => project.type === currentFilterStatus)
+        filteredProjects = projects.filter(project => project.type === currentFilterStatus);
     }
     return (
         <Fade cascade damping={.9}>
@@ -45,15 +45,18 @@ export const TabPortfolio = () => {
 
                 <Container>
                     <Fade cascade={true} damping={.2}>
-                        {filteredProjects.map((project, index) => (
-                            <TabCardPortfolio type={project.type}
-                                              src={project.src}
-                                              srcSet={img1x}
-                                              overLay={img0}
-                                              img={img0x}
-                                              key={index}
-                            />
-                        ))}
+                        {filteredProjects.map((project, index) => {
+                            return (
+                                <TabCardPortfolio type={project.type}
+                                                  src={project.src}
+                                                  srcSet={img1x}
+                                                  overLay={img0}
+                                                  img={img0x}
+                                                  key={index}
+                                />
+                            )
+                        } )
+                        }
                     </Fade>
                 </Container>
             </PortfolioSection>
@@ -67,8 +70,19 @@ const PortfolioSection = styled.section`
 const Container = styled.div`
   display: grid;
   width: 100%;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(230px, .3fr));
   column-gap: 20px;
   row-gap: 20px;
   margin-top: 30px;
+  
+  @media screen and (max-width: 1207px) {
+    grid-template-columns: repeat(auto-fit, minmax(230px, .5fr));
+    
+  }  
+  @media screen and (max-width: 1100px) {
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  }
+  @media screen and (max-width: 539px) {
+    justify-items: center;
+  }
 `
