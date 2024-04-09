@@ -30,10 +30,23 @@ export const Sidebar = (props: Props) => {
                     <ExtraSkillsMaine></ExtraSkillsMaine>
                     <Btn></Btn>
                 </Container>
+                <OverLay onClick={() => {
+                    props.setMenuIsOpen(true)
+                }
+                }></OverLay>
             </SidebarStyled>
         </>
     );
 };
+
+const OverLay = styled.div`
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  right: 0;
+`
 const SidebarStyled = styled.aside<{ isOpen: boolean }>`
   position: relative;
   left: ${props => !props.isOpen ? '-310px' : '0'};
