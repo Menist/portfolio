@@ -8,10 +8,12 @@ export const theme = {
         background: "#FFFFFF",
         backgroundWebsite:"#F5F5F5"
     },
+
     text:{
         textSize: "15px",
         lineHeight: "24px"
     },
+
     animation:{
         transitionWidth: "width .3s ease-out",
         transitionAll: "all .9s ease",

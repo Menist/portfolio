@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from "styled-components";
-import {Icon} from "../../components/icon/Icon";
-import {theme} from "../../styles/Theme";
-import {Link} from "react-scroll";
+import { Icon } from "../../components/icon/Icon";
+import { theme } from "../../styles/Theme";
+import { Link } from "react-scroll";
+import {themeNew} from "../../styles/ColorSheme";
 
 const items = [
     {
@@ -56,36 +57,55 @@ const items = [
     }
 ]
 export const NavBar = () => {
+    const [isDarkTheme, setIsDarkTheme] = useState(themeNew(true));
+
+    const toggleTheme = (isDark: 'light' | 'dark') => {
+        setIsDarkTheme( themeNew(isDark === 'dark' ))
+    };
+
+
+    console.log(isDarkTheme.colors.background)
     return (
-        <Nav>
-            <ul>
-                {items.map((item, index) => {
-                    return <li key={index}>
-                        <MenuLink
-                            smooth={true}
-                            to={item.href}
-                            activeClass="active"
-                            spy={true}
-                        >
-                                <LinkItem  title={item.title}>
-                                    <Icon iconId={item.iconId} width={item.iconIdWidth} height={item.iconIdWidth} fill={"#F0F0F6"}/>
-                                </LinkItem>
-                        </MenuLink>
-                    </li>
-                })}
-            </ul>
-        </Nav>
+        <>
+            <Nav themes={isDarkTheme}>
+                <button  onClick={() => {
+                    if(isDarkTheme.colors.background === '#1E1E1E') {
+                        toggleTheme('light')
+                        return
+                    }
+                    toggleTheme('dark')
+                }}
+                >dark</button>
+                <ul>
+                    {items.map((item, index) => {
+                        return (
+                            <li key={index}>
+                                <MenuLink
+                                    smooth={true}
+                                    to={item.href}
+                                    activeClass="active"
+                                    spy={true}
+                                >
+                                    <LinkItem  title={item.title}>
+                                        <Icon iconId={item.iconId} width={item.iconIdWidth} height={item.iconIdWidth} fill={"#F0F0F6"}/>
+                                    </LinkItem>
+                                </MenuLink>
+                            </li>
+                        );
+                    })}
+                </ul>
+            </Nav>
+        </>
     );
 };
 
 const MenuLink = styled(Link)``
-
-const Nav = styled.nav`
+const Nav = styled.nav<{ themes: any }>`
   position: fixed;
   right: 0;
   z-index: 100;
   min-width: 108px;
-  background-color: #fafafa;
+  background-color: ${(props) => props.themes.colors.background};
   padding: 50px 22px 10px 25px;
 
   ul {
@@ -113,7 +133,7 @@ const Nav = styled.nav`
   @media screen and (max-width: 1091px) {
     position: fixed;
     bottom: 0;
-    background-color: ${theme.colors.mainText};
+    background-color: ${(props) => props.themes.colors.background};
     width: 100%;
     height: auto;
     padding: 20px 0;

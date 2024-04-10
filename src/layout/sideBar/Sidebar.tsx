@@ -17,7 +17,6 @@ export const Sidebar = (props: Props) => {
     }
     return (
         <>
-            {/*{props.menuIsOpen && <div></div>}*/}
             <BurgerBtn isOpen={props.menuIsOpen} onClick={onMobileSideBarClick}>
                 <span></span>
             </BurgerBtn>

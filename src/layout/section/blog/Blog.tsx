@@ -42,7 +42,7 @@ export const Blog = () => {
             <BlockTitle title={'blog'}
                         subTitle={"Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. lorem ipsum"}></BlockTitle>
             <FlexWrapper className={'animate__fadeIn'} justify={"space-between"}>
-                {/*<Fade cascade={true}>*/}
+
                     {blogData.map((blogItem, index) => (
                         <BlogCard
                             key={index}
@@ -52,8 +52,8 @@ export const Blog = () => {
                             text={blogItem.text}
                             textLink={blogItem.textLink}
                         />
+
                     ))}
-                {/*</Fade>*/}
             </FlexWrapper>
         </BlogSection>
         </Fade>
@@ -67,6 +67,8 @@ const BlogSection = styled.section`
       flex: 0 0 100%;
     }
   }
+
+
 
   @media screen and (max-width: 885px) {
     max-width: 65%;

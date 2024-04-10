@@ -2,6 +2,7 @@ import React from 'react';
 import styled, {CSSProperties} from "styled-components";
 import {theme} from "../../../../styles/Theme";
 import {FlexWrapper} from "../../../../components/FlexWrapper";
+import {Fade} from "react-awesome-reveal";
 
 type LanguagesFragmentPropsType = {
     textTitle: string;
@@ -42,7 +43,20 @@ const Progress = styled.div<
   height: 2px;
   background-color: ${theme.colors.primary};
   transition: width 0.3s ease-in-out;
+  --time: 3s; 
+  transform-origin: left top;
+  transform: scaleX(0);
+  animation: scale var(--time) forwards;
+}
 
+@keyframes scale {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
 `
 const ProgressText = styled.span`
   //font-size: 15px;

@@ -26,7 +26,7 @@ export const RecommendationsCard1 = (props: RecommendationsCardStyledPropsType) 
             // minWidth={"250px"}
         >
             <FlexWrapper>
-                <Icon iconId={props.icon} height={"17.37"} width={"18"}/>
+                <Icon iconId={props.icon} height={"17.37"} width={"18"} />
                 <Icon iconId={props.icon} height={"17.37"} width={"18"}/>
                 <Icon iconId={props.icon} height={"17.37"} width={"18"}/>
                 <Icon iconId={props.icon} height={"17.37"} width={"18"}/>

@@ -2,6 +2,7 @@ import React from 'react';
 import styled from "styled-components";
 import {CardLink} from "../../../../components/Link";
 import {theme} from "../../../../styles/Theme";
+import {Fade} from "react-awesome-reveal";
 
 type BlogCardPropsType = {
     title: string
@@ -12,7 +13,9 @@ type BlogCardPropsType = {
 }
 export const BlogCard = (props: BlogCardPropsType) => {
     return (
+        // <Fade cascade damping={.3}>
                 <BlogCardStyled >
+
                     <BlogCardImg image={props.src} srcSet={props.srcSet}/>
                     <Wrapper>
                         <BlogCardTitle >{props.title}</BlogCardTitle>
@@ -20,16 +23,17 @@ export const BlogCard = (props: BlogCardPropsType) => {
                         <CardLink link={"Lean more"}></CardLink>
                     </Wrapper>
                 </BlogCardStyled>
+        // </Fade>
     );
 };
 
 const BlogCardStyled = styled.div`
   display: flex;
   justify-content: space-between;
+  flex-direction: column;
   flex: 0 0 31.5%;
-  //min-width: 330px;
-  //max-width: 415px;
-  flex-wrap: wrap;
+  //flex-wrap: wrap;
+
 
   a {
     padding-top: 0;
