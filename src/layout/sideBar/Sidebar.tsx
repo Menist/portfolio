@@ -6,34 +6,37 @@ import {LanguagesMain} from "./section/languages/LanguagesMain";
 import {SkillsMain} from "./section/skills/SkillsMain";
 import {ExtraSkillsMaine} from "./section/extraSkills/ExtraSkillsMaine";
 import {Btn} from "./section/button/Btn";
+import {  useTheme } from '../../ThemeProvider';
 
 type Props = {
     menuIsOpen: boolean
     setMenuIsOpen: (menuIsOpen: boolean) => void
 }
 export const Sidebar = (props: Props) => {
+    const { theme } = useTheme();
     const onMobileSideBarClick = () => {
-        props.setMenuIsOpen(!props.menuIsOpen)
-    }
+        props.setMenuIsOpen(!props.menuIsOpen);
+    };
     return (
         <>
-            <BurgerBtn isOpen={props.menuIsOpen} onClick={onMobileSideBarClick}>
-                <span></span>
-            </BurgerBtn>
-            <SidebarStyled isOpen={props.menuIsOpen}>
-                <Container>
-                    <Main/>
-                    <SidebarAbout></SidebarAbout>
-                    <LanguagesMain></LanguagesMain>
-                    <SkillsMain></SkillsMain>
-                    <ExtraSkillsMaine></ExtraSkillsMaine>
-                    <Btn></Btn>
-                </Container>
-                <OverLay onClick={() => {
-                    props.setMenuIsOpen(true)
-                }
-                }></OverLay>
-            </SidebarStyled>
+                <BurgerBtn isOpen={props.menuIsOpen} onClick={onMobileSideBarClick}>
+                    <span></span>
+                </BurgerBtn>
+                <SidebarStyled isOpen={props.menuIsOpen}>
+                    <Container theme={theme}>
+                        <Main />
+                        <SidebarAbout />
+                        <LanguagesMain />
+                        <SkillsMain />
+                        <ExtraSkillsMaine />
+                        <Btn />
+                    </Container>
+                    <OverLay
+                        onClick={() => {
+                            props.setMenuIsOpen(true);
+                        }}
+                    ></OverLay>
+                </SidebarStyled>
         </>
     );
 };
@@ -71,7 +74,8 @@ export const Container = styled.div`
   position: fixed;
   min-width: 310px;
   height: 100vh;
-  background-color: ${theme.colors.background};
+  //background-color: ${theme.colors.background};
+  background-color: ${({ theme }) => theme === 'dark' ? '#1E1E1E' : '#FFFFFF'};
   padding: 50px 30px 25px 28px;
   overflow-y: scroll;
 

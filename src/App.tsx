@@ -20,6 +20,7 @@ import {ThemeProvider} from "./ThemeProvider";
 
 function App() {
     const [menuIsOpen, setMenuIsOpen] = useState(true);
+
     return (
         <ThemeProvider>
             <div className="App">

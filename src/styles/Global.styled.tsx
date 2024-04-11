@@ -45,6 +45,7 @@ export const GlobalStyled = createGlobalStyle<{ themes: any }>`
     margin: 0;
     color: ${theme.colors.mainText};
     background-color: ${({themes}) => themes === 'dark' ? '#1E1E1E' : '#F5F5F5'};
+    //background-color: ${({themes}) =>  '#1E1E1E'};
 
     font-family: "Inter", -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
