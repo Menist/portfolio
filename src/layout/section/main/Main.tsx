@@ -15,47 +15,50 @@ import img6 from '../../../assets/img/section/main/decoration/5.svg';
 import img7 from '../../../assets/img/section/main/decoration/6.svg';
 import img8 from '../../../assets/img/section/main/decoration/8.svg';
 import {Fade} from "react-awesome-reveal";
+import {useTheme} from "../../../ThemeProvider";
 
 export const AboutMe = () => {
+    const { theme } = useTheme();
     return (
         <Fade cascade damping={.9}>
-        <MainSection>
-            <FlexWrapper align={"center"}
-                         justify={"space-around"}
-                         padding={"30px 50px 0 50px"}
-                         color={theme.colors.background}>
-                <FlexWrapperDiw>
+            <MainSection theme={theme}>
+                <FlexWrapper align={"center"}
+                             justify={"space-around"}
+                             padding={"30px 50px 0 50px"}
+                             >
+                    <FlexWrapperDiw>
 
-                    <Fade direction={"down"}>
-                        <TextTitle>I’m Rayan Adlrdard
-                            <p>I’m Rayan Adlrdard <span>Front-end</span> Developer</p>
-                            <Typewriter
-                                options={{
-                                    strings: ['<span>Front-end</span> Developer'],
-                                    autoStart: true,
-                                    loop: true,
-                                    delay: 150,
-                                }}
-                            />
-                        </TextTitle>
-                    </Fade>
-                    <Fade cascade damping={.2}>
-                    <TextSubTitle>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et, volutpat feugiat placerat
-                        lobortis.
-                        Natoque rutrum semper sed suspendisse nunc lectus.</TextSubTitle>
-                    </Fade>
-                    <Fade direction={"up"}>
-                        <StraightLink textBtn={"hire me"}></StraightLink>
+                        <Fade direction={"down"}>
+                            <TextTitle theme={theme}>I’m Rayan Adlrdard
+                                <p>I’m Rayan Adlrdard <span>Front-end</span> Developer</p>
+                                <Typewriter
+                                    options={{
+                                        strings: ['<span>Front-end</span> Developer'],
+                                        autoStart: true,
+                                        loop: true,
+                                        delay: 150,
+                                    }}
+                                />
+                            </TextTitle>
                         </Fade>
-                </FlexWrapperDiw>
-                <FlexWrapper flex={"1.5"} justify={"end"}>
-                    <Img src={img1} srcSet={`${img1x} 2x`}/>
+                        <Fade cascade damping={.2}>
+                            <TextSubTitle>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et, volutpat feugiat placerat
+                                lobortis.
+                                Natoque rutrum semper sed suspendisse nunc lectus.</TextSubTitle>
+                        </Fade>
+                        <Fade direction={"up"}>
+                            <StraightLink textBtn={"hire me"}></StraightLink>
+                        </Fade>
+                    </FlexWrapperDiw>
+                    <FlexWrapper flex={"1.5"} justify={"end"}>
+                        <Img src={img1} srcSet={`${img1x} 2x`} />
+                    </FlexWrapper>
                 </FlexWrapper>
-            </FlexWrapper>
-        </MainSection>
+            </MainSection>
         </Fade>
     );
 };
+
 
 const FlexWrapperDiw = styled.div`
   display: flex;
@@ -76,7 +79,9 @@ const MainSection = styled.section`
     url("${img6}") bottom 22% left 40% no-repeat,
     url("${img7}") bottom 10% left 58% no-repeat,
     url("${img8}") bottom 7% right 2% no-repeat;
-    background-color: white;
+    //background-color: white;
+    background-color: ${({ theme }) => theme === 'dark' ? '#1E1E1E' : '#FFFFFF'};
+
   }
 
   @media screen and (max-width: 1156px) {
@@ -101,6 +106,7 @@ const TextTitle = styled.h1`
 
   span {
     color: ${theme.colors.primary};
+    // color: ${({ theme }) => theme === 'dark' ? '#FFB400' : '#000000'};
   }
 `
 const TextSubTitle = styled.p`

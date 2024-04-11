@@ -14,30 +14,35 @@ import {NavBar} from "./layout/navBar/navBar";
 import {Footer} from "./layout/footer/Footer";
 import {Slider} from "./layout/section/recommendations/Slider";
 import {TabPortfolio} from "./layout/section/portfolioTab/TabPortfolio";
+import {ThemeProvider} from "./ThemeProvider";
+
+
 
 function App() {
     const [menuIsOpen, setMenuIsOpen] = useState(true);
     return (
-        <div className="App">
-            <Sidebar menuIsOpen={menuIsOpen} setMenuIsOpen={setMenuIsOpen}/>
-            <Main isOpen={menuIsOpen}>
-                <Container>
-                    <Header/>
-                    <AboutMe/>
-                    <Services/>
-                    <Price/>
-                    <Slider/>
-                    <Education/>
-                    {/*<Portfolio/>*/}
-                    <TabPortfolio/>
-                    <Blog/>
-                    <GeneralFormFile/>
-                    <Map/>
-                    <Footer/>
-                </Container>
-            </Main>
-            <NavBar/>
-        </div>
+        <ThemeProvider>
+            <div className="App">
+                <Sidebar menuIsOpen={menuIsOpen} setMenuIsOpen={setMenuIsOpen}/>
+                <Main isOpen={menuIsOpen}>
+                    <Container>
+                        <Header/>
+                        <AboutMe/>
+                        <Services/>
+                        <Price/>
+                        <Slider/>
+                        <Education/>
+                        <TabPortfolio/>
+                        <Blog/>
+                        <GeneralFormFile/>
+                        <Map/>
+                        <Footer/>
+                    </Container>
+                </Main>
+                <NavBar/>
+            </div>
+        </ThemeProvider>
+
     );
 }
 

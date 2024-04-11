@@ -1,7 +1,18 @@
-import {createGlobalStyle} from "styled-components";
 import {theme} from "./Theme";
+import {ThemeProvider} from "../ThemeProvider";
+import {createGlobalStyle} from "styled-components";
 
-export const GlobalStyled= createGlobalStyle`
+
+export const GlobalStyle = ({children}: any) => {
+    return (
+        <ThemeProvider>
+            {children}
+        </ThemeProvider>
+    );
+};
+
+
+export const GlobalStyled = createGlobalStyle<{ themes: any }>`
   *,
   *::before,
   *::after {
@@ -9,7 +20,7 @@ export const GlobalStyled= createGlobalStyle`
     margin: 0;
     box-sizing: border-box;
   }
-  
+
   & {
     scrollbar-width: thin;
     scrollbar-color: ${theme.colors.primary};
@@ -33,20 +44,19 @@ export const GlobalStyled= createGlobalStyle`
   body {
     margin: 0;
     color: ${theme.colors.mainText};
-    background-color: ${theme.colors.backgroundWebsite};
+    background-color: ${({themes}) => themes === 'dark' ? '#1E1E1E' : '#F5F5F5'};
+
     font-family: "Inter", -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-size: ${theme.text.textSize};
-    //overflow-x: hidden;
 
     p {
       line-height: ${theme.text.lineHeight};
     }
   }
-
 
   a {
     text-decoration: none;

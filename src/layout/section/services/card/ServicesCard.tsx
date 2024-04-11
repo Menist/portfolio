@@ -1,10 +1,10 @@
-//отрисовка отдельной карточки в секции My services
 import React from 'react';
 import {Icon} from "../../../../components/icon/Icon";
 import styled from "styled-components";
 import {theme} from "../../../../styles/Theme";
 import {CardLink} from "../../../../components/Link";
 import {Fade} from "react-awesome-reveal";
+import {useTheme} from "../../../../ThemeProvider";
 
 type ServicesCardPropsType = {
     iconId: string
@@ -13,8 +13,9 @@ type ServicesCardPropsType = {
     link: string
 }
 export const ServicesCard = (props: ServicesCardPropsType) => {
+    const { theme } = useTheme();
     return (
-        <ServicesCardStyled>
+        <ServicesCardStyled theme={theme}>
             <Fade cascade damping={.2}>
             {props.iconId && <Icon iconId={props.iconId} height={"75"} width={"75"} viewBox={"0 0 75 75"}/>}
             <ServicesCardTitle>{props.title}</ServicesCardTitle>
@@ -28,7 +29,8 @@ export const ServicesCard = (props: ServicesCardPropsType) => {
 
 const ServicesCardStyled = styled.div`
   padding: 30px 25px 33px;
-  background-color: ${theme.colors.background};
+  //background-color: ${theme.colors.background};
+  background-color: ${({ theme }) => theme === 'dark' ? '#1E1E1E' : '#FFFFFF'};
   display: flex;
   flex-direction: column;
   flex: 0 0 31.9%;

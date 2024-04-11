@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from "styled-components";
 import { Icon } from "../../components/icon/Icon";
-import { theme } from "../../styles/Theme";
 import { Link } from "react-scroll";
-import {themeNew} from "../../styles/ColorSheme";
+import { useTheme } from "../../ThemeProvider";
 
 const items = [
     {
@@ -57,25 +56,14 @@ const items = [
     }
 ]
 export const NavBar = () => {
-    const [isDarkTheme, setIsDarkTheme] = useState(themeNew(true));
+    const { theme, toggleTheme } = useTheme();
 
-    const toggleTheme = (isDark: 'light' | 'dark') => {
-        setIsDarkTheme( themeNew(isDark === 'dark' ))
-    };
-
-
-    console.log(isDarkTheme.colors.background)
     return (
-        <>
-            <Nav themes={isDarkTheme}>
+            <Nav theme={theme}>
                 <button  onClick={() => {
-                    if(isDarkTheme.colors.background === '#1E1E1E') {
-                        toggleTheme('light')
-                        return
-                    }
-                    toggleTheme('dark')
+                    toggleTheme(theme === 'dark' ? 'light' : 'dark');
                 }}
-                >dark</button>
+                >Toggle Theme</button>
                 <ul>
                     {items.map((item, index) => {
                         return (
@@ -95,17 +83,16 @@ export const NavBar = () => {
                     })}
                 </ul>
             </Nav>
-        </>
     );
 };
 
-const MenuLink = styled(Link)``
-const Nav = styled.nav<{ themes: any }>`
+const MenuLink = styled(Link)``;
+const Nav = styled.nav`
   position: fixed;
   right: 0;
   z-index: 100;
   min-width: 108px;
-  background-color: ${(props) => props.themes.colors.background};
+  background-color: ${({ theme }) => theme === 'dark' ? '#1E1E1E' : '#FFFFFF'};
   padding: 50px 22px 10px 25px;
 
   ul {
@@ -114,7 +101,6 @@ const Nav = styled.nav<{ themes: any }>`
     align-items: center;
     justify-content: center;
   }
-
 
   ul li:first-child {
     margin-bottom: 125px;
@@ -129,11 +115,10 @@ const Nav = styled.nav<{ themes: any }>`
     margin-bottom: 45px;
   }
 
-
   @media screen and (max-width: 1091px) {
     position: fixed;
     bottom: 0;
-    background-color: ${(props) => props.themes.colors.background};
+    background-color: ${({ theme }) => theme === 'dark' ? '#1E1E1E' : '#FFFFFF'};
     width: 100%;
     height: auto;
     padding: 20px 0;
@@ -181,31 +166,32 @@ const Nav = styled.nav<{ themes: any }>`
       }
     }
   }
-`
+`;
+
 const LinkItem = styled.div`
   position: relative;
 
   svg {
-    color: ${theme.colors.primary};
-    transition: ${theme.animation.transitionAll};
+    color: ${({ theme }) => theme === 'dark' ? '#FFB400' : '#000000'};
+    transition: all .3s ease;
   }
 
   &:hover svg {
-    fill: currentColor;
+    fill: ${({ theme }) => theme === 'dark' ? '#FFB400' : '#000000'};
     transform: scale(1.3);
-    transition: ${theme.animation.transitionAll};
+    transition: all .3s ease;
   }
 
   &:hover::after {
     content: attr(title);
-    font-size: ${theme.text.textSize};
+    font-size: 15px;
     font-weight: 500;
     position: absolute;
     bottom: 65px;
     left: 50%;
     transform: translateX(-50%);
-    background-color: ${theme.colors.headerText};
-    color: ${theme.colors.background};
+    background-color: ${({ theme }) => theme === 'dark' ? '#FFFFFF' : '#2B2B2B'};
+    color: ${({ theme }) => theme === 'dark' ? '#000000' : '#FFFFFF'};
     padding: 5px 15px;
     border-radius: 3px;
     white-space: nowrap;
@@ -220,6 +206,6 @@ const LinkItem = styled.div`
     height: 0;
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
-    border-top: 13px solid ${theme.colors.headerText};
+    border-top: 13px solid ${({ theme }) => theme === 'dark' ? '#FFFFFF' : '#2B2B2B'};
   }
 `;
