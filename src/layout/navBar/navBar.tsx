@@ -1,88 +1,85 @@
 import React from 'react';
 import styled from "styled-components";
-import { Icon } from "../../components/icon/Icon";
-import { Link } from "react-scroll";
-import { useTheme } from "../../ThemeProvider";
+import {Icon} from "../../components/icon/Icon";
+import {Link} from "react-scroll";
+import {useTheme} from "../../ThemeProvider";
 
 const items = [
     {
-        title: 'Contrast',
-        href: '#',
-        iconId:'navBarContrast',
-        iconIdWidth:'30px',
-        iconIdHeight:'30px'
-    },
-    {
         title: 'Home',
         href: 'home',
-        iconId:'navBarHome',
-        iconIdWidth:'40px',
-        iconIdHeight:'40px'
+        iconId: 'navBarHome',
+        iconIdWidth: '40px',
+        iconIdHeight: '40px'
     },
     {
         title: 'Service',
         href: 'services',
-        iconId:'navBarService',
-        iconIdWidth:'40px',
-        iconIdHeight:'40px'
+        iconId: 'navBarService',
+        iconIdWidth: '40px',
+        iconIdHeight: '40px'
     },
     {
         title: 'Education',
         href: 'education',
-        iconId:'navBarEducation',
-        iconIdWidth:'40px',
-        iconIdHeight:'40px'
+        iconId: 'navBarEducation',
+        iconIdWidth: '40px',
+        iconIdHeight: '40px'
     },
     {
         title: 'Portfolio',
         href: 'portfolio',
-        iconId:'navBarPortfolio',
-        iconIdWidth:'40px',
-        iconIdHeight:'40px'
+        iconId: 'navBarPortfolio',
+        iconIdWidth: '40px',
+        iconIdHeight: '40px'
     },
     {
         title: 'Blog',
         href: 'blog',
-        iconId:'navBarBlog',
-        iconIdWidth:'40px',
-        iconIdHeight:'40px'
+        iconId: 'navBarBlog',
+        iconIdWidth: '40px',
+        iconIdHeight: '40px'
     },
     {
         title: 'Contact',
         href: 'contacts',
-        iconId:'navBarContact',
-        iconIdWidth:'40px',
-        iconIdHeight:'40px'
+        iconId: 'navBarContact',
+        iconIdWidth: '40px',
+        iconIdHeight: '40px'
     }
 ]
 export const NavBar = () => {
-    const { theme, toggleTheme } = useTheme();
+    const {theme, toggleTheme} = useTheme();
 
     return (
-            <Nav theme={theme}>
-                <button  onClick={() => {
-                    toggleTheme(theme === 'dark' ? 'light' : 'dark');
-                }}
-                >Toggle Theme</button>
-                <ul>
-                    {items.map((item, index) => {
-                        return (
-                            <li key={index}>
-                                <MenuLink
-                                    smooth={true}
-                                    to={item.href}
-                                    activeClass="active"
-                                    spy={true}
-                                >
-                                    <LinkItem  title={item.title}>
-                                        <Icon iconId={item.iconId} width={item.iconIdWidth} height={item.iconIdWidth} fill={"#F0F0F6"}/>
-                                    </LinkItem>
-                                </MenuLink>
-                            </li>
-                        );
-                    })}
-                </ul>
-            </Nav>
+        <Nav theme={theme}>
+
+            <ul>
+                <li>
+                    <ToggleButton onClick={() => {
+                        toggleTheme(theme === 'dark' ? 'light' : 'dark');
+                    }}
+                    ><Icon  iconId={'navBarContrast'} width={'30px'} height={'30px'} fill={"#F0F0F6"}/></ToggleButton>
+                </li>
+                {items.map((item, index) => {
+                    return (
+                        <li key={index}>
+                            <MenuLink
+                                smooth={true}
+                                to={item.href}
+                                activeClass="active"
+                                spy={true}
+                            >
+                                <LinkItem title={item.title}>
+                                    <Icon iconId={item.iconId} width={item.iconIdWidth} height={item.iconIdWidth}
+                                          fill={"#F0F0F6"}/>
+                                </LinkItem>
+                            </MenuLink>
+                        </li>
+                    );
+                })}
+            </ul>
+        </Nav>
     );
 };
 
@@ -92,7 +89,7 @@ const Nav = styled.nav`
   right: 0;
   z-index: 100;
   min-width: 108px;
-  background-color: ${({ theme }) => theme === 'dark' ? '#1E1E1E' : '#FFFFFF'};
+  background-color: ${({theme}) => theme === 'dark' ? '#1E1E1E' : '#FFFFFF'};
   padding: 50px 22px 10px 25px;
 
   ul {
@@ -100,25 +97,13 @@ const Nav = styled.nav`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-  }
-
-  ul li:first-child {
-    margin-bottom: 125px;
-    a div {
-      &:hover::after {
-        bottom: 54px;
-      }
-    }
-  }
-
-  ul li {
-    margin-bottom: 45px;
+    gap: 45px;
   }
 
   @media screen and (max-width: 1091px) {
     position: fixed;
     bottom: 0;
-    background-color: ${({ theme }) => theme === 'dark' ? '#1E1E1E' : '#FFFFFF'};
+    background-color: ${({theme}) => theme === 'dark' ? '#1E1E1E' : '#FFFFFF'};
     width: 100%;
     height: auto;
     padding: 20px 0;
@@ -136,6 +121,7 @@ const Nav = styled.nav`
 
       li:first-child {
         margin-bottom: 0;
+
         a div {
           &:hover::after {
             bottom: 54px;
@@ -167,17 +153,16 @@ const Nav = styled.nav`
     }
   }
 `;
-
 const LinkItem = styled.div`
   position: relative;
 
   svg {
-    color: ${({ theme }) => theme === 'dark' ? '#FFB400' : '#000000'};
+    color: ${({theme}) => theme === 'dark' ? '#FFB400' : '#000000'};
     transition: all .3s ease;
   }
 
   &:hover svg {
-    fill: ${({ theme }) => theme === 'dark' ? '#FFB400' : '#000000'};
+    fill: ${({theme}) => theme === 'dark' ? '#FFB400' : '#000000'};
     transform: scale(1.3);
     transition: all .3s ease;
   }
@@ -190,8 +175,8 @@ const LinkItem = styled.div`
     bottom: 65px;
     left: 50%;
     transform: translateX(-50%);
-    background-color: ${({ theme }) => theme === 'dark' ? '#FFFFFF' : '#2B2B2B'};
-    color: ${({ theme }) => theme === 'dark' ? '#000000' : '#FFFFFF'};
+    background-color: ${({theme}) => theme === 'dark' ? '#FFFFFF' : '#2B2B2B'};
+    color: ${({theme}) => theme === 'dark' ? '#000000' : '#FFFFFF'};
     padding: 5px 15px;
     border-radius: 3px;
     white-space: nowrap;
@@ -206,6 +191,20 @@ const LinkItem = styled.div`
     height: 0;
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
-    border-top: 13px solid ${({ theme }) => theme === 'dark' ? '#FFFFFF' : '#2B2B2B'};
+    border-top: 13px solid ${({theme}) => theme === 'dark' ? '#FFFFFF' : '#2B2B2B'};
   }
 `;
+const ToggleButton = styled(LinkItem)`
+  margin: 50px 0 125px 0;
+  text-align: center;
+
+  svg {
+    color: ${({theme}) => theme === 'dark' ? '#FFB400' : '#000000'};
+    transition: all .3s ease;
+  }
+
+  @media screen and (max-width: 1091px) {
+  margin: 0;
+  }
+`
+
