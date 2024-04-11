@@ -6,10 +6,11 @@ import {InputFragment} from "./InputForm";
 import {TextareaStyled} from "./Textarea";
 import {theme} from "../../../../styles/Theme";
 import emailjs from '@emailjs/browser';
+import {useTheme} from "../../../../ThemeProvider";
 
 export const Form = () => {
     const form = useRef<ElementRef<'form'>>(null);
-
+    const { theme } = useTheme();
     const sendEmail = (e: any) => {
         e.preventDefault();
         if (!form.current) return
@@ -32,12 +33,7 @@ export const Form = () => {
         <FlexWrapper flex={"0 0 55%"} minWidth={"300px"} gap={"0"}>
             <FormTitle>Leave us your info</FormTitle>
             <FormSection ref={form} onSubmit={sendEmail}>
-                <FlexWrapper
-                    color={theme.colors.background}
-                    direction={"column"}
-                    padding={"25px 25px 25px 25px"}
-                    gap={"10px"}
-                >
+                <FlexWrapperFlexWrapper theme={theme}>
                     <InputFragment
                         labelName={"Your Full Name (Required)"}
                         placeholder={"Your text"}
@@ -71,12 +67,20 @@ export const Form = () => {
                     >
                     </TextareaStyled>
                     <Button type={"submit"}>send message</Button>
-                </FlexWrapper>
+                </FlexWrapperFlexWrapper>
             </FormSection>
         </FlexWrapper>
     );
 };
 
+const FlexWrapperFlexWrapper = styled.div`
+
+  background-color: ${({ theme }) => theme === 'dark' ? '#1E1E1E' : '#FFFFFF'};
+  display: flex;
+  flex-direction: column;
+  padding: 25px 25px 25px 25px;
+  gap: 10px;
+`
 const FormSection = styled.form`
   width: 100%;
 
@@ -84,7 +88,7 @@ const FormSection = styled.form`
 const FormTitle = styled.h2`
   margin-bottom: 50px;
   text-transform: capitalize;
-  background-color: ${theme.colors.backgroundWebsite};
+  //background-color: ${theme.colors.backgroundWebsite};
 
   @media screen and (max-width: 1209px) {
     width: 100%;

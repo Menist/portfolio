@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from "styled-components";
 import {theme} from "../../../../styles/Theme";
+import {useTheme} from "../../../../ThemeProvider";
 
 type InputFormPropsType={
     labelName:string
@@ -10,10 +11,12 @@ type InputFormPropsType={
     name: string;
 }
 export const TextareaStyled = (props: InputFormPropsType) => {
+    const { theme } = useTheme();
+
     return (
         <TextareaForm>
             <Label id={props.id}>{props.labelName}</Label>
-            <Textarea required name={props.name} placeholder={props.placeholder} id={props.id}/>
+            <Textarea required name={props.name} placeholder={props.placeholder} id={props.id} theme={theme}/>
             {props.children}
         </TextareaForm>
     );
@@ -27,7 +30,8 @@ const Textarea = styled.textarea`
   width: 100%;
   min-height: 210px;
   resize: none;
-  background-color:#F0F0F6;
+  //background-color:#F0F0F6;
+  background-color: ${({ theme }) => theme === 'dark' ? '#1E1E1E' : '#F0F0F6'};
   border: none;
   outline-color: ${theme.colors.mainText};
   &:not(:focus)::placeholder{

@@ -5,6 +5,7 @@ import {FlexWrapper} from "../../../../components/FlexWrapper";
 import {theme} from "../../../../styles/Theme";
 import {PriceCardBtn} from "../PriceCardBtn";
 import {Fade} from "react-awesome-reveal";
+import {useTheme} from "../../../../ThemeProvider";
 
 type PriceCardPropType = {
     name: string
@@ -18,8 +19,10 @@ type PriceCardPropType = {
 }
 
 export const PriceCard = (props: PriceCardPropType) => {
+    const { theme } = useTheme();
+
     return (
-        <PriceCardStyled>
+        <PriceCardStyled theme={theme}>
             <Fade direction={"up"}>
                 <PlansName>{props.name}</PlansName>
                 <PlansPrice>{props.price}
@@ -51,7 +54,7 @@ export const PriceCard = (props: PriceCardPropType) => {
     );
 };
 const PriceCardStyled = styled.div`
-  background-color: ${theme.colors.background};
+  background-color: ${({ theme }) => theme === 'dark' ? '#1E1E1E' : '#FFFFFF'};
   display: flex;
   flex-direction: column;
   align-items: center;

@@ -3,6 +3,7 @@ import styled from "styled-components";
 import {FlexWrapper} from "../../../components/FlexWrapper";
 import {Fade} from "react-awesome-reveal";
 import {theme} from "../../../styles/Theme";
+import {useTheme} from "../../../ThemeProvider";
 
 
 type EducationStyledComponentPropsType = {
@@ -13,8 +14,10 @@ type EducationStyledComponentPropsType = {
     text: string
 }
 export const EducationStyled = (props: EducationStyledComponentPropsType) => {
+    const { theme } = useTheme();
+
     return (
-            <EducationStyledComponent>
+            <EducationStyledComponent theme={theme}>
                 <Fade cascade damping={.5}>
 
                 <FlexWrapper align={'flex-start'} gap={"12%"}>
@@ -35,20 +38,10 @@ export const EducationStyled = (props: EducationStyledComponentPropsType) => {
 };
 
 const EducationStyledComponent = styled.div`
-  background-color: #ffffff;
+  background-color: ${({ theme }) => theme === 'dark' ? '#1E1E1E' : '#FFFFFF'};
   padding: 37px 29px 30px 38px;
 
-  border-bottom: 1px solid #F0F0F6;
-  //&:after {
-  //  content: "";
-  //  display: block;
-  //  background-color: #F0F0F6;
-  //  height: 1px;
-  //}
-  //
-  //&:last-child::after {
-  //  content: none;
-  //}
+  border-bottom: 1px solid  ${({ theme }) => theme === 'dark' ? '#1E1E1E' : '#FFFFFF'};;
 
   @media screen and (max-width: 1300px) {
     ${FlexWrapper} {

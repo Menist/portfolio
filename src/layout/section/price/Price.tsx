@@ -8,7 +8,7 @@ import {Fade} from "react-awesome-reveal";
 export const Price = () => {
     return (
         <Fade cascade damping={.9}>
-        <PriceSection>
+        <PriceSection >
             <BlockTitle title={'Price plans'}
                         subTitle={'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. lorem ipsum'}></BlockTitle>
             <FlexWrapper wrap={"wrap"} justify={"space-between"}>

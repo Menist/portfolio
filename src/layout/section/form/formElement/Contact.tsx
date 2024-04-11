@@ -1,8 +1,7 @@
 import React from 'react';
-import {FlexWrapper} from "../../../../components/FlexWrapper";
 import {Icon} from "../../../../components/icon/Icon";
 import styled from "styled-components";
-import {theme} from "../../../../styles/Theme";
+import {useTheme} from "../../../../ThemeProvider";
 
 type ContactPropsType = {
     country: string
@@ -15,11 +14,12 @@ type ContactPropsType = {
     iconId: string
 }
 export const Contact = (props: ContactPropsType) => {
+    const { theme } = useTheme();
+
     return (
         <ContactInformatiosdasfn>
             {props.showTitleInfo ? <ContactTitle>Contact information</ContactTitle> : null}
-            <FlexWrapper direction={"column"} align={"center"} padding={"32px"}
-                         color={theme.colors.background}>
+            <FlexWrapperFlexWrapper theme={theme}>
                 <Icon iconId={props.iconId} width={"40"} height={"40"}/>
                 <Wrap>
                     <Adress>{props.country}</Adress>
@@ -33,10 +33,19 @@ export const Contact = (props: ContactPropsType) => {
                     <Adress>{props.street}</Adress>
                     <AdressAnswer>{props.streetAnswer}</AdressAnswer>
                 </Wrap>
-            </FlexWrapper>
+            </FlexWrapperFlexWrapper>
         </ContactInformatiosdasfn>
     );
 };
+const FlexWrapperFlexWrapper = styled.div`
+  //direction={"column"} align={"center"} padding={"32px"} color={theme.colors.background}
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 32px;
+  background-color: ${({theme}) => theme === 'dark' ? '#1E1E1E' : '#FFFFFF'};
+`
 const ContactInformatiosdasfn = styled.div`
   max-width: 500px;
   @media screen and (max-width: 1209px) {

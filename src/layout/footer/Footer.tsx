@@ -2,12 +2,14 @@ import React from 'react';
 import styled from "styled-components";
 import {theme} from "../../styles/Theme";
 import {Fade} from "react-awesome-reveal";
+import {useTheme} from "../../ThemeProvider";
 
 export const Footer = () => {
+    const { theme } = useTheme();
 
     return (
         <Fade cascade damping={.3}>
-            <FooterSection>
+            <FooterSection theme={theme}>
                 <p><span>&#169;</span>2021 All Rights Reserved.Ojjomedia</p>
             </FooterSection>
         </Fade>
@@ -16,7 +18,7 @@ export const Footer = () => {
 const FooterSection = styled.footer`
   p {
     color: ${theme.colors.headerText};
-    background-color: ${theme.colors.background};
+    background-color: ${({ theme }) => theme === 'dark' ? '#1E1E1E' : '#FFFFFF'};
     padding-top: 18px;
     padding-bottom: 18px;
     text-align: center;

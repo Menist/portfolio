@@ -79,7 +79,6 @@ const MainSection = styled.section`
     url("${img6}") bottom 22% left 40% no-repeat,
     url("${img7}") bottom 10% left 58% no-repeat,
     url("${img8}") bottom 7% right 2% no-repeat;
-    //background-color: white;
     background-color: ${({ theme }) => theme === 'dark' ? '#1E1E1E' : '#FFFFFF'};
 
   }

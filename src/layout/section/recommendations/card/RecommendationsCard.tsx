@@ -2,7 +2,7 @@ import React from 'react';
 import styled from "styled-components";
 import {Icon} from "../../../../components/icon/Icon";
 import {FlexWrapper} from "../../../../components/FlexWrapper";
-import {theme} from "../../../../styles/Theme";
+import {useTheme} from "../../../../ThemeProvider";
 
 
 type RecommendationsCardStyledPropsType = {
@@ -16,8 +16,9 @@ type RecommendationsCardStyledPropsType = {
 }
 
 export const RecommendationsCard = (props: RecommendationsCardStyledPropsType) => {
+    const { theme } = useTheme();
     return (
-        <RecommendationsCardFlexWrapper>
+        <RecommendationsCardFlexWrapper theme={theme}>
             <Icon iconId={props.icon} height={"17.37"} width={"18"}/>
             <Icon iconId={props.icon} height={"17.37"} width={"18"}/>
             <Icon iconId={props.icon} height={"17.37"} width={"18"}/>
@@ -39,12 +40,11 @@ export const RecommendationsCard = (props: RecommendationsCardStyledPropsType) =
 
 
 const RecommendationsCardFlexWrapper=styled.div`
-  //min-height: 100%;
   display: flex;
   min-width: 290px;
   flex-wrap: wrap;
   padding: 25px;
-  background: ${theme.colors.background};
+  background-color: ${({ theme }) => theme === 'dark' ? '#1E1E1E' : '#FFFFFF'};
   gap: 15px;
   align-items: stretch;
   margin-right: 20px;

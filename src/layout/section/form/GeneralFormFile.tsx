@@ -8,7 +8,7 @@ import {Fade} from "react-awesome-reveal";
 export const GeneralFormFile = () => {
     return (
         <Fade cascade damping={19}>
-        <GeneralFormFileSection id={'contacts'}>
+        <GeneralFormFileSection  id={'contacts'}>
             <FlexWrapper justify={"space-between"}>
                 <Form></Form>
                 <FlexWrapper direction={"column"} wrap={"nowrap"}>

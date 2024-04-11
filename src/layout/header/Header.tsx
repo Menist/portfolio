@@ -2,17 +2,17 @@ import React from 'react';
 import styled from "styled-components";
 import {Logo} from "../../components/logo/Logo";
 import {FlexWrapper} from "../../components/FlexWrapper";
-import {theme} from "../../styles/Theme";
 import {Menu} from "./Menu";
 import {MobileMenu} from "../mobileMenu/MobileMenu";
+import {useTheme} from "../../ThemeProvider";
 
 export const Header = () => {
+    const { theme } = useTheme();
     return (
-        <StyledHeader id={'home'}>
-            <MobileMenu/>
+        <StyledHeader id={'home'} theme={theme}>
+            <MobileMenu />
             <FlexWrapper justify={"flex-start"}
                          align={"center"}
-                         color={theme.colors.background}
                          padding={"20px 0 10px 60px"}>
                 <Logo/>
                 <Menu></Menu>
@@ -26,7 +26,7 @@ const StyledHeader = styled.header`
   &::after {
     content: "";
     display: block;
-    background-color: ${theme.colors.accent};
+    background-color: ${({ theme }) => theme === 'dark' ? '#1E1E1E' : '#FFFFFF'};
     height: 1px;
   }
 
