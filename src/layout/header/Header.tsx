@@ -7,9 +7,9 @@ import {MobileMenu} from "../mobileMenu/MobileMenu";
 import {useTheme} from "../../ThemeProvider";
 
 export const Header = () => {
-    const { theme } = useTheme();
+    const { meow } = useTheme();
     return (
-        <StyledHeader id={'home'} theme={theme}>
+        <StyledHeader id={'home'} theme={meow}>
             <MobileMenu />
             <FlexWrapper justify={"flex-start"}
                          align={"center"}
@@ -22,11 +22,14 @@ export const Header = () => {
 };
 const StyledHeader = styled.header`
   position: relative;
+  ${FlexWrapper} {
+      background-color: ${ ({theme}) => theme.colors.backgroundColorSection};
+  }
 
   &::after {
     content: "";
     display: block;
-    background-color: ${({ theme }) => theme === 'dark' ? '#1E1E1E' : '#FFFFFF'};
+    background-color: ${ ({theme}) => theme.colors.backgroundWebsite};
     height: 1px;
   }
 

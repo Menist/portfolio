@@ -1,6 +1,7 @@
 import {theme} from "./Theme";
 import {ThemeProvider} from "../ThemeProvider";
 import {createGlobalStyle} from "styled-components";
+import {themeNew} from "../styles/ColorSheme";
 
 
 export const GlobalStyle = ({children}: any) => {
@@ -44,8 +45,7 @@ export const GlobalStyled = createGlobalStyle<{ themes: any }>`
   body {
     margin: 0;
     color: ${theme.colors.mainText};
-    background-color: ${({themes}) => themes === 'dark' ? '#1E1E1E' : '#F5F5F5'};
-    //background-color: ${({themes}) =>  '#1E1E1E'};
+    background-color: ${({ themes }) => themeNew(themes === 'dark').colors.backgroundWebsite};
 
     font-family: "Inter", -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',

@@ -1,21 +1,31 @@
 export const themeNew = (isDarkTheme: boolean) => {
-    const lightColors = {
+    interface Colors {
+        primary?: string;
+        accent?: string;
+        headerText?: string;
+        mainText?: string;
+        link?: string;
+        backgroundWebsite?: string;
+        backgroundColorSection?: string;
+    }
+
+    const lightColors: Colors  = {
         primary: "#FFB400",
         accent: "rgba(255,180,0,0.71)",
         headerText: "#2B2B2B",
         mainText: "#767676",
         link: "#FFB400",
-        background: "#FFFFFF",
-        backgroundWebsite: "#F5F5F5"
+        backgroundColorSection: "#FFFFFF",
+        backgroundWebsite: "#F0F0F6"
     };
 
-    const darkColors = {
+    const darkColors: Colors = {
         primary: "#FFB400",
         accent: "rgba(255,180,0,0.71)",
         headerText: "#FFFFFF",
-        mainText: "#FFB400",
+        mainText: "#e5e5e5",
         link: "#FFB400",
-        background: "#1E1E1E",
+        backgroundColorSection: "#1E1E1E",
         backgroundWebsite: "#303030"
     };
 
