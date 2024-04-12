@@ -27,6 +27,8 @@ export const StraightLink = (props: StraightButtonPropsType) => {
 
 const Wrap = styled.div`
   display: flex;
+  cursor: pointer;
+  
   @media screen and (max-width: 1156px) {
     justify-content: center;
   }

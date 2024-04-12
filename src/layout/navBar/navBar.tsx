@@ -84,6 +84,7 @@ export const NavBar = () => {
 };
 
 const MenuLink = styled(Link)``;
+
 const Nav = styled.nav`
   position: fixed;
   right: 0;
@@ -98,6 +99,14 @@ const Nav = styled.nav`
     align-items: center;
     justify-content: center;
     gap: 45px;
+
+    li > div:hover::before {
+      content: none;
+    }
+
+    li > div:hover::after {
+      content: none;
+    }
   }
 
   @media screen and (max-width: 1091px) {
@@ -134,6 +143,7 @@ const Nav = styled.nav`
           margin-bottom: 0;
         }
       }
+
     }
 
     @media screen and (max-width: 570px) {
@@ -155,6 +165,7 @@ const Nav = styled.nav`
 `;
 const LinkItem = styled.div`
   position: relative;
+  cursor: pointer;
 
   svg {
     color: ${({theme}) => theme === 'dark' ? '#FFB400' : '#000000'};
@@ -162,7 +173,7 @@ const LinkItem = styled.div`
   }
 
   &:hover svg {
-    fill: ${({theme}) => theme === 'dark' ? '#FFB400' : '#000000'};
+    fill: ${({theme}) => theme === 'dark' ? '#FFB400' : '#FFB400'};
     transform: scale(1.3);
     transition: all .3s ease;
   }
@@ -193,6 +204,7 @@ const LinkItem = styled.div`
     border-right: 10px solid transparent;
     border-top: 13px solid ${({theme}) => theme === 'dark' ? '#FFFFFF' : '#2B2B2B'};
   }
+
 `;
 const ToggleButton = styled(LinkItem)`
   margin: 50px 0 125px 0;
