@@ -2,11 +2,15 @@ import React from 'react';
 import styled from "styled-components";
 import {SkillsFragment} from "./SkillsFragment";
 import {SidebarTitle} from "../../../../components/SidebarTitle";
-import {SidebarLine} from "../../../../components/SidebarLine";
+import {ThemeObjectType} from "../../../../styles/ColorSheme";
+import {useTheme} from "../../../../ThemeProvider";
 
 export const SkillsMain = () => {
+    const { meow } = useTheme();
+
+
     return (
-        <SkillsMainStyled>
+        <SkillsMainStyled meow={meow}>
             <SidebarTitle text={"Skills"}></SidebarTitle>
             <SkillsFragment
                 textTitle={"Html"}
@@ -33,10 +37,11 @@ export const SkillsMain = () => {
                 textProgress={"0%"}
                 progress={"0%"}
             ></SkillsFragment>
-            <SidebarLine></SidebarLine>
         </SkillsMainStyled>
     );
 };
-const SkillsMainStyled = styled.div`
-
+const SkillsMainStyled = styled.div<{meow: ThemeObjectType}>`
+  border-bottom: 1px solid  ${({meow}) =>meow.colors.backgroundWebsite};
+  margin: 25px 0;
+  padding-bottom: 25px;
 `

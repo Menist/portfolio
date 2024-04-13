@@ -2,11 +2,12 @@ import React from 'react';
 import styled from "styled-components";
 import {LanguagesFragment} from "./LanguagesFragment";
 import {SidebarTitle} from "../../../../components/SidebarTitle";
-import {SidebarLine} from "../../../../components/SidebarLine";
+import {ThemeObjectType} from "../../../../styles/ColorSheme";
+import {useTheme} from "../../../../ThemeProvider";
 export const LanguagesMain = () => {
-
+    const { meow } = useTheme();
     return (
-        <LanguagesMainStyled>
+        <LanguagesMainStyled meow={meow}>
             <SidebarTitle text={"Languages"}></SidebarTitle>
             <LanguagesFragment
                 textTitle={"Bangla"}
@@ -23,8 +24,11 @@ export const LanguagesMain = () => {
                 textProgress={"20%"}
                 progress={"20%"}
             ></LanguagesFragment>
-            <SidebarLine></SidebarLine>
         </LanguagesMainStyled>
     );
 };
-const LanguagesMainStyled = styled.div``
+const LanguagesMainStyled = styled.div<{meow: ThemeObjectType}>`
+  border-bottom: 1px solid ${({meow}) =>meow.colors.backgroundWebsite};
+  margin: 25px 0;
+  padding-bottom: 25px;
+`

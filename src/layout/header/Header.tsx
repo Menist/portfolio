@@ -5,11 +5,12 @@ import {FlexWrapper, FlexWrapperStyled} from "../../components/FlexWrapper";
 import {Menu} from "./Menu";
 import {MobileMenu} from "../mobileMenu/MobileMenu";
 import {useTheme} from "../../ThemeProvider";
+import {ThemeObjectType} from "../../styles/ColorSheme";
 
 export const Header = () => {
     const { meow } = useTheme();
     return (
-        <StyledHeader id={'home'} theme={meow}>
+        <StyledHeader id={'home'} meow={meow}>
             <MobileMenu />
             <FlexWrapper justify={"flex-start"}
                          align={"center"}
@@ -20,16 +21,17 @@ export const Header = () => {
         </StyledHeader>
     );
 };
-const StyledHeader = styled.header`
+const StyledHeader = styled.header<{meow: ThemeObjectType}>`
   position: relative;
   ${FlexWrapperStyled} {
-      background-color: ${ ({theme}) => theme.colors.backgroundColorSection};
+    background-color: ${({meow}) =>meow.colors.backgroundColorSection};
+    border-bottom: 2px solid ${({meow}) =>meow.colors.backgroundWebsite};
   }
 
   &::after {
     content: "";
     display: block;
-    background-color: ${ ({theme}) => theme.colors.backgroundWebsite};
+    background-color: ${({meow}) =>meow.colors.backgroundColorSection};
     height: 1px;
   }
 

@@ -1,6 +1,8 @@
 import React from 'react';
 import styled, {CSSProperties} from "styled-components";
 import {theme} from "../../../../styles/Theme";
+import {useTheme} from "../../../../ThemeProvider";
+import {ThemeObjectType} from "../../../../styles/ColorSheme";
 
 
 type SidebarAboutTextPropsType = {
@@ -9,16 +11,15 @@ type SidebarAboutTextPropsType = {
     color?: CSSProperties['color']
 }
 
-export const SidebarAboutContent = (props: SidebarAboutTextPropsType) => {
+export const SidebarAboutContent = (props: SidebarAboutTextPropsType ) => {
+    const { meow } = useTheme();
     return (
-        <SidebarAboutText color={props.color} bgColor={props.bgColor}>{props.text}</SidebarAboutText>
+        <SidebarAboutText meow={meow}{...props} color={props.color} bgColor={props.bgColor}>{props.text}</SidebarAboutText>
     );
 };
 
-const SidebarAboutText = styled.span<
-    { bgColor: CSSProperties['color'] }
->`
+const SidebarAboutText = styled.span<{ bgColor: CSSProperties['color'], meow: ThemeObjectType }>`
   padding: 5px;
   background-color: ${(props) => props.bgColor || "inherit"};
-  color: ${props => props.color || theme.colors.headerText};
+  color: ${props => props.color || props.meow.colors.headerText};
 `;

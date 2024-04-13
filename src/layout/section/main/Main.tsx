@@ -70,7 +70,6 @@ const FlexWrapperDiw = styled.div`
   }
 `
 const MainSection = styled.section<{meow: ThemeObjectType}>`
-
   ${FlexWrapperStyled}:first-child {
     background: url("${img2}") top 5% left 3% no-repeat,
     url("${img3}") top 10% left 55% no-repeat,

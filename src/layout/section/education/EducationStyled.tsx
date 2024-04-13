@@ -2,7 +2,6 @@ import React from 'react';
 import styled from "styled-components";
 import {FlexWrapper, FlexWrapperStyled} from "../../../components/FlexWrapper";
 import {Fade} from "react-awesome-reveal";
-import {theme} from "../../../styles/Theme";
 import {useTheme} from "../../../ThemeProvider";
 import {themeNew, ThemeObjectType} from "../../../styles/ColorSheme";
 
@@ -20,20 +19,18 @@ export const EducationStyled = (props: EducationStyledComponentPropsType) => {
     return (
         <EducationStyledComponent meow={meow}>
             <Fade cascade damping={.5}>
-
                 <FlexWrapper align={'flex-start'} gap={"12%"}>
                     <FlexWrapper flex={"0 1 25%"} gap={"25px"}>
-                        <FirstTitleEducation>{props.firstTitle}</FirstTitleEducation>
+                        <FirstTitleEducation meow={meow}>{props.firstTitle}</FirstTitleEducation>
                         <SubTitleTitleEducation>{props.subTitle}</SubTitleTitleEducation>
-                        <EducationData>{props.data}</EducationData>
+                        <EducationData meow={meow}>{props.data}</EducationData>
                     </FlexWrapper>
                     <FlexWrapper flex={"0 1 63%"} gap={"20px 0"}>
-                        <SecondTitleEducation>{props.secondTitle}</SecondTitleEducation>
+                        <SecondTitleEducation meow={meow}>{props.secondTitle}</SecondTitleEducation>
                         <TextEducation>{props.text}</TextEducation>
                     </FlexWrapper>
                 </FlexWrapper>
             </Fade>
-
         </EducationStyledComponent>
     );
 };
@@ -41,7 +38,7 @@ export const EducationStyled = (props: EducationStyledComponentPropsType) => {
 const EducationStyledComponent = styled.div<{meow: ThemeObjectType}>`
   background-color: ${({meow}) =>meow.colors.backgroundColorSection};
   padding: 37px 29px 30px 38px;
-  border-bottom: ${({theme}) => themeNew(theme === 'dark').colors.backgroundWebsite};
+  border-bottom:1px solid ${({meow}) =>meow.colors.backgroundWebsite};
   
   @media screen and (max-width: 1300px) {
     ${FlexWrapperStyled} {
@@ -72,23 +69,22 @@ const EducationStyledComponent = styled.div<{meow: ThemeObjectType}>`
   }
 `
 
-const FirstTitleEducation = styled.h4`
+const FirstTitleEducation = styled.h4<{meow: ThemeObjectType}>`
   width: 100%;
   font-weight: 500;
   text-transform: capitalize;
-  color: ${({theme}) => themeNew(theme === 'dark').colors.headerText};
+  color:${({meow}) =>meow.colors.headerText};
   gap: 25px;
 `
 const SubTitleTitleEducation = styled.span`
   font-weight: 500;
 `
-const EducationData = styled.span`
+const EducationData = styled.span<{meow: ThemeObjectType}>`
   font-weight: 400;
   font-size: 10px;
-  color: ${({theme}) => themeNew(theme === 'dark').colors.backgroundColorSection};
+  background-color: ${({meow}) =>meow.colors.backgroundColorSection};
   
-  //background-color: ${theme.colors.primary};
-  background-color: ${({theme}) => themeNew(theme === 'dark').colors.primary};
+  background-color: ${({meow}) =>meow.colors.primary};
   padding: 5px 10px;
 `
 const SecondTitleEducation = styled(FirstTitleEducation)``

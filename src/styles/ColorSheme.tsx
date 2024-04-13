@@ -6,6 +6,7 @@ interface Colors {
     link?: string;
     backgroundWebsite?: string;
     backgroundColorSection?: string;
+    iconNavBar?:string
 }
 export type ThemeObjectType = {
     colors: Colors,
@@ -29,7 +30,8 @@ export const themeNew = (isDarkTheme: boolean): ThemeObjectType => {
         mainText: "#767676",
         link: "#FFB400",
         backgroundColorSection: "#FFFFFF",
-        backgroundWebsite: "#F0F0F6"
+        backgroundWebsite: "#F0F0F6",
+        iconNavBar:"#767676"
     };
 
     const darkColors: Colors = {
@@ -39,7 +41,8 @@ export const themeNew = (isDarkTheme: boolean): ThemeObjectType => {
         mainText: "#CCCCCC",
         link: "#6B5B95",
         backgroundColorSection: "#2B2B2B",
-        backgroundWebsite: "#1A1A1A"
+        backgroundWebsite: "#1A1A1A",
+        iconNavBar:"#E0E0E0"
     };
 
     const colors = isDarkTheme ? darkColors : lightColors;

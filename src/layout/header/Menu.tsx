@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from "styled-components";
-import {theme} from "../../styles/Theme";
 import {Link} from "react-scroll";
 import {Fade} from "react-awesome-reveal";
+import {useTheme} from "../../ThemeProvider";
+import {ThemeObjectType} from "../../styles/ColorSheme";
 
 const items = [
     {
@@ -27,9 +28,11 @@ const items = [
     }
 ]
 export const Menu = () => {
+    const { meow } = useTheme();
+
     return (
         <Fade cascade damping={.3}>
-        <StyledMenu>
+        <StyledMenu meow={meow}>
             <ul>
                 {items.map((item, index) => {
                     return <li key={index}>
@@ -50,7 +53,9 @@ export const Menu = () => {
 };
 
 const MenuLink = styled(Link)``
- const StyledMenu = styled.nav`
+ const StyledMenu = styled.nav<{meow: ThemeObjectType}>
+     `
+       
   text-transform: capitalize;
 
   ul {
@@ -60,7 +65,7 @@ const MenuLink = styled(Link)``
     font-size: 18px;
 
     &:hover, &.active {
-      border-bottom-color: ${theme.colors.primary};
+      border-bottom-color: ${({meow}) =>meow.colors.primary};
     }
 
     @media screen and (max-width: 820px) {
@@ -72,19 +77,19 @@ const MenuLink = styled(Link)``
   }
 
   a {
-    color: ${theme.colors.primary};
+    color: ${({meow}) =>meow.colors.primary};
     position: relative;
     cursor: pointer;
 
     &:after {
+      content: "";
       display: block;
       position: absolute;
       left: 0;
       width: 0;
       height: 2px;
-      background-color: ${theme.colors.primary};
-      content: "";
-      transition: ${theme.animation.transitionWidth};
+      background-color: ${({meow}) =>meow.colors.primary};
+      transition: ${({meow}) =>meow.animation.transitionWidth};
     }
 
     &:hover:after {
@@ -105,7 +110,7 @@ const MenuLink = styled(Link)``
       transition: .25s 0s ease-in-out;
 
       &:hover {
-        border-bottom-color: ${theme.colors.primary};
+        border-bottom-color: ${({meow}) =>meow.colors.primary};
       }
 
       li {

@@ -4,24 +4,27 @@ import img1 from '../../../../assets/img/section/sidebar/SidebarMain.webp'
 import img1x from '../../../../assets/img/section@2x/sidebar/sidebarMain_@2x.webp'
 import {FlexWrapper} from "../../../../components/FlexWrapper";
 import {SidebarIcon} from "./SidebarIcon";
-import {SidebarLine} from "../../../../components/SidebarLine";
+import {ThemeObjectType} from "../../../../styles/ColorSheme";
+import {useTheme} from "../../../../ThemeProvider";
 
 export const Main = () => {
+    const { meow } = useTheme();
+
     return (
-        <SidebarMain>
-            <FlexWrapper direction={"column"} align={"center"} padding={"0 0 25px 0"}>
+        <SidebarMain  meow={meow}>
+            <FlexWrapper direction={"column"} align={"center"}>
                 <SidebarMainImg></SidebarMainImg>
                 <SidebarMainTitle>Rayan Adlardard</SidebarMainTitle>
                 <SidebarMainSubtitle>Font-end Developer</SidebarMainSubtitle>
                 <SidebarIcon></SidebarIcon>
             </FlexWrapper>
-            <SidebarLine></SidebarLine>
         </SidebarMain>
     );
 };
-const SidebarMain = styled.div`
-  //padding: 0;
-
+const SidebarMain = styled.div<{meow: ThemeObjectType}>`
+  border-bottom: 1px solid ${({meow}) =>meow.colors.backgroundWebsite};
+  margin: 25px 0;
+  padding-bottom: 25px;
 `
 const SidebarMainImg = styled.div`
   border-radius: 50%;

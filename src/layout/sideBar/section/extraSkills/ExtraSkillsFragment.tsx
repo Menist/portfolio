@@ -22,5 +22,4 @@ const ExtraSkills = styled.div`
 
 `
 const ExtraSkillsText = styled.div`
-//font-size: 15px;
 `

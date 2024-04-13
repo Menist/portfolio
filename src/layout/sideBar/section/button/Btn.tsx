@@ -2,15 +2,18 @@ import React from 'react';
 import styled from "styled-components";
 import {theme} from "../../../../styles/Theme";
 import {Icon} from "../../../../components/icon/Icon";
+import {useTheme} from "../../../../ThemeProvider";
+import {ThemeObjectType} from "../../../../styles/ColorSheme";
 
 export const Btn = () => {
+    const { meow } = useTheme();
     return (
-        <Button>Download cv
+        <Button meow={meow}>Download cv
             <Icon iconId={"downloadSidebar"} width={"14"} height={"16"}/>
         </Button>
     );
 };
-const Button = styled.button`
+const Button = styled.button <{meow: ThemeObjectType}>`
   display: flex;
   gap: 20px;
   align-items: center;
@@ -18,15 +21,15 @@ const Button = styled.button`
   text-transform: uppercase;
   font-size: 14px;
   font-weight: 600;
-  background-color: ${theme.colors.primary};
-  color: ${theme.colors.headerText};
+  background-color: ${({meow}) =>meow.colors.primary};
+  color: ${({meow}) =>meow.colors.headerText};
   cursor: pointer;
   border: 2px solid transparent;
   
   &:hover{
-    border: 2px solid ${theme.colors.primary};
-    background-color: ${theme.colors.background};
-    transition:  ${theme.animation.transitionAll};
+    border: 2px solid ${({meow}) =>meow.colors.primary};
+    background-color: ${({meow}) =>meow.colors.backgroundColorSection};
+    transition:   ${({meow}) =>meow.animation.transitionAll};
   }
   
   @media screen and (max-width: 1091px){

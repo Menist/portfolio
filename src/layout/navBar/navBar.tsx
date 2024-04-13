@@ -60,7 +60,7 @@ export const NavBar = () => {
                     <ToggleButton meow={meow} onClick={() => {
                         toggleTheme(meow === 'dark' ? 'light' : 'dark');
                     }}
-                    ><Icon  iconId={'navBarContrast'} width={'30px'} height={'30px'} fill={"#F0F0F6"}/></ToggleButton>
+                    ><Icon  iconId={'navBarContrast'} width={'30px'} height={'30px'} fill={meow.colors.backgroundWebsite}/></ToggleButton>
                 </li>
                 {items.map((item, index) => {
                     return (
@@ -73,7 +73,7 @@ export const NavBar = () => {
                             >
                                 <LinkItem meow={meow} title={item.title}>
                                     <Icon iconId={item.iconId} width={item.iconIdWidth} height={item.iconIdWidth}
-                                          fill={"#F0F0F6"}/>
+                                          fill={meow.colors.primary}/>
                                 </LinkItem>
                             </MenuLink>
                         </li>
@@ -92,7 +92,7 @@ const Nav = styled.nav<{meow: ThemeObjectType}>`
   z-index: 100;
   min-width: 108px;
   background-color: ${({meow}) =>meow.colors.backgroundColorSection};
-  padding: 50px 22px 10px 25px;
+  padding: 50px 22px 50px 25px;
 
   ul {
     display: flex;

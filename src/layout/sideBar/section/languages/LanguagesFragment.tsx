@@ -3,6 +3,8 @@ import styled, {CSSProperties} from "styled-components";
 import {theme} from "../../../../styles/Theme";
 import {FlexWrapper} from "../../../../components/FlexWrapper";
 import {Fade} from "react-awesome-reveal";
+import {useTheme} from "../../../../ThemeProvider";
+import {ThemeObjectType} from "../../../../styles/ColorSheme";
 
 type LanguagesFragmentPropsType = {
     textTitle: string;
@@ -11,14 +13,16 @@ type LanguagesFragmentPropsType = {
 }
 
 export const LanguagesFragment = (props: LanguagesFragmentPropsType) => {
+    const { meow } = useTheme();
+
     return (
         <ProgressBar>
             <FlexWrapper justify={"space-between"}>
-                <ProgressText>{props.textTitle}</ProgressText>
-                <ProgressText>{props.textProgress}</ProgressText>
+                <ProgressText meow={meow}>{props.textTitle}</ProgressText>
+                <ProgressText meow={meow}>{props.textProgress}</ProgressText>
             </FlexWrapper>
-            <LanguagesProgress>
-                <Progress progress={props.progress}></Progress>
+            <LanguagesProgress meow={meow}>
+                <Progress meow={meow} progress={props.progress}></Progress>
             </LanguagesProgress>
         </ProgressBar>
     );
@@ -27,21 +31,21 @@ const ProgressBar = styled.div`
   padding: 15px 0 10px;
 `
 
-const LanguagesProgress = styled.div`
+const LanguagesProgress = styled.div<{meow: ThemeObjectType}>`
   width: 100%;
   height: 100%;
-  border: 1px solid ${theme.colors.primary};
+  border: 1px solid ${({meow}) =>meow.colors.primary};
   border-radius: 30px;
   padding: 1px;
-  color: ${theme.colors.primary};
+  color: ${({meow}) =>meow.colors.primary};
 `
 const Progress = styled.div<
-    { progress: CSSProperties['width']}
+    { progress: CSSProperties['width'], meow: ThemeObjectType}
 >`
   width: ${props=>props.progress || "0%"};
   border-radius: 30px;
   height: 2px;
-  background-color: ${theme.colors.primary};
+  background-color: ${({meow}) =>meow.colors.primary};
   transition: width 0.3s ease-in-out;
   --time: 3s; 
   transform-origin: left top;
@@ -58,8 +62,7 @@ const Progress = styled.div<
   }
 }
 `
-const ProgressText = styled.span`
-  //font-size: 15px;
+const ProgressText = styled.span <{meow: ThemeObjectType}>`
   padding-bottom: 5px;
-  color: ${theme.colors.mainText};
+  color: ${({meow}) =>meow.colors.mainText};
 `
