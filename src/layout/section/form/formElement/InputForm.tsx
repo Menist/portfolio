@@ -2,6 +2,7 @@ import React from 'react';
 import styled from "styled-components";
 import {theme} from "../../../../styles/Theme";
 import {useTheme} from "../../../../ThemeProvider";
+import {ThemeObjectType} from "../../../../styles/ColorSheme";
 
 type InputFormPropsType={
     labelName:string
@@ -14,13 +15,13 @@ type InputFormPropsType={
 
 
 export const InputFragment = (props:InputFormPropsType) => {
-    const { theme } = useTheme();
+    const { meow } = useTheme();
 
 
     return (
         <InputForm >
             <Label id={props.id}>{props.labelName}</Label>
-            <Input name={props.name} type={props.type} placeholder={props.placeholder} id={props.id} theme={theme} />
+            <Input name={props.name} type={props.type} placeholder={props.placeholder} id={props.id} meow={meow} />
             {props.children}
         </InputForm>
     );
@@ -33,11 +34,11 @@ const Label = styled.label`
   width: 100%;
   padding: 20px 0 10px 0;
 `
-const Input = styled.input`
-  outline-color: ${theme.colors.mainText};
+const Input = styled.input <{meow: ThemeObjectType}>`
+  outline-color: ${({meow}) =>meow.colors.mainText};
   width: 100%;
   min-height: 50px;
-  background-color: ${({ theme }) => theme === 'dark' ? '#1E1E1E' : '#F0F0F6'};
+  background-color: ${({meow}) =>meow.colors.backgroundWebsite};
   border: none;
   &:not(:focus)::placeholder{
     opacity: 1;

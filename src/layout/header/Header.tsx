@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from "styled-components";
 import {Logo} from "../../components/logo/Logo";
-import {FlexWrapper} from "../../components/FlexWrapper";
+import {FlexWrapper, FlexWrapperStyled} from "../../components/FlexWrapper";
 import {Menu} from "./Menu";
 import {MobileMenu} from "../mobileMenu/MobileMenu";
 import {useTheme} from "../../ThemeProvider";
@@ -22,7 +22,7 @@ export const Header = () => {
 };
 const StyledHeader = styled.header`
   position: relative;
-  ${FlexWrapper} {
+  ${FlexWrapperStyled} {
       background-color: ${ ({theme}) => theme.colors.backgroundColorSection};
   }
 
@@ -34,7 +34,7 @@ const StyledHeader = styled.header`
   }
 
   @media screen and (max-width: 1091px) {
-    ${FlexWrapper} {
+    ${FlexWrapperStyled} {
       justify-content: space-evenly;
       padding: 10px;
     }
@@ -47,7 +47,7 @@ const StyledHeader = styled.header`
   }
   
   @media screen and (max-width: 768px) {
-    ${FlexWrapper} {
+    ${FlexWrapperStyled} {
       display: none;
     }
   }

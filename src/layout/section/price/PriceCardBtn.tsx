@@ -1,18 +1,20 @@
 import React from 'react';
 import styled from "styled-components";
-import {theme} from "../../../styles/Theme";
+import {useTheme} from "../../../ThemeProvider";
+import {ThemeObjectType} from "../../../styles/ColorSheme";
 type CardBtnPropsType={
     textBtn:string
 }
 
 export const PriceCardBtn = (props: CardBtnPropsType) => {
+    const { meow }= useTheme()
     return (
-        <ButtonPriceCard>
+        <ButtonPriceCard meow={meow}>
             {props.textBtn}
         </ButtonPriceCard>
     );
 };
-const ButtonPriceCard=styled.button`
+const ButtonPriceCard=styled.button<{meow: ThemeObjectType}>`
   max-width: 160px;
   padding: 10px 25px;
   border: none;
@@ -24,9 +26,10 @@ const ButtonPriceCard=styled.button`
   text-transform: uppercase;
   font-weight: bold;
   font-size: 14px;
+  
   &:hover{
-    background-color: ${theme.colors.primary};
-      transition: ${theme.animation.transitionBackground};
+    background-color: ${({meow}) =>meow.colors.primary};
+    transition: ${({meow}) =>meow.animation.transitionBackground};
     }
   }
 `

@@ -1,11 +1,12 @@
 import React from 'react';
 import styled from "styled-components";
 import {Icon} from "../../../../components/icon/Icon";
-import {FlexWrapper} from "../../../../components/FlexWrapper";
+import {FlexWrapper, FlexWrapperStyled} from "../../../../components/FlexWrapper";
 import {theme} from "../../../../styles/Theme";
 import {PriceCardBtn} from "../PriceCardBtn";
 import {Fade} from "react-awesome-reveal";
 import {useTheme} from "../../../../ThemeProvider";
+import {ThemeObjectType} from "../../../../styles/ColorSheme";
 
 type PriceCardPropType = {
     name: string
@@ -19,13 +20,12 @@ type PriceCardPropType = {
 }
 
 export const PriceCard = (props: PriceCardPropType) => {
-    const { theme } = useTheme();
-
+    const { meow } = useTheme();
     return (
-        <PriceCardStyled theme={theme}>
+        <PriceCardStyled meow={meow}>
             <Fade direction={"up"}>
                 <PlansName>{props.name}</PlansName>
-                <PlansPrice>{props.price}
+                <PlansPrice meow={meow}>{props.price}
                     <span>{props.span}</span>
                 </PlansPrice>
                 <PlansDescription>{props.description}</PlansDescription>
@@ -53,8 +53,8 @@ export const PriceCard = (props: PriceCardPropType) => {
 
     );
 };
-const PriceCardStyled = styled.div`
-  background-color: ${({ theme }) => theme === 'dark' ? '#1E1E1E' : '#FFFFFF'};
+const PriceCardStyled = styled.div<{meow: ThemeObjectType}>`
+  background-color: ${({meow}) =>meow.colors.backgroundColorSection};
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -65,7 +65,7 @@ const PriceCardStyled = styled.div`
   flex: 1 0 30%;
   max-width: 500px;
 
-  ${FlexWrapper} {
+  ${FlexWrapperStyled} {
     padding-top: 10px;
   }
 
@@ -77,14 +77,14 @@ const PriceCardStyled = styled.div`
     content: "most popular";
     width: 100%;
     display: inline-block;
-    background-color: ${theme.colors.primary};
+    background-color: ${({meow}) =>meow.colors.primary};
     padding: 5px 0;
     font-size: 15px;
     position: absolute;
     left: 0;
     top: 0;
     text-transform: capitalize;
-    color: ${theme.colors.headerText};
+    color: ${({meow}) =>meow.colors.headerText};
     text-align: center;
   }
 
@@ -93,7 +93,7 @@ const PriceCardStyled = styled.div`
   }
 
   @media screen and (max-width: 1440px) {
-    ${FlexWrapper} {
+    ${FlexWrapperStyled} {
       flex: 1 0 20%;
     }
   }
@@ -105,7 +105,7 @@ const PriceCardStyled = styled.div`
 
 @media screen and (max-width: 1129px) {
   flex: 1 0 65%;
-  ${FlexWrapper} {
+  ${FlexWrapperStyled} {
     justify-content: center;
   }
 }
@@ -132,13 +132,14 @@ const PlansName = styled.h3`
   font-weight: 600;
   text-transform: capitalize;
 `
-const PlansPrice = styled.span`
+const PlansPrice = styled.span<{meow: ThemeObjectType}>`
   font-size: 32px;
   font-weight: 700;
-  color: ${theme.colors.headerText};
+  color: ${({meow}) =>meow.colors.headerText};
+  
 
   > span {
-    font-size: ${theme.text.textSize};
+    font-size: ${({meow}) =>meow.text.textSize};
     font-weight: 400;
     text-transform: capitalize;
     padding-left: 10px;

@@ -1,13 +1,26 @@
-export const themeNew = (isDarkTheme: boolean) => {
-    interface Colors {
-        primary?: string;
-        accent?: string;
-        headerText?: string;
-        mainText?: string;
-        link?: string;
-        backgroundWebsite?: string;
-        backgroundColorSection?: string;
+interface Colors {
+    primary?: string;
+    accent?: string;
+    headerText?: string;
+    mainText?: string;
+    link?: string;
+    backgroundWebsite?: string;
+    backgroundColorSection?: string;
+}
+export type ThemeObjectType = {
+    colors: Colors,
+    text: {
+        textSize: string,
+        lineHeight:string
+    },
+    animation: {
+        transitionWidth: string
+        transitionAll:string
+        transitionBackground:string
+        transitionColor:string
     }
+}
+export const themeNew = (isDarkTheme: boolean): ThemeObjectType => {
 
     const lightColors: Colors  = {
         primary: "#FFB400",
@@ -20,13 +33,13 @@ export const themeNew = (isDarkTheme: boolean) => {
     };
 
     const darkColors: Colors = {
-        primary: "#FFB400",
-        accent: "rgba(255,180,0,0.71)",
-        headerText: "#FFFFFF",
-        mainText: "#e5e5e5",
-        link: "#FFB400",
-        backgroundColorSection: "#1E1E1E",
-        backgroundWebsite: "#303030"
+        primary: "#6B5B95",
+        accent: "rgba(107,91,149,0.71)",
+        headerText: "#E0E0E0",
+        mainText: "#CCCCCC",
+        link: "#6B5B95",
+        backgroundColorSection: "#2B2B2B",
+        backgroundWebsite: "#1A1A1A"
     };
 
     const colors = isDarkTheme ? darkColors : lightColors;

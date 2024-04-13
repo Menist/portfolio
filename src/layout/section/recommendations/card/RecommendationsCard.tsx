@@ -3,6 +3,7 @@ import styled from "styled-components";
 import {Icon} from "../../../../components/icon/Icon";
 import {FlexWrapper} from "../../../../components/FlexWrapper";
 import {useTheme} from "../../../../ThemeProvider";
+import {ThemeObjectType} from "../../../../styles/ColorSheme";
 
 
 type RecommendationsCardStyledPropsType = {
@@ -16,9 +17,9 @@ type RecommendationsCardStyledPropsType = {
 }
 
 export const RecommendationsCard = (props: RecommendationsCardStyledPropsType) => {
-    const { theme } = useTheme();
+    const { meow } = useTheme();
     return (
-        <RecommendationsCardFlexWrapper theme={theme}>
+        <RecommendationsCardFlexWrapper meow={meow}>
             <Icon iconId={props.icon} height={"17.37"} width={"18"}/>
             <Icon iconId={props.icon} height={"17.37"} width={"18"}/>
             <Icon iconId={props.icon} height={"17.37"} width={"18"}/>
@@ -39,12 +40,12 @@ export const RecommendationsCard = (props: RecommendationsCardStyledPropsType) =
 };
 
 
-const RecommendationsCardFlexWrapper=styled.div`
+const RecommendationsCardFlexWrapper=styled.div<{meow: ThemeObjectType}>`
   display: flex;
   min-width: 290px;
   flex-wrap: wrap;
   padding: 25px;
-  background-color: ${({ theme }) => theme === 'dark' ? '#1E1E1E' : '#FFFFFF'};
+  background-color: ${({meow}) =>meow.colors.backgroundColorSection};
   gap: 15px;
   align-items: stretch;
   margin-right: 20px;

@@ -2,6 +2,7 @@ import React from 'react';
 import styled from "styled-components";
 import {CardLink} from "../../../../components/Link";
 import {useTheme} from "../../../../ThemeProvider";
+import {ThemeObjectType} from "../../../../styles/ColorSheme";
 
 type BlogCardPropsType = {
     title: string
@@ -11,13 +12,12 @@ type BlogCardPropsType = {
     srcSet: string
 }
 export const BlogCard = (props: BlogCardPropsType) => {
-    const { theme } = useTheme();
+    const { meow } = useTheme();
 
     return (
                 <BlogCardStyled >
-
                     <BlogCardImg image={props.src} srcSet={props.srcSet}/>
-                    <Wrapper theme={theme}>
+                    <Wrapper meow={meow}>
                         <BlogCardTitle >{props.title}</BlogCardTitle>
                         <BlogCardText>{props.text}</BlogCardText>
                         <CardLink link={"Lean more"}></CardLink>
@@ -31,8 +31,7 @@ const BlogCardStyled = styled.div`
   justify-content: space-between;
   flex-direction: column;
   flex: 0 0 31.5%;
-
-
+  
   a {
     padding-top: 0;
     font-size: 18px;
@@ -46,21 +45,20 @@ const BlogCardStyled = styled.div`
     flex: 0 0 80%;
     justify-content: center;
   }
+  
   @media screen and (max-width: 969px) {
     flex: 0 0 100%;
     justify-content: center;
   }
 `
-const Wrapper = styled.div`
+const Wrapper = styled.div<{meow: ThemeObjectType}>`
   padding: 25px;
-  background-color: ${({ theme }) => theme === 'dark' ? '#1E1E1E' : '#FFFFFF'};
-
+  background-color: ${ ({meow}) => meow.colors.backgroundColorSection};
 
   a {
     display: inline-block;
   }
 `
-
 const BlogCardTitle = styled.h4`
   font-weight: 500;
   text-transform: capitalize;
@@ -69,7 +67,6 @@ const BlogCardText = styled.p`
   font-weight: 400;
   padding: 10px 0;
 `
-
 const BlogCardImg = styled.div<{ image: string, srcSet: string }>`
   background-image: url(${(props) => props.image});
   background-size: cover;

@@ -4,9 +4,9 @@ import {FlexWrapper} from "../../../../components/FlexWrapper";
 import {Button} from "./Button";
 import {InputFragment} from "./InputForm";
 import {TextareaStyled} from "./Textarea";
-import {theme} from "../../../../styles/Theme";
 import emailjs from '@emailjs/browser';
 import {useTheme} from "../../../../ThemeProvider";
+import {ThemeObjectType} from "../../../../styles/ColorSheme";
 
 export const Form = () => {
     const form = useRef<ElementRef<'form'>>(null);
@@ -29,11 +29,13 @@ export const Form = () => {
             );
         e.target.reset();
     };
+    const { meow } = useTheme();
     return (
+
         <FlexWrapper flex={"0 0 55%"} minWidth={"300px"} gap={"0"}>
             <FormTitle>Leave us your info</FormTitle>
             <FormSection ref={form} onSubmit={sendEmail}>
-                <FlexWrapperFlexWrapper theme={theme}>
+                <FlexWrapperFlexWrapper meow={meow}>
                     <InputFragment
                         labelName={"Your Full Name (Required)"}
                         placeholder={"Your text"}
@@ -73,9 +75,9 @@ export const Form = () => {
     );
 };
 
-const FlexWrapperFlexWrapper = styled.div`
+const FlexWrapperFlexWrapper = styled.div<{meow: ThemeObjectType}>`
 
-  background-color: ${({ theme }) => theme === 'dark' ? '#1E1E1E' : '#FFFFFF'};
+  background-color: ${({meow}) =>meow.colors.backgroundColorSection};
   display: flex;
   flex-direction: column;
   padding: 25px 25px 25px 25px;
@@ -83,16 +85,13 @@ const FlexWrapperFlexWrapper = styled.div`
 `
 const FormSection = styled.form`
   width: 100%;
-
 `
 const FormTitle = styled.h2`
   margin-bottom: 50px;
   text-transform: capitalize;
-  //background-color: ${theme.colors.backgroundWebsite};
 
   @media screen and (max-width: 1209px) {
     width: 100%;
     text-align: center;
   }
-
 `

@@ -2,6 +2,7 @@ import React from 'react';
 import {Icon} from "../../../../components/icon/Icon";
 import styled from "styled-components";
 import {useTheme} from "../../../../ThemeProvider";
+import {ThemeObjectType} from "../../../../styles/ColorSheme";
 
 type ContactPropsType = {
     country: string
@@ -14,12 +15,12 @@ type ContactPropsType = {
     iconId: string
 }
 export const Contact = (props: ContactPropsType) => {
-    const { theme } = useTheme();
+    const { meow } = useTheme();
 
     return (
         <ContactInformatiosdasfn>
             {props.showTitleInfo ? <ContactTitle>Contact information</ContactTitle> : null}
-            <FlexWrapperFlexWrapper theme={theme}>
+            <FlexWrapperFlexWrapper meow={meow}>
                 <Icon iconId={props.iconId} width={"40"} height={"40"}/>
                 <Wrap>
                     <Adress>{props.country}</Adress>
@@ -37,14 +38,14 @@ export const Contact = (props: ContactPropsType) => {
         </ContactInformatiosdasfn>
     );
 };
-const FlexWrapperFlexWrapper = styled.div`
+const FlexWrapperFlexWrapper = styled.div<{meow: ThemeObjectType}>`
   //direction={"column"} align={"center"} padding={"32px"} color={theme.colors.background}
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 20px;
   padding: 32px;
-  background-color: ${({theme}) => theme === 'dark' ? '#1E1E1E' : '#FFFFFF'};
+  background-color: ${({meow}) =>meow.colors.backgroundColorSection};
 `
 const ContactInformatiosdasfn = styled.div`
   max-width: 500px;
@@ -75,5 +76,4 @@ const Wrap = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
- 
 `

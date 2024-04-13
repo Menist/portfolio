@@ -4,18 +4,22 @@ import {theme} from "../styles/Theme";
 import {Icon} from "./icon/Icon";
 import {Link} from "react-scroll";
 import 'animate.css';
+import { useTheme } from '../ThemeProvider';
+import {ThemeObjectType} from "../styles/ColorSheme";
 
 type StraightButtonPropsType = {
     textBtn: string;
 };
 
 export const StraightLink = (props: StraightButtonPropsType) => {
+    const { meow } = useTheme();
     return (
-            <Wrap>
+            <Wrap meow={meow}>
                 <Links
                     to={'contacts'}
                     spy={true}
                     smooth={true}
+                    meow={meow}
                 >
                     {props.textBtn}
                     <Icon iconId={"arrow"} width={"10.67"} height={"10.37"} viewBox={"0 0 10.67 10.37"}/>
@@ -25,7 +29,7 @@ export const StraightLink = (props: StraightButtonPropsType) => {
     );
 };
 
-const Wrap = styled.div`
+const Wrap = styled.div<{meow: ThemeObjectType}>`
   display: flex;
   cursor: pointer;
   
@@ -33,14 +37,14 @@ const Wrap = styled.div`
     justify-content: center;
   }
 `
-const Links = styled(Link)`
+const Links = styled(Link)<{meow: ThemeObjectType}>`
   display: flex;
   align-items: center;
   justify-content: center;
   column-gap: 9px;
-  background: ${theme.colors.link};
+  background: ${({meow}) =>meow.colors.link};
   padding: 16px 32px;
-  color: ${theme.colors.headerText};
+  color: ${({meow}) =>meow.colors.headerText};
   border-radius: 5px;
   text-transform: uppercase;
   font-weight: 500;
@@ -50,9 +54,9 @@ const Links = styled(Link)`
   align-self: flex-start;
 
   &:hover {
-    border: 2px solid ${theme.colors.primary};
-    background-color: ${theme.colors.background};
-    transition: ${theme.animation.transitionBackground};
+    border: 2px solid ${({meow}) =>meow.colors.primary};
+    background-color: ${({meow}) =>meow.colors.backgroundColorSection};
+    transition: ${({meow}) =>meow.animation.transitionBackground};
   }
 
   @media screen and (max-width: 1156px) {

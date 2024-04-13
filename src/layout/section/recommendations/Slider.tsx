@@ -114,7 +114,6 @@ export const Slider = () => (
                 autoPlayStrategy="none"
                 autoPlayInterval={1500}
                 animationDuration={1500}
-                // animationType="fadeout"
                 infinite
                 touchTracking={false}
                 disableButtonsControls
@@ -125,21 +124,4 @@ export const Slider = () => (
 );
 
 const RecommendationsStyled = styled.section`
-  //max-width: 1600px;
-  //height: 620px;
-  //position: relative;
-  //width: 100%;
-  //top: 0;
-  //left: 0;
-  //overflow: hidden;
-
-  //@media screen and (max-width: 800px) {  
-  //  height: 600px;
-  //}
-  //@media screen and (max-width: 500px) {
-  //  height: 520px;
-  //}
-  //@media screen and (max-width: 435px) {
-  //  height: 540px;
-  //}
 `

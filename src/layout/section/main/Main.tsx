@@ -2,7 +2,7 @@ import React from 'react';
 import styled from "styled-components";
 import img1 from '../../../assets/img/section/main/mainImg.webp';
 import img1x from "../../../assets/img/section@2x/main/mainImg_@2x.webp";
-import {FlexWrapper} from "../../../components/FlexWrapper";
+import {FlexWrapper, FlexWrapperStyled} from "../../../components/FlexWrapper";
 import {StraightLink} from "../../../components/StraightLink";
 import Typewriter from 'typewriter-effect';
 import {Fade} from "react-awesome-reveal";
@@ -14,17 +14,19 @@ import img5 from '../../../assets/img/section/main/decoration/4.svg';
 import img6 from '../../../assets/img/section/main/decoration/5.svg';
 import img7 from '../../../assets/img/section/main/decoration/6.svg';
 import img8 from '../../../assets/img/section/main/decoration/8.svg';
+import {ThemeObjectType} from "../../../styles/ColorSheme";
 export const AboutMe = () => {
+
     const { meow } = useTheme();
+
     return (
         <Fade cascade damping={.9}>
-            <MainSection theme={meow}>
+            <MainSection meow={meow}>
                 <FlexWrapper align={"center"}
                              justify={"space-around"}
                              padding={"30px 50px 0 50px"}
                              >
                     <FlexWrapperDiw>
-
                         <Fade direction={"down"}>
                             <TextTitle theme={meow}>I’m Rayan Adlrdard
                                 <p>I’m Rayan Adlrdard <span>Front-end</span> Developer</p>
@@ -67,9 +69,9 @@ const FlexWrapperDiw = styled.div`
     align-self: center;
   }
 `
-const MainSection = styled.section`
+const MainSection = styled.section<{meow: ThemeObjectType}>`
 
-  ${FlexWrapper}:first-child {
+  ${FlexWrapperStyled}:first-child {
     background: url("${img2}") top 5% left 3% no-repeat,
     url("${img3}") top 10% left 55% no-repeat,
     url("${img4}") top 23% right 2% no-repeat,
@@ -77,23 +79,23 @@ const MainSection = styled.section`
     url("${img6}") bottom 22% left 40% no-repeat,
     url("${img7}") bottom 10% left 58% no-repeat,
     url("${img8}") bottom 7% right 2% no-repeat;
-    background-color: ${ ({theme}) => theme.colors.backgroundColorSection};
+    background-color: ${({meow}) => meow.colors.backgroundColorSection};
   }
 
   @media screen and (max-width: 1156px) {
-    ${FlexWrapper} {
+    ${FlexWrapperStyled} {
       flex: 0 0 100%;
       justify-content: center;
       text-align: center;
       padding: 5px 5px 0 5px;
     }
   }
+  
   @media screen and (max-width: 1271px) {
-    ${FlexWrapper} {
+    ${FlexWrapperStyled} {
       align-items: flex-end;
     }
   }
-
 `
 const TextTitle = styled.h1`
   p {

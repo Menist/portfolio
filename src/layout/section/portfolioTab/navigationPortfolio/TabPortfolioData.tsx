@@ -2,6 +2,8 @@ import React from 'react';
 import styled from "styled-components";
 import {theme} from "../../../../styles/Theme";
 import {Fade} from "react-awesome-reveal";
+import {useTheme} from "../../../../ThemeProvider";
+import {ThemeObjectType} from "../../../../styles/ColorSheme";
 
 const items = [
     {
@@ -36,8 +38,9 @@ const items = [
     }
 ]
 export const MenuTab = ({changeFilter}: { changeFilter: (filter: string) => void }) => {
+    const { meow } = useTheme();
     return (
-        <StyledMenu>
+        <StyledMenu meow={meow}>
             <nav>
                 <ul>
                     <Fade cascade={true} damping={.2}>
@@ -52,7 +55,7 @@ export const MenuTab = ({changeFilter}: { changeFilter: (filter: string) => void
         </StyledMenu>
     );
 };
-const StyledMenu = styled.div`
+const StyledMenu = styled.div<{meow: ThemeObjectType}>`
 
   nav {
     display: flex;
@@ -68,14 +71,14 @@ const StyledMenu = styled.div`
     }
 
     button {
-      color: ${theme.colors.headerText};
+      color: ${({meow}) =>meow.colors.headerText};
       cursor: pointer;
       font-size: 18px;
 
 
       &:hover {
-        color: ${theme.colors.primary};
-        transition: ${theme.animation.transitionWidth};
+        color: ${({meow}) =>meow.colors.primary};
+        transition: ${({meow}) =>meow.colors.primary};
       }
     }
 
@@ -90,7 +93,7 @@ const StyledMenu = styled.div`
         font-size: 18px;
 
         &:hover {
-          border-bottom-color: ${theme.colors.primary};
+          border-bottom-color: ${({meow}) =>meow.colors.primary};
         }
 
         li {
@@ -102,23 +105,23 @@ const StyledMenu = styled.div`
       cursor: grab;
       overflow-x: scroll;
       padding-bottom: 10px;
-      color: ${theme.colors.primary};
+      color: ${({meow}) =>meow.colors.primary};
+      
       max-width: calc(98vw - 60px);
 
       &::-webkit-scrollbar {
         height: 5px;
-        border: 1px solid ${theme.colors.accent};
+        border: 1px solid ${({meow}) =>meow.colors.accent};
         border-radius: 30px;
       }
 
       &::-webkit-scrollbar-thumb {
         border-radius: 30px;
-        background-color: ${theme.colors.primary};
+        background-color: ${({meow}) =>meow.colors.primary};
       }
 
       ul {
         justify-content: flex-start;
-
       }
     }
     @media screen and (max-width: 395px) {

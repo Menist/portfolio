@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from "styled-components";
 import {BlogCard} from "./card/BlogCard";
-import {FlexWrapper} from "../../../components/FlexWrapper";
+import {FlexWrapper, FlexWrapperStyled} from "../../../components/FlexWrapper";
 import {BlockTitle} from "../../../components/SectionTitle/BlockTitle";
 import img1 from "../../../assets/img/section/blog/blog01.webp";
 import img1x from "../../../assets/img/section@2x/blog/blog1_@2x.webp";
@@ -38,10 +38,10 @@ const blogData = [
 export const Blog = () => {
     return (
         <Fade cascade damping={.9}>
-        <BlogSection id={'blog'}>
-            <BlockTitle title={'blog'}
-                        subTitle={"Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. lorem ipsum"}></BlockTitle>
-            <FlexWrapper className={'animate__fadeIn'} justify={"space-between"}>
+            <BlogSection id={'blog'}>
+                <BlockTitle title={'blog'}
+                            subTitle={"Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. lorem ipsum"}></BlockTitle>
+                <FlexWrapper justify={"space-between"}>
 
                     {blogData.map((blogItem, index) => (
                         <BlogCard
@@ -52,23 +52,20 @@ export const Blog = () => {
                             text={blogItem.text}
                             textLink={blogItem.textLink}
                         />
-
                     ))}
-            </FlexWrapper>
-        </BlogSection>
+                </FlexWrapper>
+            </BlogSection>
         </Fade>
     );
 };
 
 const BlogSection = styled.section`
-  ${FlexWrapper} {
+  ${FlexWrapperStyled} {
     @media screen and (max-width: 989px) {
       justify-content: center;
       flex: 0 0 100%;
     }
   }
-
-
 
   @media screen and (max-width: 885px) {
     max-width: 65%;
@@ -78,7 +75,7 @@ const BlogSection = styled.section`
   @media screen and (max-width: 885px) {
     max-width: 80%;
   }
-  
+
   @media screen and (max-width: 556px) {
     max-width: 100%;
   }

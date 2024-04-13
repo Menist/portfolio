@@ -1,7 +1,7 @@
 import React from 'react';
 import {Form} from "./formElement/Form";
 import styled from "styled-components";
-import {FlexWrapper} from "../../../components/FlexWrapper";
+import {FlexWrapper, FlexWrapperStyled} from "../../../components/FlexWrapper";
 import {Contact} from "./formElement/Contact";
 import {Fade} from "react-awesome-reveal";
 
@@ -50,7 +50,7 @@ const GeneralFormFileSection = styled.section`
   margin-top: 70px;
 
   @media screen and (max-width: 1209px) {
-    ${FlexWrapper} {
+    ${FlexWrapperStyled} {
       flex: 1 0 100%;
     }
   }

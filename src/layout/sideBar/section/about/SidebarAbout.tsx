@@ -3,7 +3,6 @@ import {FlexWrapper} from "../../../../components/FlexWrapper";
 import styled from "styled-components";
 import {SidebarAboutContent} from "./SidebarAboutContent";
 import {theme} from "../../../../styles/Theme";
-import {SidebarLine} from "../../../../components/SidebarLine";
 
 export const SidebarAbout = () => {
     return (
@@ -26,9 +25,10 @@ export const SidebarAbout = () => {
                     <SidebarAboutContent text={"Dhaka,Bangladesh"}></SidebarAboutContent>
                 </FlexWrapper>
             </FlexWrapper>
-            <SidebarLine></SidebarLine>
         </AboutStyled>
     );
 };
-const AboutStyled = styled.div``
+const AboutStyled = styled.div`
+border-bottom: 1px solid #F0F0F6;
+`
 

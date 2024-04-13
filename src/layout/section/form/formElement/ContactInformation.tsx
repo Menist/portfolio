@@ -1,7 +1,9 @@
 import React from 'react';
 import styled from "styled-components";
-import {FlexWrapper} from "../../../../components/FlexWrapper";
+import {FlexWrapper, FlexWrapperStyled} from "../../../../components/FlexWrapper";
 import {Icon} from "../../../../components/icon/Icon";
+import {ThemeObjectType} from "../../../../styles/ColorSheme";
+import {useTheme} from "../../../../ThemeProvider";
 
 type ContactInformationPropsType = {
     country: string
@@ -15,10 +17,12 @@ type ContactInformationPropsType = {
 }
 
 export const ContactInformation = (props: ContactInformationPropsType) => {
+    const { meow } = useTheme();
+
     return (
         <ContactInformationSection>
             {props.showTitleInfo ? <TitleInfo>Contact information</TitleInfo> : null}
-            <ContactInformationCard>
+            <ContactInformationCard meow={meow}>
                 <FlexWrapper justify={"center"} padding={"0 0 30px 0"}>
                     <Icon iconId={props.iconId} width={"40"} height={"40"}/>
                 </FlexWrapper>
@@ -42,17 +46,17 @@ export const ContactInformation = (props: ContactInformationPropsType) => {
         </ContactInformationSection>
     );
 };
-const ContactInformationCard = styled.div`
-  background-color: #ffff;
+const ContactInformationCard = styled.div<{meow: ThemeObjectType}>`
+  background-color: ${({meow}) =>meow.colors.backgroundColorSection};
   padding: 25px;
   
 @media screen and (max-width: 1235px) {
-  ${FlexWrapper} {
+  ${FlexWrapperStyled} {
     background-color: #F0F0F6;
   }
 }
   @media screen and (max-width: 1091px) {
-    ${FlexWrapper} {
+    ${FlexWrapperStyled} {
       justify-content: flex-start;
        svg{
          justify-content: center;
@@ -77,15 +81,13 @@ const ContactInformationSection = styled.div`
   @media screen and (max-width: 3000px) {
     max-width: 500px;
   }
-  //@media screen and (max-width: 1100px) {
-  //  max-width: 100%;
-  //}
+
   @media screen and (max-width: 1091px) {
-    ${FlexWrapper} {
+    ${FlexWrapperStyled} {
     svg{
       margin: 10px 0;
     }
-      ${FlexWrapper} {
+      ${FlexWrapperStyled} {
         flex-direction: row;
         justify-content: center;
       }
@@ -94,8 +96,8 @@ const ContactInformationSection = styled.div`
 
 
   @media screen and (max-width: 1066px) {
-    ${FlexWrapper} {
-      ${FlexWrapper} {
+    ${FlexWrapperStyled} {
+      ${FlexWrapperStyled} {
         padding-top: 0;
       }
     }

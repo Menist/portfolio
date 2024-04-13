@@ -2,6 +2,7 @@ import React from 'react';
 import styled from "styled-components";
 import {theme} from "../../../../styles/Theme";
 import {useTheme} from "../../../../ThemeProvider";
+import {ThemeObjectType} from "../../../../styles/ColorSheme";
 
 type InputFormPropsType={
     labelName:string
@@ -11,12 +12,12 @@ type InputFormPropsType={
     name: string;
 }
 export const TextareaStyled = (props: InputFormPropsType) => {
-    const { theme } = useTheme();
+    const { meow } = useTheme();
 
     return (
         <TextareaForm>
             <Label id={props.id}>{props.labelName}</Label>
-            <Textarea required name={props.name} placeholder={props.placeholder} id={props.id} theme={theme}/>
+            <Textarea required name={props.name} placeholder={props.placeholder} id={props.id} meow={meow}/>
             {props.children}
         </TextareaForm>
     );
@@ -26,14 +27,13 @@ const Label = styled.label`
   width: 100%;
   padding: 20px 0 10px 0;
 `
-const Textarea = styled.textarea`
+const Textarea = styled.textarea<{meow: ThemeObjectType}>`
   width: 100%;
   min-height: 210px;
   resize: none;
-  //background-color:#F0F0F6;
-  background-color: ${({ theme }) => theme === 'dark' ? '#1E1E1E' : '#F0F0F6'};
+  background-color: ${({meow}) =>meow.colors.backgroundWebsite};
   border: none;
-  outline-color: ${theme.colors.mainText};
+  outline-color: ${({meow}) =>meow.colors.mainText};
   &:not(:focus)::placeholder{
     opacity: 1;
     transition: opacity .7s ease;
