@@ -1,4 +1,7 @@
-import styled, {CSSProperties} from "styled-components";
+import styled, {CSSProperties, ThemedStyledFunction} from "styled-components";
+import {FC, PropsWithChildren, ReactNode} from "react";
+import {ThemeObjectType} from "../styles/ColorSheme";
+import {useTheme} from "../ThemeProvider";
 
 type FlexWrapperPropsType = {
     direction?: CSSProperties['flexDirection']
@@ -13,7 +16,12 @@ type FlexWrapperPropsType = {
     width?: CSSProperties['width']
     minWidth?: CSSProperties['minWidth']
 }
-export const FlexWrapper = styled.div<FlexWrapperPropsType>`
+
+export const FlexWrapper: FC<FlexWrapperPropsType & {children: ReactNode}> = (props) => {
+    const { meow } = useTheme();
+    return <FlexWrapperStyled meow={meow}{...props}/>
+}
+export const FlexWrapperStyled = styled.div<FlexWrapperPropsType & {meow:ThemeObjectType}>`
   display: flex;
   flex-direction: ${props => props.direction || "row"};
   justify-content: ${props => props.justify || "flex-start"};
@@ -22,6 +30,8 @@ export const FlexWrapper = styled.div<FlexWrapperPropsType>`
   gap: ${props => props.gap || "20px"};
   flex: ${props => props.flex || "0 0 auto"};
   background-color: ${props => props.color || "inherit"};
+  //background-color: ${({meow}) => meow.colors.backgroundWebsite || "inherit"};
+  
   padding: ${props => props.padding || "0 0 0 0"};
   max-width: ${props => props.maxWidth || "none"};
   width: ${props => props.width || "none"};
