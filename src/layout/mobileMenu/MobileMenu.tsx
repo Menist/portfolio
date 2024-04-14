@@ -7,26 +7,26 @@ import {useTheme} from "../../ThemeProvider";
 
 
 export const MobileMenu = () => {
-    const { meow } = useTheme();
+    const { themeObj } = useTheme();
 
     const [menuIsOpen, setMenuIsOpen] = useState(false)
     const onBurgerBtnClick = () => {
         setMenuIsOpen(prev => !prev)
     }
     return (
-        <StyledMobileMenu meow={meow} isOpen={menuIsOpen}>
-            <BurgerBtn meow={meow} isOpen={menuIsOpen} onClick={onBurgerBtnClick}>
+        <StyledMobileMenu themeObj={themeObj} isOpen={menuIsOpen}>
+            <BurgerBtn themeObj={themeObj} isOpen={menuIsOpen} onClick={onBurgerBtnClick}>
                 <span></span>
             </BurgerBtn>
-                <MobileMenuPopup meow={meow} isOpen={menuIsOpen} onClick={()=>{setMenuIsOpen(false)}}>
+                <MobileMenuPopup themeObj={themeObj} isOpen={menuIsOpen} onClick={()=>{setMenuIsOpen(false)}}>
                         <Menu></Menu>
                 </MobileMenuPopup>
         </StyledMobileMenu>
     );
 };
-const MobileMenuPopup = styled.div<{ isOpen: boolean, meow: ThemeObjectType }>`
+const MobileMenuPopup = styled.div<{ isOpen: boolean, themeObj: ThemeObjectType }>`
   
-  ${props => props.isOpen && css<{ isOpen: boolean, meow: ThemeObjectType }>`
+  ${props => props.isOpen && css<{ isOpen: boolean, themeObj: ThemeObjectType }>`
     position: fixed;
     background-color: rgba(37, 37, 37, 0.79);
     top: 0;
@@ -42,7 +42,7 @@ const MobileMenuPopup = styled.div<{ isOpen: boolean, meow: ThemeObjectType }>`
     opacity: 0;
   `}
 `
-const BurgerBtn = styled.button<{ isOpen: boolean, meow: ThemeObjectType }>`
+const BurgerBtn = styled.button<{ isOpen: boolean, themeObj: ThemeObjectType }>`
   position: fixed;
   top: 5px;
   right: 3px;
@@ -51,10 +51,10 @@ const BurgerBtn = styled.button<{ isOpen: boolean, meow: ThemeObjectType }>`
   text-align: center;
   z-index: 100;
   cursor: pointer;
-  background-color: ${({meow}) =>meow.colors.accent};
+  background-color: ${({themeObj}) =>themeObj.colors.accent};
   border: 2px solid transparent;
   border-radius: 3px;
-  transition: ${({meow}) =>meow.animation.transitionAll};
+  transition: ${({themeObj}) =>themeObj.animation.transitionAll};
 
   ${props => props.isOpen && css<{ isOpen: boolean }>`
     z-index: 106;
@@ -67,14 +67,14 @@ const BurgerBtn = styled.button<{ isOpen: boolean, meow: ThemeObjectType }>`
     left: 8px;
     bottom: 22px;
     display: block;
-    background-color: ${({meow}) =>meow.colors.headerText};
+    background-color: ${({themeObj}) =>themeObj.colors.headerText};
     cursor: pointer;
     transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
 
-    ${props => props.isOpen && css<{ isOpen: boolean, meow: ThemeObjectType }>`
-      background-color: ${({meow}) =>meow.colors.headerText};
+    ${props => props.isOpen && css<{ isOpen: boolean, themeObj: ThemeObjectType }>`
+      background-color: ${({themeObj}) =>themeObj.colors.headerText};
       transform: rotate(507deg);
-      background-color: ${({meow}) =>meow.colors.headerText};
+      background-color: ${({themeObj}) =>themeObj.colors.headerText};
     `}
     &::before {
       content: "";
@@ -82,7 +82,7 @@ const BurgerBtn = styled.button<{ isOpen: boolean, meow: ThemeObjectType }>`
       display: block;
       width: 100%;
       height: 100%;
-      background-color: ${({meow}) =>meow.colors.headerText};
+      background-color: ${({themeObj}) =>themeObj.colors.headerText};
       top: -10px;
       transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
       z-index: 9999;
@@ -100,29 +100,29 @@ const BurgerBtn = styled.button<{ isOpen: boolean, meow: ThemeObjectType }>`
       display: block;
       width: 100%;
       height: 100%;
-      background-color: ${({meow}) =>meow.colors.headerText};
+      background-color: ${({themeObj}) =>themeObj.colors.headerText};
       bottom: -10px;
 
-      ${props => props.isOpen && css<{ isOpen: boolean, meow: ThemeObjectType}>`
+      ${props => props.isOpen && css<{ isOpen: boolean, themeObj: ThemeObjectType}>`
         transform: rotate(425deg);
-        background-color: ${({meow}) =>meow.colors.primary};
+        background-color: ${({themeObj}) =>themeObj.colors.primary};
         bottom: 0;
       `}
     }
   }
 
   &:hover {
-    border: 2px solid ${({meow}) =>meow.colors.primary};
-    background-color: ${({meow}) =>meow.colors.backgroundColorSection};
+    border: 2px solid ${({themeObj}) =>themeObj.colors.primary};
+    background-color: ${({themeObj}) =>themeObj.colors.backgroundColorSection};
     border-radius: 3px;
   }
 `
-const StyledMobileMenu = styled.nav<{ isOpen: boolean, meow: ThemeObjectType }>`
+const StyledMobileMenu = styled.nav<{ isOpen: boolean, themeObj: ThemeObjectType }>`
   text-transform: capitalize;
   display: none;
 
   a {
-    color: ${({meow}) =>meow.colors.primary};
+    color: ${({themeObj}) =>themeObj.colors.primary};
     position: relative;
 
     &:after {
@@ -131,7 +131,7 @@ const StyledMobileMenu = styled.nav<{ isOpen: boolean, meow: ThemeObjectType }>`
       left: 0;
       width: 0;
       height: 2px;
-      background-color: ${({meow}) =>meow.colors.primary};
+      background-color: ${({themeObj}) =>themeObj.colors.primary};
       content: "";
       transition: .5s .2s ease-in-out;
     }
@@ -155,7 +155,7 @@ const StyledMobileMenu = styled.nav<{ isOpen: boolean, meow: ThemeObjectType }>`
       transition: .25s 0s ease-in-out;
 
       &:hover {
-        border-bottom-color: ${({meow}) =>meow.colors.primary};
+        border-bottom-color: ${({themeObj}) =>themeObj.colors.primary};
       }
 
       li {

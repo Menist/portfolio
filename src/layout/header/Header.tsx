@@ -8,9 +8,9 @@ import {useTheme} from "../../ThemeProvider";
 import {ThemeObjectType} from "../../styles/ColorSheme";
 
 export const Header = () => {
-    const { meow } = useTheme();
+    const { themeObj } = useTheme();
     return (
-        <StyledHeader id={'home'} meow={meow}>
+        <StyledHeader id={'home'} themeObj={themeObj}>
             <MobileMenu />
             <FlexWrapper justify={"flex-start"}
                          align={"center"}
@@ -21,17 +21,17 @@ export const Header = () => {
         </StyledHeader>
     );
 };
-const StyledHeader = styled.header<{meow: ThemeObjectType}>`
+const StyledHeader = styled.header<{themeObj: ThemeObjectType}>`
   position: relative;
   ${FlexWrapperStyled} {
-    background-color: ${({meow}) =>meow.colors.backgroundColorSection};
-    border-bottom: 2px solid ${({meow}) =>meow.colors.backgroundWebsite};
+    background-color: ${({themeObj}) =>themeObj.colors.backgroundColorSection};
+    border-bottom: 2px solid ${({themeObj}) =>themeObj.colors.backgroundWebsite};
   }
 
   &::after {
     content: "";
     display: block;
-    background-color: ${({meow}) =>meow.colors.backgroundColorSection};
+    background-color: ${({themeObj}) =>themeObj.colors.backgroundColorSection};
     height: 1px;
   }
 

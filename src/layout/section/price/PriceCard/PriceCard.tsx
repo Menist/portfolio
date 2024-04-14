@@ -2,7 +2,6 @@ import React from 'react';
 import styled from "styled-components";
 import {Icon} from "../../../../components/icon/Icon";
 import {FlexWrapper, FlexWrapperStyled} from "../../../../components/FlexWrapper";
-import {theme} from "../../../../styles/Theme";
 import {PriceCardBtn} from "../PriceCardBtn";
 import {Fade} from "react-awesome-reveal";
 import {useTheme} from "../../../../ThemeProvider";
@@ -20,12 +19,12 @@ type PriceCardPropType = {
 }
 
 export const PriceCard = (props: PriceCardPropType) => {
-    const { meow } = useTheme();
+    const { themeObj } = useTheme();
     return (
-        <PriceCardStyled meow={meow}>
+        <PriceCardStyled themeObj={themeObj}>
             <Fade direction={"up"}>
                 <PlansName>{props.name}</PlansName>
-                <PlansPrice meow={meow}>{props.price}
+                <PlansPrice themeObj={themeObj}>{props.price}
                     <span>{props.span}</span>
                 </PlansPrice>
                 <PlansDescription>{props.description}</PlansDescription>
@@ -53,8 +52,8 @@ export const PriceCard = (props: PriceCardPropType) => {
 
     );
 };
-const PriceCardStyled = styled.div<{meow: ThemeObjectType}>`
-  background-color: ${({meow}) =>meow.colors.backgroundColorSection};
+const PriceCardStyled = styled.div<{themeObj: ThemeObjectType}>`
+  background-color: ${({themeObj}) =>themeObj.colors.backgroundColorSection};
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -77,14 +76,14 @@ const PriceCardStyled = styled.div<{meow: ThemeObjectType}>`
     content: "most popular";
     width: 100%;
     display: inline-block;
-    background-color: ${({meow}) =>meow.colors.primary};
+    background-color: ${({themeObj}) =>themeObj.colors.primary};
     padding: 5px 0;
     font-size: 15px;
     position: absolute;
     left: 0;
     top: 0;
     text-transform: capitalize;
-    color: ${({meow}) =>meow.colors.headerText};
+    color: ${({themeObj}) =>themeObj.colors.headerText};
     text-align: center;
   }
 
@@ -132,14 +131,14 @@ const PlansName = styled.h3`
   font-weight: 600;
   text-transform: capitalize;
 `
-const PlansPrice = styled.span<{meow: ThemeObjectType}>`
+const PlansPrice = styled.span<{themeObj: ThemeObjectType}>`
   font-size: 32px;
   font-weight: 700;
-  color: ${({meow}) =>meow.colors.headerText};
+  color: ${({themeObj}) =>themeObj.colors.headerText};
   
 
   > span {
-    font-size: ${({meow}) =>meow.text.textSize};
+    font-size: ${({themeObj}) =>themeObj.text.textSize};
     font-weight: 400;
     text-transform: capitalize;
     padding-left: 10px;

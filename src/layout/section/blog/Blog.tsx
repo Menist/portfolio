@@ -10,7 +10,7 @@ import img2x from "../../../assets/img/section@2x/blog/blog2_@2x.webp";
 import img3 from "../../../assets/img/section/blog/blog03.webp";
 import img3x from "../../../assets/img/section@2x/blog/blog3_@2x.webp";
 import {Fade} from "react-awesome-reveal";
-import 'animate.css';
+// import {AnimatePresence, motion} from "framer-motion"
 
 const blogData = [
     {
@@ -42,17 +42,37 @@ export const Blog = () => {
                 <BlockTitle title={'blog'}
                             subTitle={"Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. lorem ipsum"}></BlockTitle>
                 <FlexWrapper justify={"space-between"}>
+                    {/*<AnimatePresence>*/}
 
-                    {blogData.map((blogItem, index) => (
-                        <BlogCard
-                            key={index}
-                            src={blogItem.src}
-                            srcSet={blogItem.srcSet}
-                            title={blogItem.title}
-                            text={blogItem.text}
-                            textLink={blogItem.textLink}
-                        />
-                    ))}
+                        {blogData.map((blogItem, index) => (
+                            // <motion.div
+                            //     style={
+                            //         {
+                            //             display: "flex",
+                            //             flex: '0 0 31.5%',
+                            //             justifyContent: 'spaceBetween',
+                            //             flexDirection: 'column',
+                            //             flexWrap: 'nowrap'
+                            //         }
+                            //     }
+                            //     layout
+                            //     initial={{opacity: 0, scale: .2}}
+                            //     animate={{opacity: 1, scale: 1}}
+                            //     transition={{ease: "linear", duration: 1}}
+                            //     key={index}
+                            // >
+                                <BlogCard
+                                    key={index}
+                                    src={blogItem.src}
+                                    srcSet={blogItem.srcSet}
+                                    title={blogItem.title}
+                                    text={blogItem.text}
+                                    textLink={blogItem.textLink}
+                                />
+                            // </motion.div>
+                        ))}
+                    {/*</AnimatePresence>*/}
+
                 </FlexWrapper>
             </BlogSection>
         </Fade>
@@ -61,22 +81,14 @@ export const Blog = () => {
 
 const BlogSection = styled.section`
   ${FlexWrapperStyled} {
-    @media screen and (max-width: 989px) {
+    @media screen and (max-width: 1290px) {
+      flex: 0 0 80%;
+    }
+    @media screen and (max-width: 1170px) {
+      flex: 0 0 80%;
       justify-content: center;
-      flex: 0 0 100%;
     }
   }
 
-  @media screen and (max-width: 885px) {
-    max-width: 65%;
-    margin: 0 auto;
-  }
-
-  @media screen and (max-width: 885px) {
-    max-width: 80%;
-  }
-
-  @media screen and (max-width: 556px) {
-    max-width: 100%;
-  }
+  
 `

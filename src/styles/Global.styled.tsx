@@ -11,7 +11,7 @@ export const GlobalStyle = ({children}: any) => {
 };
 
 
-export const GlobalStyled = createGlobalStyle<{ meow: any }>`
+export const GlobalStyled = createGlobalStyle<{ themeObj: any }>`
   *,
   *::before,
   *::after {
@@ -22,40 +22,40 @@ export const GlobalStyled = createGlobalStyle<{ meow: any }>`
 
   & {
     scrollbar-width: thin;
-    scrollbar-color: ${({ meow }) => meow.colors.primary};
+    scrollbar-color: ${({ themeObj }) => themeObj.colors.primary};
   }
 
   &::-webkit-scrollbar {
     width: 5px;
-    border:${({ meow }) => meow.colors.accent}
+    border:${({ themeObj }) => themeObj.colors.accent}
     border-radius: 30px;
   }
 
   &::-webkit-scrollbar-thumb {
     border-radius: 30px;
-    background-color: ${({ meow }) => meow.colors.primary};
+    background-color: ${({ themeObj }) => themeObj.colors.primary};
  
   }
 
   &::-webkit-scrollbar-thumb:hover {
-    background-color: ${({ meow }) => meow.colors.accent};
+    background-color: ${({ themeObj }) => themeObj.colors.accent};
   }
 
   body {
     margin: 0;
-    color: ${({ meow }) => meow.colors.mainText};
-    background-color: ${({ meow }) => meow.colors.backgroundWebsite};
+    color: ${({ themeObj }) => themeObj.colors.mainText};
+    background-color: ${({ themeObj }) => themeObj.colors.backgroundWebsite};
 
     font-family: "Inter", -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-size: ${({ meow }) => meow.text.textSize};
+    font-size: ${({ themeObj }) => themeObj.text.textSize};
     
 
     p {
-      line-height: ${({ meow }) => meow.text.lineHeight};
+      line-height: ${({ themeObj }) => themeObj.text.lineHeight};
     }
   }
 
@@ -74,7 +74,7 @@ export const GlobalStyled = createGlobalStyle<{ meow: any }>`
 
   h1, h2, h3, h4, h5, h6 {
     font-weight: bold;
-    color: ${({ meow }) => meow.colors.headerText};
+    color: ${({ themeObj }) => themeObj.colors.headerText};
     
   }
 

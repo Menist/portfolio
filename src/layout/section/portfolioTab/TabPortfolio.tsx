@@ -18,6 +18,7 @@ import img6 from "../../../assets/img/section/portfolio/06.webp";
 import img6x from "../../../assets/img/section@2x/portfolio/portfolio6_@2x.webp";
 import {Fade} from "react-awesome-reveal";
 import {MenuTab} from "./navigationPortfolio/TabPortfolioData";
+import {AnimatePresence, motion} from "framer-motion"
 
 const projects = [
     {src: img1, type: 'spa', srcSet: img1x, overLay: img0, img: img0x},
@@ -44,20 +45,28 @@ export const TabPortfolio = () => {
                 <MenuTab changeFilter={setCurrentFilterStatus}/>
 
                 <Container>
-                    <Fade cascade={true} damping={.2}>
+                    <AnimatePresence>
                         {filteredProjects.map((project, index) => {
                             return (
-                                <TabCardPortfolio type={project.type}
-                                                  src={project.src}
-                                                  srcSet={img1x}
-                                                  overLay={img0}
-                                                  img={img0x}
-                                                  key={index}
-                                />
+                                <motion.div
+                                    layout
+                                    initial={{opacity: 0, scale: .2 }}
+                                    animate={{opacity: 1, scale: 1}}
+                                    transition={{ ease: "linear", duration: 1 }}
+                                    key={index}
+                                >
+                                    <TabCardPortfolio type={project.type}
+                                                      src={project.src}
+                                                      srcSet={img1x}
+                                                      overLay={img0}
+                                                      img={img0x}
+                                                      key={index}
+                                    />
+                                </motion.div>
                             )
-                        } )
+                        })
                         }
-                    </Fade>
+                    </AnimatePresence>
                 </Container>
             </PortfolioSection>
         </Fade>
@@ -74,11 +83,11 @@ const Container = styled.div`
   column-gap: 20px;
   row-gap: 20px;
   margin-top: 30px;
-  
+
   @media screen and (max-width: 1207px) {
     grid-template-columns: repeat(auto-fit, minmax(230px, .5fr));
-    
-  }  
+
+  }
   @media screen and (max-width: 1100px) {
     grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
   }

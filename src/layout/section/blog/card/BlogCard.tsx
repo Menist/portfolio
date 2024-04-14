@@ -3,6 +3,7 @@ import styled from "styled-components";
 import {CardLink} from "../../../../components/Link";
 import {useTheme} from "../../../../ThemeProvider";
 import {ThemeObjectType} from "../../../../styles/ColorSheme";
+import {motion} from "framer-motion";
 
 type BlogCardPropsType = {
     title: string
@@ -12,12 +13,12 @@ type BlogCardPropsType = {
     srcSet: string
 }
 export const BlogCard = (props: BlogCardPropsType) => {
-    const { meow } = useTheme();
+    const { themeObj } = useTheme();
 
     return (
-                <BlogCardStyled >
+                <BlogCardStyled>
                     <BlogCardImg image={props.src} srcSet={props.srcSet}/>
-                    <Wrapper meow={meow}>
+                    <Wrapper themeObj={themeObj}>
                         <BlogCardTitle >{props.title}</BlogCardTitle>
                         <BlogCardText>{props.text}</BlogCardText>
                         <CardLink link={"Lean more"}></CardLink>
@@ -26,7 +27,7 @@ export const BlogCard = (props: BlogCardPropsType) => {
     );
 };
 
-const BlogCardStyled = styled.div`
+const BlogCardStyled = styled(motion.div)`
   display: flex;
   justify-content: space-between;
   flex-direction: column;
@@ -37,23 +38,18 @@ const BlogCardStyled = styled.div`
     font-size: 18px;
   }
 
-  @media screen and (max-width: 1216px) {
+  @media screen and (max-width: 1420px) {
     flex: 0 0 48%;
   }
 
-  @media screen and (max-width: 989px) {
-    flex: 0 0 80%;
-    justify-content: center;
-  }
-  
-  @media screen and (max-width: 969px) {
-    flex: 0 0 100%;
-    justify-content: center;
+  @media screen and (max-width: 1170px) {
+    flex: 0 0 90%;
+    align-items: center;
   }
 `
-const Wrapper = styled.div<{meow: ThemeObjectType}>`
+const Wrapper = styled.div<{themeObj: ThemeObjectType}>`
   padding: 25px;
-  background-color: ${ ({meow}) => meow.colors.backgroundColorSection};
+  background-color: ${ ({themeObj}) => themeObj.colors.backgroundColorSection};
 
   a {
     display: inline-block;
@@ -62,6 +58,7 @@ const Wrapper = styled.div<{meow: ThemeObjectType}>`
 const BlogCardTitle = styled.h4`
   font-weight: 500;
   text-transform: capitalize;
+  white-space: nowrap
 `
 const BlogCardText = styled.p`
   font-weight: 400;

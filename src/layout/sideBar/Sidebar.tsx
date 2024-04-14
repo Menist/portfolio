@@ -13,18 +13,18 @@ type Props = {
     setMenuIsOpen: (menuIsOpen: boolean) => void
 }
 export const Sidebar = (props: Props) => {
-    const { meow } = useTheme();
+    const { themeObj } = useTheme();
     const onMobileSideBarClick = () => {
         props.setMenuIsOpen(!props.menuIsOpen);
     };
     return (
         <>
-            <BurgerBtn meow={meow} isOpen={props.menuIsOpen} onClick={onMobileSideBarClick}>
+            <BurgerBtn themeObj={themeObj} isOpen={props.menuIsOpen} onClick={onMobileSideBarClick}>
                 <span></span>
             </BurgerBtn>
 
-            <SidebarStyled meow={meow} isOpen={props.menuIsOpen}>
-                <Container meow={meow}>
+            <SidebarStyled themeObj={themeObj} isOpen={props.menuIsOpen}>
+                <Container themeObj={themeObj}>
                     <Main />
                     <SidebarAbout />
                     <LanguagesMain />
@@ -50,32 +50,32 @@ const OverLay = styled.div`
   z-index: -1;
   right: 0;
 `
-const SidebarStyled = styled.aside<{ isOpen: boolean, meow: ThemeObjectType }>`
+const SidebarStyled = styled.aside<{ isOpen: boolean, themeObj: ThemeObjectType }>`
   position: relative;
   left: ${props => !props.isOpen ? '-310px' : '0'};
-  transition:${({meow}) =>meow.animation.transitionAll};
+  transition:${({themeObj}) =>themeObj.animation.transitionAll};
   z-index: 100;
 
   @media screen and (max-width: 800px) {
     left: ${props => !props.isOpen ? '0' : '-310px'};
     position: fixed;
     height: 100%;
-    ${props => !props.isOpen && css<{ isOpen: boolean, meow: ThemeObjectType }>`
+    ${props => !props.isOpen && css<{ isOpen: boolean, themeObj: ThemeObjectType }>`
       background-color: rgba(37, 37, 37, 0.79);
       top: 0;
       right: 0;
       bottom: 0;
       backdrop-filter: blur(4px);
-      transition:${({meow}) =>meow.animation.transitionAll};
+      transition:${({themeObj}) =>themeObj.animation.transitionAll};
       z-index: 103;
     `}
   }
 `
-export const Container = styled.div<{meow: ThemeObjectType}>`
+export const Container = styled.div<{themeObj: ThemeObjectType}>`
   position: fixed;
   min-width: 310px;
   height: 100vh;
-  background-color: ${({meow}) =>meow.colors.backgroundColorSection};
+  background-color: ${({themeObj}) =>themeObj.colors.backgroundColorSection};
   padding: 50px 30px 25px 28px;
   overflow-y: scroll;
 
@@ -83,7 +83,7 @@ export const Container = styled.div<{meow: ThemeObjectType}>`
     padding: 25px 30px 25px 28px;
   }
 `
-const BurgerBtn = styled.button<{ isOpen: boolean, meow: ThemeObjectType }>`
+const BurgerBtn = styled.button<{ isOpen: boolean, themeObj: ThemeObjectType }>`
   position: fixed;
   z-index: 103;
   top: 5px;
@@ -92,7 +92,7 @@ const BurgerBtn = styled.button<{ isOpen: boolean, meow: ThemeObjectType }>`
   cursor: pointer;
   transform: ${(props) => props.isOpen ? 'translateX(290px)' : 'translateX(0px)'};
   width: 14px;
-  background-color: ${({meow}) =>meow.colors.primary};
+  background-color: ${({themeObj}) =>themeObj.colors.primary};
   transition: all .9s ease;
   border: 2px solid transparent;
   border-radius: 3px;
@@ -111,7 +111,7 @@ const BurgerBtn = styled.button<{ isOpen: boolean, meow: ThemeObjectType }>`
     position: absolute;
     left: 2px;
     bottom: 31px;
-    background-color:  ${({meow}) =>meow.colors.headerText};
+    background-color:  ${({themeObj}) =>themeObj.colors.headerText};
     cursor: pointer;
 
     &::before {
@@ -121,7 +121,7 @@ const BurgerBtn = styled.button<{ isOpen: boolean, meow: ThemeObjectType }>`
       width: 6px;
       height: 6px;
       border-radius: 5px;
-      background-color:  ${({meow}) =>meow.colors.headerText};
+      background-color:  ${({themeObj}) =>themeObj.colors.headerText};
       top: 10px;
     }
 
@@ -132,13 +132,13 @@ const BurgerBtn = styled.button<{ isOpen: boolean, meow: ThemeObjectType }>`
       width: 6px;
       height: 6px;
       border-radius: 5px;
-      background-color:  ${({meow}) =>meow.colors.headerText};
+      background-color:  ${({themeObj}) =>themeObj.colors.headerText};
       bottom: -20px;
     }
   }
   &:hover{
-    border: 2px solid  ${({meow}) =>meow.colors.primary};
-    background-color:  ${({meow}) =>meow.colors.backgroundColorSection};
+    border: 2px solid  ${({themeObj}) =>themeObj.colors.primary};
+    background-color:  ${({themeObj}) =>themeObj.colors.backgroundColorSection};
     border-radius: 3px;
   }
 `

@@ -17,18 +17,18 @@ import img8 from '../../../assets/img/section/main/decoration/8.svg';
 import {ThemeObjectType} from "../../../styles/ColorSheme";
 export const AboutMe = () => {
 
-    const { meow } = useTheme();
+    const { themeObj } = useTheme();
 
     return (
         <Fade cascade damping={.9}>
-            <MainSection meow={meow}>
+            <MainSection themeObj={themeObj}>
                 <FlexWrapper align={"center"}
                              justify={"space-around"}
                              padding={"30px 50px 0 50px"}
                              >
                     <FlexWrapperDiw>
                         <Fade direction={"down"}>
-                            <TextTitle theme={meow}>I’m Rayan Adlrdard
+                            <TextTitle theme={themeObj}>I’m Rayan Adlrdard
                                 <p>I’m Rayan Adlrdard <span>Front-end</span> Developer</p>
                                 <Typewriter
                                     options={{
@@ -69,7 +69,7 @@ const FlexWrapperDiw = styled.div`
     align-self: center;
   }
 `
-const MainSection = styled.section<{meow: ThemeObjectType}>`
+const MainSection = styled.section<{themeObj: ThemeObjectType}>`
   ${FlexWrapperStyled}:first-child {
     background: url("${img2}") top 5% left 3% no-repeat,
     url("${img3}") top 10% left 55% no-repeat,
@@ -78,7 +78,7 @@ const MainSection = styled.section<{meow: ThemeObjectType}>`
     url("${img6}") bottom 22% left 40% no-repeat,
     url("${img7}") bottom 10% left 58% no-repeat,
     url("${img8}") bottom 7% right 2% no-repeat;
-    background-color: ${({meow}) => meow.colors.backgroundColorSection};
+    background-color: ${({themeObj}) => themeObj.colors.backgroundColorSection};
   }
 
   @media screen and (max-width: 1156px) {

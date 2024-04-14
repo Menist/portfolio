@@ -28,11 +28,11 @@ const items = [
     }
 ]
 export const Menu = () => {
-    const { meow } = useTheme();
+    const { themeObj } = useTheme();
 
     return (
         <Fade cascade damping={.3}>
-        <StyledMenu meow={meow}>
+        <StyledMenu themeObj={themeObj}>
             <ul>
                 {items.map((item, index) => {
                     return <li key={index}>
@@ -53,7 +53,7 @@ export const Menu = () => {
 };
 
 const MenuLink = styled(Link)``
- const StyledMenu = styled.nav<{meow: ThemeObjectType}>
+ const StyledMenu = styled.nav<{themeObj: ThemeObjectType}>
      `
        
   text-transform: capitalize;
@@ -65,7 +65,7 @@ const MenuLink = styled(Link)``
     font-size: 18px;
 
     &:hover, &.active {
-      border-bottom-color: ${({meow}) =>meow.colors.primary};
+      border-bottom-color: ${({themeObj}) =>themeObj.colors.primary};
     }
 
     @media screen and (max-width: 820px) {
@@ -77,7 +77,7 @@ const MenuLink = styled(Link)``
   }
 
   a {
-    color: ${({meow}) =>meow.colors.primary};
+    color: ${({themeObj}) =>themeObj.colors.primary};
     position: relative;
     cursor: pointer;
 
@@ -88,8 +88,8 @@ const MenuLink = styled(Link)``
       left: 0;
       width: 0;
       height: 2px;
-      background-color: ${({meow}) =>meow.colors.primary};
-      transition: ${({meow}) =>meow.animation.transitionWidth};
+      background-color: ${({themeObj}) =>themeObj.colors.primary};
+      transition: ${({themeObj}) =>themeObj.animation.transitionWidth};
     }
 
     &:hover:after {
@@ -110,7 +110,7 @@ const MenuLink = styled(Link)``
       transition: .25s 0s ease-in-out;
 
       &:hover {
-        border-bottom-color: ${({meow}) =>meow.colors.primary};
+        border-bottom-color: ${({themeObj}) =>themeObj.colors.primary};
       }
 
       li {

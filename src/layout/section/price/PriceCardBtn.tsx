@@ -7,14 +7,14 @@ type CardBtnPropsType={
 }
 
 export const PriceCardBtn = (props: CardBtnPropsType) => {
-    const { meow }= useTheme()
+    const { themeObj }= useTheme()
     return (
-        <ButtonPriceCard meow={meow}>
+        <ButtonPriceCard themeObj={themeObj}>
             {props.textBtn}
         </ButtonPriceCard>
     );
 };
-const ButtonPriceCard=styled.button<{meow: ThemeObjectType}>`
+const ButtonPriceCard=styled.button<{themeObj: ThemeObjectType}>`
   max-width: 160px;
   padding: 10px 25px;
   border: none;
@@ -28,8 +28,8 @@ const ButtonPriceCard=styled.button<{meow: ThemeObjectType}>`
   font-size: 14px;
   
   &:hover{
-    background-color: ${({meow}) =>meow.colors.primary};
-    transition: ${({meow}) =>meow.animation.transitionBackground};
+    background-color: ${({themeObj}) =>themeObj.colors.primary};
+    transition: ${({themeObj}) =>themeObj.animation.transitionBackground};
     }
   }
 `

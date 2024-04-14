@@ -1,10 +1,9 @@
 import React from 'react';
 import styled, {CSSProperties} from "styled-components";
-import {theme} from "../../../../styles/Theme";
 import {FlexWrapper} from "../../../../components/FlexWrapper";
-import {Fade} from "react-awesome-reveal";
 import {useTheme} from "../../../../ThemeProvider";
 import {ThemeObjectType} from "../../../../styles/ColorSheme";
+import {Fade} from "react-awesome-reveal";
 
 type LanguagesFragmentPropsType = {
     textTitle: string;
@@ -13,41 +12,45 @@ type LanguagesFragmentPropsType = {
 }
 
 export const LanguagesFragment = (props: LanguagesFragmentPropsType) => {
-    const { meow } = useTheme();
+    const {themeObj} = useTheme();
 
     return (
-        <ProgressBar>
-            <FlexWrapper justify={"space-between"}>
-                <ProgressText meow={meow}>{props.textTitle}</ProgressText>
-                <ProgressText meow={meow}>{props.textProgress}</ProgressText>
-            </FlexWrapper>
-            <LanguagesProgress meow={meow}>
-                <Progress meow={meow} progress={props.progress}></Progress>
-            </LanguagesProgress>
-        </ProgressBar>
+        <Fade cascade damping={.9}>
+            <ProgressBar>
+                <FlexWrapper justify={"space-between"}>
+                    <ProgressText themeObj={themeObj}>{props.textTitle}</ProgressText>
+                    <ProgressText themeObj={themeObj}>{props.textProgress}</ProgressText>
+                </FlexWrapper>
+                <Fade cascade damping={.9}>
+                    <LanguagesProgress themeObj={themeObj}>
+                        <Progress themeObj={themeObj} progress={props.progress}></Progress>
+                    </LanguagesProgress>
+                </Fade>
+            </ProgressBar>
+        </Fade>
     );
 };
 const ProgressBar = styled.div`
   padding: 15px 0 10px;
 `
 
-const LanguagesProgress = styled.div<{meow: ThemeObjectType}>`
+const LanguagesProgress = styled.div<{ themeObj: ThemeObjectType }>`
   width: 100%;
   height: 100%;
-  border: 1px solid ${({meow}) =>meow.colors.primary};
+  border: 1px solid ${({themeObj}) => themeObj.colors.primary};
   border-radius: 30px;
   padding: 1px;
-  color: ${({meow}) =>meow.colors.primary};
+  color: ${({themeObj}) => themeObj.colors.primary};
 `
 const Progress = styled.div<
-    { progress: CSSProperties['width'], meow: ThemeObjectType}
+    { progress: CSSProperties['width'], themeObj: ThemeObjectType }
 >`
-  width: ${props=>props.progress || "0%"};
+  width: ${props => props.progress || "0%"};
   border-radius: 30px;
   height: 2px;
-  background-color: ${({meow}) =>meow.colors.primary};
+  background-color: ${({themeObj}) => themeObj.colors.primary};
   transition: width 0.3s ease-in-out;
-  --time: 3s; 
+  --time: 3s;
   transform-origin: left top;
   transform: scaleX(0);
   animation: scale var(--time) forwards;
@@ -62,7 +65,7 @@ const Progress = styled.div<
   }
 }
 `
-const ProgressText = styled.span <{meow: ThemeObjectType}>`
+const ProgressText = styled.span <{ themeObj: ThemeObjectType }>`
   padding-bottom: 5px;
-  color: ${({meow}) =>meow.colors.mainText};
+  color: ${({themeObj}) => themeObj.colors.mainText};
 `

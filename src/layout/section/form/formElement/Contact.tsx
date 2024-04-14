@@ -15,12 +15,12 @@ type ContactPropsType = {
     iconId: string
 }
 export const Contact = (props: ContactPropsType) => {
-    const { meow } = useTheme();
+    const { themeObj } = useTheme();
 
     return (
         <ContactInformatiosdasfn>
             {props.showTitleInfo ? <ContactTitle>Contact information</ContactTitle> : null}
-            <FlexWrapperFlexWrapper meow={meow}>
+            <FlexWrapperFlexWrapper themeObj={themeObj}>
                 <Icon iconId={props.iconId} width={"40"} height={"40"}/>
                 <Wrap>
                     <Adress>{props.country}</Adress>
@@ -38,14 +38,14 @@ export const Contact = (props: ContactPropsType) => {
         </ContactInformatiosdasfn>
     );
 };
-const FlexWrapperFlexWrapper = styled.div<{meow: ThemeObjectType}>`
+const FlexWrapperFlexWrapper = styled.div<{themeObj: ThemeObjectType}>`
   //direction={"column"} align={"center"} padding={"32px"} color={theme.colors.background}
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 20px;
   padding: 32px;
-  background-color: ${({meow}) =>meow.colors.backgroundColorSection};
+  background-color: ${({themeObj}) =>themeObj.colors.backgroundColorSection};
 `
 const ContactInformatiosdasfn = styled.div`
   max-width: 500px;

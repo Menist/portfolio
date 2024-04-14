@@ -17,12 +17,12 @@ type ContactInformationPropsType = {
 }
 
 export const ContactInformation = (props: ContactInformationPropsType) => {
-    const { meow } = useTheme();
+    const { themeObj } = useTheme();
 
     return (
         <ContactInformationSection>
             {props.showTitleInfo ? <TitleInfo>Contact information</TitleInfo> : null}
-            <ContactInformationCard meow={meow}>
+            <ContactInformationCard themeObj={themeObj}>
                 <FlexWrapper justify={"center"} padding={"0 0 30px 0"}>
                     <Icon iconId={props.iconId} width={"40"} height={"40"}/>
                 </FlexWrapper>
@@ -46,8 +46,8 @@ export const ContactInformation = (props: ContactInformationPropsType) => {
         </ContactInformationSection>
     );
 };
-const ContactInformationCard = styled.div<{meow: ThemeObjectType}>`
-  background-color: ${({meow}) =>meow.colors.backgroundColorSection};
+const ContactInformationCard = styled.div<{themeObj: ThemeObjectType}>`
+  background-color: ${({themeObj}) =>themeObj.colors.backgroundColorSection};
   padding: 25px;
   
 @media screen and (max-width: 1235px) {

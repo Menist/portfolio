@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from "styled-components";
-import {theme} from "../../../../styles/Theme";
 import {Fade} from "react-awesome-reveal";
 import {useTheme} from "../../../../ThemeProvider";
 import {ThemeObjectType} from "../../../../styles/ColorSheme";
@@ -38,9 +37,9 @@ const items = [
     }
 ]
 export const MenuTab = ({changeFilter}: { changeFilter: (filter: string) => void }) => {
-    const { meow } = useTheme();
+    const { themeObj } = useTheme();
     return (
-        <StyledMenu meow={meow}>
+        <StyledMenu themeObj={themeObj}>
             <nav>
                 <ul>
                     <Fade cascade={true} damping={.2}>
@@ -55,7 +54,7 @@ export const MenuTab = ({changeFilter}: { changeFilter: (filter: string) => void
         </StyledMenu>
     );
 };
-const StyledMenu = styled.div<{meow: ThemeObjectType}>`
+const StyledMenu = styled.div<{themeObj: ThemeObjectType}>`
 
   nav {
     display: flex;
@@ -71,14 +70,14 @@ const StyledMenu = styled.div<{meow: ThemeObjectType}>`
     }
 
     button {
-      color: ${({meow}) =>meow.colors.headerText};
+      color: ${({themeObj}) =>themeObj.colors.headerText};
       cursor: pointer;
       font-size: 18px;
 
 
       &:hover {
-        color: ${({meow}) =>meow.colors.primary};
-        transition: ${({meow}) =>meow.colors.primary};
+        color: ${({themeObj}) =>themeObj.colors.primary};
+        transition: ${({themeObj}) =>themeObj.colors.primary};
       }
     }
 
@@ -93,7 +92,7 @@ const StyledMenu = styled.div<{meow: ThemeObjectType}>`
         font-size: 18px;
 
         &:hover {
-          border-bottom-color: ${({meow}) =>meow.colors.primary};
+          border-bottom-color: ${({themeObj}) =>themeObj.colors.primary};
         }
 
         li {
@@ -105,19 +104,19 @@ const StyledMenu = styled.div<{meow: ThemeObjectType}>`
       cursor: grab;
       overflow-x: scroll;
       padding-bottom: 10px;
-      color: ${({meow}) =>meow.colors.primary};
+      color: ${({themeObj}) =>themeObj.colors.primary};
       
       max-width: calc(98vw - 60px);
 
       &::-webkit-scrollbar {
         height: 5px;
-        border: 1px solid ${({meow}) =>meow.colors.accent};
+        border: 1px solid ${({themeObj}) =>themeObj.colors.accent};
         border-radius: 30px;
       }
 
       &::-webkit-scrollbar-thumb {
         border-radius: 30px;
-        background-color: ${({meow}) =>meow.colors.primary};
+        background-color: ${({themeObj}) =>themeObj.colors.primary};
       }
 
       ul {

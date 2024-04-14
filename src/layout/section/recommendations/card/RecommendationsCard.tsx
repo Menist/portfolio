@@ -17,9 +17,9 @@ type RecommendationsCardStyledPropsType = {
 }
 
 export const RecommendationsCard = (props: RecommendationsCardStyledPropsType) => {
-    const { meow } = useTheme();
+    const { themeObj } = useTheme();
     return (
-        <RecommendationsCardFlexWrapper meow={meow}>
+        <RecommendationsCardFlexWrapper themeObj={themeObj}>
             <Icon iconId={props.icon} height={"17.37"} width={"18"}/>
             <Icon iconId={props.icon} height={"17.37"} width={"18"}/>
             <Icon iconId={props.icon} height={"17.37"} width={"18"}/>
@@ -40,12 +40,12 @@ export const RecommendationsCard = (props: RecommendationsCardStyledPropsType) =
 };
 
 
-const RecommendationsCardFlexWrapper=styled.div<{meow: ThemeObjectType}>`
+const RecommendationsCardFlexWrapper=styled.div<{themeObj: ThemeObjectType}>`
   display: flex;
   min-width: 290px;
   flex-wrap: wrap;
   padding: 25px;
-  background-color: ${({meow}) =>meow.colors.backgroundColorSection};
+  background-color: ${({themeObj}) =>themeObj.colors.backgroundColorSection};
   gap: 15px;
   align-items: stretch;
   margin-right: 20px;

@@ -5,27 +5,27 @@ import {useTheme} from "../../ThemeProvider";
 import {ThemeObjectType} from "../../styles/ColorSheme";
 
 export const Footer = () => {
-    const { meow } = useTheme();
+    const { themeObj } = useTheme();
 
     return (
         <Fade cascade damping={.3} >
-            <FooterSection meow={meow}>
+            <FooterSection themeObj={themeObj}>
                 <p><span>&#169;</span>2021 All Rights Reserved.Ojjomedia</p>
             </FooterSection>
         </Fade>
     );
 };
-const FooterSection = styled.footer<{meow: ThemeObjectType}>`
+const FooterSection = styled.footer<{themeObj: ThemeObjectType}>`
   p {
-    color:  ${({meow}) =>meow.colors.headerText};
-    background-color: ${({meow}) =>meow.colors.backgroundColorSection};
+    color:  ${({themeObj}) =>themeObj.colors.headerText};
+    background-color: ${({themeObj}) =>themeObj.colors.backgroundColorSection};
     padding-top: 18px;
     padding-bottom: 18px;
     text-align: center;
   }
 
   span {
-    color:  ${({meow}) =>meow.colors.primary};
+    color:  ${({themeObj}) =>themeObj.colors.primary};
     padding-right: 25px;
   }
 

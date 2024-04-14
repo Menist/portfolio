@@ -13,9 +13,9 @@ type ServicesCardPropsType = {
     link: string
 }
 export const ServicesCard = (props: ServicesCardPropsType) => {
-    const { meow } = useTheme();
+    const { themeObj } = useTheme();
     return (
-        <ServicesCardStyled meow ={meow }>
+        <ServicesCardStyled themeObj ={themeObj }>
             <Fade cascade damping={.2}>
             {props.iconId && <Icon iconId={props.iconId} height={"75"} width={"75"} viewBox={"0 0 75 75"}/>}
             <ServicesCardTitle>{props.title}</ServicesCardTitle>
@@ -27,9 +27,9 @@ export const ServicesCard = (props: ServicesCardPropsType) => {
     );
 };
 
-const ServicesCardStyled = styled.div<{meow: ThemeObjectType}>`
+const ServicesCardStyled = styled.div<{themeObj: ThemeObjectType}>`
   padding: 30px 25px 33px;
-  background-color: ${({meow}) =>meow.colors.backgroundColorSection};
+  background-color: ${({themeObj}) =>themeObj.colors.backgroundColorSection};
   display: flex;
   flex-direction: column;
   flex: 0 0 31.9%;

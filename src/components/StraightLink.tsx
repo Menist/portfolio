@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from "styled-components";
-import {theme} from "../styles/Theme";
 import {Icon} from "./icon/Icon";
 import {Link} from "react-scroll";
 import 'animate.css';
@@ -12,24 +11,24 @@ type StraightButtonPropsType = {
 };
 
 export const StraightLink = (props: StraightButtonPropsType) => {
-    const { meow } = useTheme();
+    const { themeObj } = useTheme();
     return (
-            <Wrap meow={meow}>
+            <Wrap themeObj={themeObj}>
                 <Links
                     to={'contacts'}
                     spy={true}
                     smooth={true}
-                    meow={meow}
+                    themeObj={themeObj}
                 >
                     {props.textBtn}
-                    <Icon iconId={"arrow"} width={"10.67"} height={"10.37"} viewBox={"0 0 10.67 10.37"}/>
+                    <Icon iconId={"arrow"} color={'currentColor'} width={"10.67"} height={"10.37"} viewBox={"0 0 10.67 10.37"}/>
                 </Links>
              </Wrap>
 
     );
 };
 
-const Wrap = styled.div<{meow: ThemeObjectType}>`
+const Wrap = styled.div<{themeObj: ThemeObjectType}>`
   display: flex;
   cursor: pointer;
   
@@ -37,14 +36,14 @@ const Wrap = styled.div<{meow: ThemeObjectType}>`
     justify-content: center;
   }
 `
-const Links = styled(Link)<{meow: ThemeObjectType}>`
+const Links = styled(Link)<{themeObj: ThemeObjectType}>`
   display: flex;
   align-items: center;
   justify-content: center;
   column-gap: 9px;
-  background: ${({meow}) =>meow.colors.link};
+  background: ${({themeObj}) =>themeObj.colors.link};
   padding: 16px 32px;
-  color: ${({meow}) =>meow.colors.headerText};
+  color: ${({themeObj}) =>themeObj.colors.headerText};
   border-radius: 5px;
   text-transform: uppercase;
   font-weight: 500;
@@ -54,9 +53,9 @@ const Links = styled(Link)<{meow: ThemeObjectType}>`
   align-self: flex-start;
 
   &:hover {
-    border: 2px solid ${({meow}) =>meow.colors.primary};
-    background-color: ${({meow}) =>meow.colors.backgroundColorSection};
-    transition: ${({meow}) =>meow.animation.transitionBackground};
+    border: 2px solid ${({themeObj}) =>themeObj.colors.primary};
+    background-color: ${({themeObj}) =>themeObj.colors.backgroundColorSection};
+    transition: ${({themeObj}) =>themeObj.animation.transitionBackground};
   }
 
   @media screen and (max-width: 1156px) {

@@ -11,12 +11,12 @@ type IconPropsType = {
     fill?: string
 }
 export const Icon = (props: IconPropsType) => {
-    const { meow } = useTheme();
+    const { themeObj } = useTheme();
     return (
         <svg width={props.width || "74"} height={props.height || "74"}
              viewBox={`0 0 ${props.width || '74'} ${props.height || '74'}`}
-             color={props.color || meow.colors.primary}
-             fill={props.fill || meow.colors.primary}>
+             color={props.color || themeObj.colors.primary}
+             fill={props.fill || themeObj.colors.primary}>
             <use xlinkHref={`${iconsSprite}#${props.iconId}`}/>
         </svg>
     );

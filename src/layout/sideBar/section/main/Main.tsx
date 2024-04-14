@@ -6,23 +6,27 @@ import {FlexWrapper} from "../../../../components/FlexWrapper";
 import {SidebarIcon} from "./SidebarIcon";
 import {ThemeObjectType} from "../../../../styles/ColorSheme";
 import {useTheme} from "../../../../ThemeProvider";
+import {Fade} from "react-awesome-reveal";
+
 
 export const Main = () => {
-    const { meow } = useTheme();
+    const {themeObj} = useTheme();
 
     return (
-        <SidebarMain  meow={meow}>
-            <FlexWrapper direction={"column"} align={"center"}>
-                <SidebarMainImg></SidebarMainImg>
-                <SidebarMainTitle>Rayan Adlardard</SidebarMainTitle>
-                <SidebarMainSubtitle>Font-end Developer</SidebarMainSubtitle>
-                <SidebarIcon></SidebarIcon>
-            </FlexWrapper>
-        </SidebarMain>
+        <Fade cascade damping={.9}>
+            <SidebarMain themeObj={themeObj}>
+                <FlexWrapper direction={"column"} align={"center"}>
+                    <SidebarMainImg></SidebarMainImg>
+                    <SidebarMainTitle>Rayan Adlardard</SidebarMainTitle>
+                    <SidebarMainSubtitle>Font-end Developer</SidebarMainSubtitle>
+                    <SidebarIcon></SidebarIcon>
+                </FlexWrapper>
+            </SidebarMain>
+        </Fade>
     );
 };
-const SidebarMain = styled.div<{meow: ThemeObjectType}>`
-  border-bottom: 1px solid ${({meow}) =>meow.colors.backgroundWebsite};
+const SidebarMain = styled.div<{ themeObj: ThemeObjectType }>`
+  border-bottom: 1px solid ${({themeObj}) => themeObj.colors.backgroundWebsite};
   margin: 25px 0;
   padding-bottom: 25px;
 `

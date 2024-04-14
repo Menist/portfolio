@@ -7,10 +7,10 @@ import {Fade} from "react-awesome-reveal";
 import {useTheme} from "../../../ThemeProvider";
 
 export const Services = () => {
-    const {meow } = useTheme();
+    const {themeObj } = useTheme();
     return (
         <Fade cascade damping={.9}>
-            <ServicesSection theme={meow} id={'services'}>
+            <ServicesSection theme={themeObj} id={'services'}>
                 <BlockTitle title={"my services"}
                             subTitle={"Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. lorem ipsum"}></BlockTitle>
                 <Container>

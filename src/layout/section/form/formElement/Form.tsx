@@ -10,7 +10,7 @@ import {ThemeObjectType} from "../../../../styles/ColorSheme";
 
 export const Form = () => {
     const form = useRef<ElementRef<'form'>>(null);
-    const { theme } = useTheme();
+    const { themeObj } = useTheme();
     const sendEmail = (e: any) => {
         e.preventDefault();
         if (!form.current) return
@@ -29,13 +29,12 @@ export const Form = () => {
             );
         e.target.reset();
     };
-    const { meow } = useTheme();
     return (
 
         <FlexWrapper flex={"0 0 55%"} minWidth={"300px"} gap={"0"}>
             <FormTitle>Leave us your info</FormTitle>
             <FormSection ref={form} onSubmit={sendEmail}>
-                <FlexWrapperFlexWrapper meow={meow}>
+                <FlexWrapperFlexWrapper themeObj={themeObj}>
                     <InputFragment
                         labelName={"Your Full Name (Required)"}
                         placeholder={"Your text"}
@@ -75,9 +74,9 @@ export const Form = () => {
     );
 };
 
-const FlexWrapperFlexWrapper = styled.div<{meow: ThemeObjectType}>`
+const FlexWrapperFlexWrapper = styled.div<{themeObj: ThemeObjectType}>`
 
-  background-color: ${({meow}) =>meow.colors.backgroundColorSection};
+  background-color: ${({themeObj}) =>themeObj.colors.backgroundColorSection};
   display: flex;
   flex-direction: column;
   padding: 25px 25px 25px 25px;
