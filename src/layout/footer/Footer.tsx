@@ -1,31 +1,31 @@
 import React from 'react';
 import styled from "styled-components";
-import {theme} from "../../styles/Theme";
 import {Fade} from "react-awesome-reveal";
 import {useTheme} from "../../ThemeProvider";
+import {ThemeObjectType} from "../../styles/ColorSheme";
 
 export const Footer = () => {
-    const { theme } = useTheme();
+    const { meow } = useTheme();
 
     return (
-        <Fade cascade damping={.3}>
-            <FooterSection theme={theme}>
+        <Fade cascade damping={.3} >
+            <FooterSection meow={meow}>
                 <p><span>&#169;</span>2021 All Rights Reserved.Ojjomedia</p>
             </FooterSection>
         </Fade>
     );
 };
-const FooterSection = styled.footer`
+const FooterSection = styled.footer<{meow: ThemeObjectType}>`
   p {
-    color: ${theme.colors.headerText};
-    background-color: ${({ theme }) => theme === 'dark' ? '#1E1E1E' : '#FFFFFF'};
+    color:  ${({meow}) =>meow.colors.headerText};
+    background-color: ${({meow}) =>meow.colors.backgroundColorSection};
     padding-top: 18px;
     padding-bottom: 18px;
     text-align: center;
   }
 
   span {
-    color: black;
+    color:  ${({meow}) =>meow.colors.primary};
     padding-right: 25px;
   }
 

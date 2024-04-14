@@ -1,4 +1,3 @@
-import {theme} from "./Theme";
 import {ThemeProvider} from "../ThemeProvider";
 import {createGlobalStyle} from "styled-components";
 

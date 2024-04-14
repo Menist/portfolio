@@ -1,7 +1,5 @@
+
 .alice-carousel {
-    /*position: absolute;*/
-    /*width: 98%;*/
-    /*left: 0;*/
     max-width: calc(99vw - 480px);
 }
 
@@ -17,7 +15,6 @@
 }
 
 .alice-carousel__wrapper {
-    /*height: 300px;*/
     width: 100%;
 }
 
