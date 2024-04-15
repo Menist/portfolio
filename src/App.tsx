@@ -7,7 +7,7 @@ import {Price} from "./layout/section/price/Price";
 import {Education} from "./layout/section/education/Education";
 import React, {useState} from "react";
 import {Blog} from "./layout/section/blog/Blog";
-import {GeneralFormFile} from "./layout/section/form/GeneralFormFile";
+import {FormMainFile} from "./layout/section/form/FormMinFile";
 import {Map} from "./layout/section/map/Map";
 import {Sidebar} from "./layout/sideBar/Sidebar";
 import {NavBar} from "./layout/navBar/navBar";
@@ -16,11 +16,8 @@ import {Slider} from "./layout/section/recommendations/Slider";
 import {TabPortfolio} from "./layout/section/portfolioTab/TabPortfolio";
 import {ThemeProvider} from "./ThemeProvider";
 
-
-
 function App() {
     const [menuIsOpen, setMenuIsOpen] = useState(true);
-
     return (
         <ThemeProvider>
             <div className="App">
@@ -35,7 +32,7 @@ function App() {
                         <Education/>
                         <TabPortfolio/>
                         <Blog/>
-                        <GeneralFormFile/>
+                        <FormMainFile/>
                         <Map/>
                         <Footer/>
                     </Container>

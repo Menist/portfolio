@@ -13,6 +13,8 @@ export const useTheme = () => {
 };
 
 export const ThemeProvider = ({ children }: ThemeProviderProps) => {
+
+
     const [isDarkTheme, setIsDarkTheme] = useState(false);
 
     const toggleTheme = () => {
@@ -25,8 +27,16 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
 
     return (
         <ThemeContext.Provider value={{ theme, themeObj, toggleTheme }}>
+
+
             <GlobalStyled themeObj={themeObj}/>
             {children}
+
         </ThemeContext.Provider>
+
     );
 };
+
+
+
+

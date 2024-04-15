@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from "styled-components";
-import {FlexWrapper, FlexWrapperStyled} from "../../../components/FlexWrapper";
+import {FlexWrapper} from "../../../components/FlexWrapper";
 import {PriceCard} from "./PriceCard/PriceCard";
 import {BlockTitle} from "../../../components/SectionTitle/BlockTitle";
 import {Fade} from "react-awesome-reveal";
@@ -48,18 +48,18 @@ export const Price = () => {
 const PriceSection = styled.section`
   
   @media screen and (max-width: 1340px) {
-    ${FlexWrapperStyled}{
+    ${FlexWrapper}{
       justify-content: center;
     }
   }
   @media screen and (max-width: 943px) {
-    ${FlexWrapperStyled}{
+    ${FlexWrapper}{
       justify-content:center;
     }
   }
   }
   @media screen and (max-width: 636px) {
-    ${FlexWrapperStyled}{
+    ${FlexWrapper}{
       justify-content: center;
     }
   }

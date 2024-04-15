@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from "styled-components";
-import {FlexWrapper, FlexWrapperStyled} from "../../../components/FlexWrapper";
+import {FlexWrapper} from "../../../components/FlexWrapper";
 import {Fade} from "react-awesome-reveal";
 import {useTheme} from "../../../ThemeProvider";
 import {ThemeObjectType} from "../../../styles/ColorSheme";
@@ -41,11 +41,11 @@ const EducationStyledComponent = styled.div<{themeObj: ThemeObjectType}>`
   border-bottom:1px solid ${({themeObj}) =>themeObj.colors.backgroundWebsite};
   
   @media screen and (max-width: 1300px) {
-    ${FlexWrapperStyled} {
+    ${FlexWrapper} {
       gap: 20px;
     }
 
-    ${FlexWrapperStyled} {
+    ${FlexWrapper} {
       @media screen and (max-width: 1000px) {
         flex-direction: column;
         align-items: center;

@@ -9,6 +9,7 @@ type BlockTitlePropsType={
     subTitle:string
 }
 export const BlockTitle = (props:BlockTitlePropsType) => {
+
     return (
         <Fade cascade damping={.9}>
         <FlexWrapper  align={"center"} justify={"center"} direction={"column"} gap={"0"}>

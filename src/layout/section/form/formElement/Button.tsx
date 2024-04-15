@@ -7,9 +7,9 @@ type ButtonProps =  {children: ReactNode} & ComponentPropsWithoutRef<'button'>
 
 export const Button: FC<ButtonProps> = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
     const { themeObj } = useTheme();
-    return <ButtonStyled ref={ref} themeObj={themeObj}{...props}/>
+    return <FormBtn ref={ref} themeObj={themeObj}{...props}/>
 })
-export const ButtonStyled = styled.button<{themeObj:ThemeObjectType}>`
+export const FormBtn = styled.button<{themeObj:ThemeObjectType}>`
   padding: 9px 25px;
   background-color: ${({themeObj}) =>themeObj.colors.primary};
   text-transform: uppercase;

@@ -1,5 +1,5 @@
 import React from 'react';
-import {FlexWrapper, FlexWrapperStyled} from "../../../components/FlexWrapper";
+import {FlexWrapper} from "../../../components/FlexWrapper";
 import styled from "styled-components";
 import {RecommendationsCard} from "./card/RecommendationsCard";
 import {BlockTitle} from "../../../components/SectionTitle/BlockTitle";
@@ -72,13 +72,13 @@ const RecommendationsStyled = styled.section`
   }
 
   @media screen and (max-width: 1500px) {
-    ${FlexWrapperStyled} {
+    ${FlexWrapper} {
       gap: 20px;
       max-width: none;
     }
   }
   @media screen and (max-width: 1009px) {
-    ${FlexWrapperStyled} {
+    ${FlexWrapper} {
       align-items: center;
       max-width: none;
     }

@@ -4,24 +4,24 @@ import {useTheme} from "../../../../ThemeProvider";
 import {ThemeObjectType} from "../../../../styles/ColorSheme";
 
 type InputFormPropsType={
-    labelName:string
+    textareaLabelName:string
     placeholder:string
     id:string
     children?: React.ReactNode;
-    name: string;
+    textareaName: string;
 }
 export const TextareaStyled = (props: InputFormPropsType) => {
     const { themeObj } = useTheme();
 
     return (
         <TextareaForm>
-            <Label id={props.id}>{props.labelName}</Label>
-            <Textarea required name={props.name} placeholder={props.placeholder} id={props.id} themeObj={themeObj}/>
+            <TextareaLabel id={props.id}>{props.textareaLabelName}</TextareaLabel>
+            <Textarea required name={props.textareaName} placeholder={props.placeholder} id={props.id} themeObj={themeObj}/>
             {props.children}
         </TextareaForm>
     );
 };
-const Label = styled.label`
+const TextareaLabel = styled.label`
   display: inline-block;
   width: 100%;
   padding: 20px 0 10px 0;
@@ -48,6 +48,4 @@ const Textarea = styled.textarea<{themeObj: ThemeObjectType}>`
     transition: opacity .5s ease;
   }
 `
-const TextareaForm=styled.div`
-
-`
+const TextareaForm=styled.div``

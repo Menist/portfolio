@@ -57,45 +57,45 @@ export const NavBar = () => {
         <Nav themeObj={themeObj}>
             <Fade cascade damping={.2}>
 
-            <ul>
-                <li>
-                    <ToggleButton themeObj={themeObj} onClick={() => {
-                        toggleTheme(themeObj === 'dark' ? 'light' : 'dark');
-                    }}
-                    ><Icon  iconId={'navBarContrast'} width={'30px'} height={'30px'} fill={themeObj.colors.backgroundWebsite}/></ToggleButton>
-                </li>
-                {items.map((item, index) => {
-                    return (
-                        <li key={index}>
-                            <MenuLink
-                                smooth={true}
-                                to={item.href}
-                                activeClass="active"
-                                spy={true}
-                            >
-                                <LinkItem themeObj={themeObj} title={item.title}>
-                                    <Icon iconId={item.iconId} width={item.iconIdWidth} height={item.iconIdWidth}
-                                          fill={themeObj.colors.primary}/>
-                                </LinkItem>
-                            </MenuLink>
-                        </li>
-                    );
-                })}
-            </ul>
-        </Fade>
+                <ul>
+                    <li>
+                        <ToggleButton themeObj={themeObj} onClick={() => {
+                            toggleTheme(themeObj === 'dark' ? 'light' : 'dark');
+                        }}
+                        ><Icon iconId={'navBarContrast'} width={'30px'} height={'30px'}
+                               fill={themeObj.colors.backgroundWebsite}/></ToggleButton>
+                    </li>
+                    {items.map((item, index) => {
+                        return (
+                            <li key={index}>
+                                <MenuLink
+                                    smooth={true}
+                                    to={item.href}
+                                    activeClass="active"
+                                    spy={true}
+                                >
+                                    <LinkItem themeObj={themeObj} title={item.title}>
+                                        <Icon iconId={item.iconId} width={item.iconIdWidth} height={item.iconIdWidth}
+                                              fill={themeObj.colors.primary}/>
+                                    </LinkItem>
+                                </MenuLink>
+                            </li>
+                        );
+                    })}
+                </ul>
+            </Fade>
         </Nav>
-
     );
 };
 
 const MenuLink = styled(Link)``;
 
-const Nav = styled.nav<{themeObj: ThemeObjectType}>`
+const Nav = styled.nav<{ themeObj: ThemeObjectType }>`
   position: fixed;
   right: 0;
   z-index: 100;
   min-width: 108px;
-  background-color: ${({themeObj}) =>themeObj.colors.backgroundColorSection};
+  background-color: ${({themeObj}) => themeObj.colors.backgroundColorSection};
   padding: 50px 22px 50px 25px;
 
   ul {
@@ -117,7 +117,7 @@ const Nav = styled.nav<{themeObj: ThemeObjectType}>`
   @media screen and (max-width: 1091px) {
     position: fixed;
     bottom: 0;
-    background-color: ${({themeObj}) =>themeObj.colors.backgroundColorSection};
+    background-color: ${({themeObj}) => themeObj.colors.backgroundColorSection};
     width: 100%;
     height: auto;
     padding: 20px 0;
@@ -168,17 +168,17 @@ const Nav = styled.nav<{themeObj: ThemeObjectType}>`
     }
   }
 `;
-const LinkItem = styled.div<{themeObj: ThemeObjectType}>`
+const LinkItem = styled.div<{ themeObj: ThemeObjectType }>`
   position: relative;
   cursor: pointer;
 
   svg {
-    color: ${({themeObj}) =>themeObj.colors.primary};
+    color: ${({themeObj}) => themeObj.colors.primary};
     transition: all .3s ease;
   }
 
   &:hover svg {
-    color: ${({themeObj}) =>themeObj.colors.primary};
+    color: ${({themeObj}) => themeObj.colors.primary};
     transform: scale(1.3);
     transition: all .3s ease;
   }
@@ -191,8 +191,8 @@ const LinkItem = styled.div<{themeObj: ThemeObjectType}>`
     bottom: 65px;
     left: 50%;
     transform: translateX(-50%);
-    background-color: ${({themeObj}) =>themeObj.colors.backgroundColorSection};
-    color: ${({themeObj}) =>themeObj.colors.backgroundColorSection};
+    background-color: ${({themeObj}) => themeObj.colors.backgroundColorSection};
+    color: ${({themeObj}) => themeObj.colors.backgroundColorSection};
     padding: 5px 15px;
     border-radius: 3px;
     white-space: nowrap;
@@ -207,21 +207,21 @@ const LinkItem = styled.div<{themeObj: ThemeObjectType}>`
     height: 0;
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
-    border-top: 13px solid ${({themeObj}) =>themeObj.colors.backgroundColorSection};
+    border-top: 13px solid ${({themeObj}) => themeObj.colors.backgroundColorSection};
   }
 
 `;
-const ToggleButton = styled(LinkItem)<{themeObj: ThemeObjectType}>`
+const ToggleButton = styled(LinkItem)<{ themeObj: ThemeObjectType }>`
   margin: 50px 0 125px 0;
   text-align: center;
 
   svg {
-    color: ${({themeObj}) =>themeObj.colors.primary};
+    color: ${({themeObj}) => themeObj.colors.primary};
     transition: all .3s ease;
   }
 
   @media screen and (max-width: 1091px) {
-  margin: 0;
+    margin: 0;
   }
 `
 

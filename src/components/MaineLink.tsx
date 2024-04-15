@@ -10,10 +10,10 @@ type StraightButtonPropsType = {
     textBtn: string;
 };
 
-export const StraightLink = (props: StraightButtonPropsType) => {
+export const MaineLink = (props: StraightButtonPropsType) => {
     const { themeObj } = useTheme();
     return (
-            <Wrap themeObj={themeObj}>
+            <MaineLinkStyled themeObj={themeObj}>
                 <Links
                     to={'contacts'}
                     spy={true}
@@ -23,12 +23,12 @@ export const StraightLink = (props: StraightButtonPropsType) => {
                     {props.textBtn}
                     <Icon iconId={"arrow"} color={'currentColor'} width={"10.67"} height={"10.37"} viewBox={"0 0 10.67 10.37"}/>
                 </Links>
-             </Wrap>
+             </MaineLinkStyled>
 
     );
 };
 
-const Wrap = styled.div<{themeObj: ThemeObjectType}>`
+const MaineLinkStyled = styled.div<{themeObj: ThemeObjectType}>`
   display: flex;
   cursor: pointer;
   

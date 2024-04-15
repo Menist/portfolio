@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from "styled-components";
 import {BlogCard} from "./card/BlogCard";
-import {FlexWrapper, FlexWrapperStyled} from "../../../components/FlexWrapper";
+import {FlexWrapper} from "../../../components/FlexWrapper";
 import {BlockTitle} from "../../../components/SectionTitle/BlockTitle";
 import img1 from "../../../assets/img/section/blog/blog01.webp";
 import img1x from "../../../assets/img/section@2x/blog/blog1_@2x.webp";
@@ -80,7 +80,7 @@ export const Blog = () => {
 };
 
 const BlogSection = styled.section`
-  ${FlexWrapperStyled} {
+  ${FlexWrapper} {
     @media screen and (max-width: 1290px) {
       flex: 0 0 80%;
     }

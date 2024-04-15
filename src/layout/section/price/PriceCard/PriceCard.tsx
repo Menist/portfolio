@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from "styled-components";
 import {Icon} from "../../../../components/icon/Icon";
-import {FlexWrapper, FlexWrapperStyled} from "../../../../components/FlexWrapper";
+import {FlexWrapper} from "../../../../components/FlexWrapper";
 import {PriceCardBtn} from "../PriceCardBtn";
 import {Fade} from "react-awesome-reveal";
 import {useTheme} from "../../../../ThemeProvider";
@@ -64,7 +64,7 @@ const PriceCardStyled = styled.div<{themeObj: ThemeObjectType}>`
   flex: 1 0 30%;
   max-width: 500px;
 
-  ${FlexWrapperStyled} {
+  ${FlexWrapper} {
     padding-top: 10px;
   }
 
@@ -92,7 +92,7 @@ const PriceCardStyled = styled.div<{themeObj: ThemeObjectType}>`
   }
 
   @media screen and (max-width: 1440px) {
-    ${FlexWrapperStyled} {
+    ${FlexWrapper} {
       flex: 1 0 20%;
     }
   }
@@ -104,7 +104,7 @@ const PriceCardStyled = styled.div<{themeObj: ThemeObjectType}>`
 
 @media screen and (max-width: 1129px) {
   flex: 1 0 65%;
-  ${FlexWrapperStyled} {
+  ${FlexWrapper} {
     justify-content: center;
   }
 }

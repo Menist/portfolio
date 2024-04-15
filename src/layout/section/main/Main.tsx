@@ -2,8 +2,8 @@ import React from 'react';
 import styled from "styled-components";
 import img1 from '../../../assets/img/section/main/mainImg.webp';
 import img1x from "../../../assets/img/section@2x/main/mainImg_@2x.webp";
-import {FlexWrapper, FlexWrapperStyled} from "../../../components/FlexWrapper";
-import {StraightLink} from "../../../components/StraightLink";
+import {FlexWrapper} from "../../../components/FlexWrapper";
+import {MaineLink} from "../../../components/MaineLink";
 import Typewriter from 'typewriter-effect';
 import {Fade} from "react-awesome-reveal";
 import {useTheme} from "../../../ThemeProvider";
@@ -15,9 +15,10 @@ import img6 from '../../../assets/img/section/main/decoration/5.svg';
 import img7 from '../../../assets/img/section/main/decoration/6.svg';
 import img8 from '../../../assets/img/section/main/decoration/8.svg';
 import {ThemeObjectType} from "../../../styles/ColorSheme";
+
 export const AboutMe = () => {
 
-    const { themeObj } = useTheme();
+    const {themeObj} = useTheme();
 
     return (
         <Fade cascade damping={.9}>
@@ -25,32 +26,36 @@ export const AboutMe = () => {
                 <FlexWrapper align={"center"}
                              justify={"space-around"}
                              padding={"30px 50px 0 50px"}
-                             >
-                    <FlexWrapperDiw>
+                >
+                    <FlexWrapper
+                        flex={'3'}
+                        gap={'20px 0'}
+                        direction={'column'}>
                         <Fade direction={"down"}>
-                            <TextTitle theme={themeObj}>I’m Rayan Adlrdard
+                            <MaineTextTitle theme={themeObj}>I’m Rayan Adlrdard
                                 <p>I’m Rayan Adlrdard <span>Front-end</span> Developer</p>
-                                <Typewriter
-                                    options={{
+                                <Typewriter options={{
                                         strings: ['<span>Front-end</span> Developer'],
                                         autoStart: true,
                                         loop: true,
                                         delay: 150,
                                     }}
                                 />
-                            </TextTitle>
+                            </MaineTextTitle>
                         </Fade>
                         <Fade cascade damping={.2}>
-                            <TextSubTitle>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et, volutpat feugiat placerat
-                                lobortis.
-                                Natoque rutrum semper sed suspendisse nunc lectus.</TextSubTitle>
+                            <MaineTextSubTitle>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et, volutpat feugiat
+                                placerat lobortis.Natoque rutrum semper sed suspendisse nunc lectus.</MaineTextSubTitle>
                         </Fade>
                         <Fade direction={"up"}>
-                            <StraightLink textBtn={"hire me"}></StraightLink>
+                            <MaineLink textBtn={"hire me"}></MaineLink>
                         </Fade>
-                    </FlexWrapperDiw>
-                    <FlexWrapper flex={"1.5"} justify={"end"}>
-                        <Img src={img1} srcSet={`${img1x} 2x`} />
+                    </FlexWrapper>
+                    <FlexWrapper
+                        flex={"1.5"}
+                        justify={"end"}>
+                        <MaineImg src={img1}
+                                  srcSet={`${img1x} 2x`}/>
                     </FlexWrapper>
                 </FlexWrapper>
             </MainSection>
@@ -58,19 +63,9 @@ export const AboutMe = () => {
     );
 };
 
+const MainSection = styled.section<{ themeObj: ThemeObjectType }>`
 
-const FlexWrapperDiw = styled.div`
-  display: flex;
-  flex: 3;
-  gap: 20px 0;
-  flex-direction: column;
-  
-  @media screen and (max-width: 1271px) {
-    align-self: center;
-  }
-`
-const MainSection = styled.section<{themeObj: ThemeObjectType}>`
-  ${FlexWrapperStyled}:first-child {
+  ${FlexWrapper}:first-child {
     background: url("${img2}") top 5% left 3% no-repeat,
     url("${img3}") top 10% left 55% no-repeat,
     url("${img4}") top 23% right 2% no-repeat,
@@ -81,37 +76,44 @@ const MainSection = styled.section<{themeObj: ThemeObjectType}>`
     background-color: ${({themeObj}) => themeObj.colors.backgroundColorSection};
   }
 
-  @media screen and (max-width: 1156px) {
-    ${FlexWrapperStyled} {
-      flex: 0 0 100%;
-      justify-content: center;
-      text-align: center;
-      padding: 5px 5px 0 5px;
-    }
-  }
-  
-  @media screen and (max-width: 1271px) {
-    ${FlexWrapperStyled} {
+  @media screen and (max-width: 1280px) {
+    ${FlexWrapper}:last-child {
       align-items: flex-end;
     }
   }
+
+  @media screen and (max-width: 1271px) {
+    ${FlexWrapper} {
+      align-items: flex-start;
+    }
+  }
+
+  @media screen and (max-width: 1156px) {
+    ${FlexWrapper} {
+      flex: 0 0 100%;
+      justify-content: center;
+      align-items: center;
+      padding: 5px 5px 0 5px;
+    }
+  }
 `
-const TextTitle = styled.h1`
+const MaineTextTitle = styled.h1`
   p {
     display: none;
   }
 
   span {
-    color: ${ ({theme}) => theme.colors.primary};
+    color: ${({theme}) => theme.colors.primary};
   }
 `
-const TextSubTitle = styled.p`
+const MaineTextSubTitle = styled.p`
   font-size: 16px;
 `
 
-const Img = styled.img`
+const MaineImg = styled.img`
   height: auto;
   object-fit: cover;
   width: 100%;
   max-width: 325px;
+  align-self: flex-end;
 `

@@ -36,35 +36,34 @@ export const Form = () => {
             <FormSection ref={form} onSubmit={sendEmail}>
                 <FlexWrapperFlexWrapper themeObj={themeObj}>
                     <InputFragment
-                        labelName={"Your Full Name (Required)"}
-                        placeholder={"Your text"}
-                        id={"name"}
-                        type={"text"}
-                        name={'full_name'}
-                    >
-
-                    </InputFragment>
-                    <InputFragment
-                        labelName={"Your Email (Required)"}
-                        placeholder={"Your email"}
-                        id={"email"}
-                        type={"email"}
-                        name={'email'}
+                        inputLabelName={"Your Full Name (Required)"}
+                        inputPlaceholder={"Your text"}
+                        inputId={"name"}
+                        inputType={"text"}
+                        inputName={'full_name'}
                     >
                     </InputFragment>
                     <InputFragment
-                        labelName={"Subject"}
-                        placeholder={"Your text"}
-                        id={"subject"}
-                        type={"text"}
-                        name={'subject'}
+                        inputLabelName={"Your Email (Required)"}
+                        inputPlaceholder={"Your email"}
+                        inputId={"email"}
+                        inputType={"email"}
+                        inputName={'email'}
+                    >
+                    </InputFragment>
+                    <InputFragment
+                        inputLabelName={"Subject"}
+                        inputPlaceholder={"Your text"}
+                        inputId={"subject"}
+                        inputType={"text"}
+                        inputName={'subject'}
                     >
                     </InputFragment>
                     <TextareaStyled
-                        labelName={"Your Message"}
+                        textareaLabelName={"Your Message"}
                         placeholder={"Your Message"}
                         id={"textarea"}
-                        name={'message'}
+                        textareaName={'message'}
                     >
                     </TextareaStyled>
                     <Button type={"submit"}>send message</Button>

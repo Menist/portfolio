@@ -3,6 +3,7 @@ import {Icon} from "../../../../components/icon/Icon";
 import styled from "styled-components";
 import {useTheme} from "../../../../ThemeProvider";
 import {ThemeObjectType} from "../../../../styles/ColorSheme";
+import {FlexWrapper} from "../../../../components/FlexWrapper";
 
 type ContactPropsType = {
     country: string
@@ -18,42 +19,59 @@ export const Contact = (props: ContactPropsType) => {
     const { themeObj } = useTheme();
 
     return (
-        <ContactInformatiosdasfn>
+        <ContactInformation themeObj={themeObj}>
             {props.showTitleInfo ? <ContactTitle>Contact information</ContactTitle> : null}
-            <FlexWrapperFlexWrapper themeObj={themeObj}>
-                <Icon iconId={props.iconId} width={"40"} height={"40"}/>
-                <Wrap>
+            <FlexWrapper
+                direction={'column'}
+                align={'center'}
+                gap={'20px'}
+                padding={'32px'}
+                bgColor={themeObj.colors.backgroundColorSection}
+                >
+                <Icon
+                    iconId={props.iconId}
+                    width={"40"}
+                    height={"40"}
+                />
+                
+                <FlexWrapper
+                    width={'100%'}
+                    justify={'space-between'}
+                    wrap={'nowrap'}>
+
                     <Adress>{props.country}</Adress>
                     <AdressAnswer>{props.countryAnswer}</AdressAnswer>
-                </Wrap>
-                <Wrap>
+                </FlexWrapper>
+
+                <FlexWrapper
+                    width={'100%'}
+                    justify={'space-between'}
+                    wrap={'nowrap'}>
+
                     <Adress>{props.city}</Adress>
                     <AdressAnswer>{props.cityAnswer}</AdressAnswer>
-                </Wrap>
-                <Wrap>
+                </FlexWrapper>
+
+                <FlexWrapper
+                    width={'100%'}
+                    justify={'space-between'}
+                    wrap={'nowrap'}>
+
                     <Adress>{props.street}</Adress>
                     <AdressAnswer>{props.streetAnswer}</AdressAnswer>
-                </Wrap>
-            </FlexWrapperFlexWrapper>
-        </ContactInformatiosdasfn>
+                </FlexWrapper>
+            </FlexWrapper>
+        </ContactInformation>
     );
 };
-const FlexWrapperFlexWrapper = styled.div<{themeObj: ThemeObjectType}>`
-  //direction={"column"} align={"center"} padding={"32px"} color={theme.colors.background}
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-  padding: 32px;
-  background-color: ${({themeObj}) =>themeObj.colors.backgroundColorSection};
-`
-const ContactInformatiosdasfn = styled.div`
+
+const ContactInformation = styled.div<{themeObj: ThemeObjectType}>`
   max-width: 500px;
+  
   @media screen and (max-width: 1209px) {
     margin: 0 auto;
     width: 100%;
   }
- 
 `
 const ContactTitle = styled.h2`
   text-transform: capitalize;
@@ -72,8 +90,4 @@ const AdressAnswer = styled.span`
   font-size: 15px;
   text-transform: capitalize;
 `
-const Wrap = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-`
+

@@ -1,7 +1,4 @@
 import styled, {CSSProperties} from "styled-components";
-import {FC, ReactNode} from "react";
-import {ThemeObjectType} from "../styles/ColorSheme";
-import {useTheme} from "../ThemeProvider";
 
 type FlexWrapperPropsType = {
     direction?: CSSProperties['flexDirection']
@@ -15,13 +12,10 @@ type FlexWrapperPropsType = {
     maxWidth?: CSSProperties['maxWidth']
     width?: CSSProperties['width']
     minWidth?: CSSProperties['minWidth']
+    bgColor? : string
 }
 
-export const FlexWrapper: FC<FlexWrapperPropsType & {children: ReactNode}> = (props) => {
-    const { themeObj } = useTheme();
-    return <FlexWrapperStyled themeObj={themeObj}{...props}/>
-}
-export const FlexWrapperStyled = styled.div<FlexWrapperPropsType & {themeObj:ThemeObjectType}>`
+export const FlexWrapper = styled.div<FlexWrapperPropsType>`
   display: flex;
   flex-direction: ${props => props.direction || "row"};
   justify-content: ${props => props.justify || "flex-start"};
@@ -29,9 +23,7 @@ export const FlexWrapperStyled = styled.div<FlexWrapperPropsType & {themeObj:The
   flex-wrap: ${props => props.wrap || "wrap"};
   gap: ${props => props.gap || "20px"};
   flex: ${props => props.flex || "0 0 auto"};
-  background-color: ${props => props.color || "inherit"};
-  //background-color: ${({themeObj}) => themeObj.colors.backgroundWebsite || "inherit"};
-  
+  background-color: ${({bgColor}) => bgColor || "inherit"};
   padding: ${props => props.padding || "0 0 0 0"};
   max-width: ${props => props.maxWidth || "none"};
   width: ${props => props.width || "none"};
