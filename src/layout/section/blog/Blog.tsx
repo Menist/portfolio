@@ -84,11 +84,10 @@ const BlogSection = styled.section`
     @media screen and (max-width: 1290px) {
       flex: 0 0 80%;
     }
+    
     @media screen and (max-width: 1170px) {
       flex: 0 0 80%;
       justify-content: center;
     }
   }
-
-  
 `

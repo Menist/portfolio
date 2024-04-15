@@ -53,7 +53,7 @@ const Progress = styled.div<
   --time: 3s;
   transform-origin: left top;
   transform: scaleX(0);
-  animation: scale var(--time) forwards;
+  animation: scale var(--time) infinite;
 }
 
 @keyframes scale {

@@ -29,6 +29,7 @@ const Label = styled.label`
 const Textarea = styled.textarea<{themeObj: ThemeObjectType}>`
   font-family: 'Inter', sans-serif;
   padding-left: 10px;
+  padding-top: 10px;
   color: ${({themeObj}) =>themeObj.colors.mainText};
   width: 100%;
   min-height: 210px;

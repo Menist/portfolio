@@ -18,11 +18,11 @@ export const BlogCard = (props: BlogCardPropsType) => {
     return (
                 <BlogCardStyled>
                     <BlogCardImg image={props.src} srcSet={props.srcSet}/>
-                    <Wrapper themeObj={themeObj}>
+                    <BlogCardWrapper themeObj={themeObj}>
                         <BlogCardTitle >{props.title}</BlogCardTitle>
                         <BlogCardText>{props.text}</BlogCardText>
                         <CardLink link={"Lean more"}></CardLink>
-                    </Wrapper>
+                    </BlogCardWrapper>
                 </BlogCardStyled>
     );
 };
@@ -47,7 +47,7 @@ const BlogCardStyled = styled(motion.div)`
     align-items: center;
   }
 `
-const Wrapper = styled.div<{themeObj: ThemeObjectType}>`
+const BlogCardWrapper = styled.div<{themeObj: ThemeObjectType}>`
   padding: 25px;
   background-color: ${ ({themeObj}) => themeObj.colors.backgroundColorSection};
 

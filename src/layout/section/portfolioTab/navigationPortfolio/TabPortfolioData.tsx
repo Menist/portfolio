@@ -4,7 +4,7 @@ import {Fade} from "react-awesome-reveal";
 import {useTheme} from "../../../../ThemeProvider";
 import {ThemeObjectType} from "../../../../styles/ColorSheme";
 
-const items = [
+const itemsData = [
     {
         title: 'All',
         href: '',
@@ -35,7 +35,7 @@ const items = [
         href: 'contacts',
         status: 'landing page'
     }
-]
+];
 export const MenuTab = ({changeFilter}: { changeFilter: (filter: string) => void }) => {
     const { themeObj } = useTheme();
     return (
@@ -43,11 +43,11 @@ export const MenuTab = ({changeFilter}: { changeFilter: (filter: string) => void
             <nav>
                 <ul>
                     <Fade cascade={true} damping={.2}>
-                        {items.map((item, index) => {
+                        {itemsData.map((item, index) => {
                             return <li key={index}>
                                 <button onClick={() => changeFilter(item.status)}>{item.title}</button>
                             </li>
-                        })}
+                        })};
                     </Fade>
                 </ul>
             </nav>
@@ -123,6 +123,7 @@ const StyledMenu = styled.div<{themeObj: ThemeObjectType}>`
         justify-content: flex-start;
       }
     }
+    
     @media screen and (max-width: 395px) {
       margin: 0 auto;
     }

@@ -44,6 +44,16 @@ export const themeNew = (isDarkTheme: boolean): ThemeObjectType => {
         backgroundWebsite: "#1A1A1A",
         iconNavBar:"#E0E0E0"
     };
+    // const darkColors: Colors = {
+    //     primary: "#E63946",
+    //     accent: "rgba(230, 57, 70, 0.71)",
+    //     headerText: "#F1FAEE",
+    //     mainText: "#A8DADC",
+    //     link: "#E63946",
+    //     backgroundColorSection: "#011627",
+    //     backgroundWebsite: "#172440",
+    //     iconNavBar: "#A8DADC"
+    // };
 
     const colors = isDarkTheme ? darkColors : lightColors;
 
