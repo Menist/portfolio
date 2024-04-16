@@ -1,4 +1,5 @@
 import styled, {CSSProperties} from "styled-components";
+import {ThemeObjectType} from "../styles/ColorSheme";
 
 type FlexWrapperPropsType = {
     direction?: CSSProperties['flexDirection']
@@ -13,6 +14,8 @@ type FlexWrapperPropsType = {
     width?: CSSProperties['width']
     minWidth?: CSSProperties['minWidth']
     bgColor? : string
+    themeObj?:ThemeObjectType
+    marginRight?:CSSProperties['marginRight']
 }
 
 export const FlexWrapper = styled.div<FlexWrapperPropsType>`
@@ -28,4 +31,5 @@ export const FlexWrapper = styled.div<FlexWrapperPropsType>`
   max-width: ${props => props.maxWidth || "none"};
   width: ${props => props.width || "none"};
   min-width: ${props => props.minWidth || "auto"};
+  margin-right: ${props => props.marginRight || "initial"};
 `

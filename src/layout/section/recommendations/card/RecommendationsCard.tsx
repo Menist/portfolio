@@ -3,57 +3,49 @@ import styled from "styled-components";
 import {Icon} from "../../../../components/icon/Icon";
 import {FlexWrapper} from "../../../../components/FlexWrapper";
 import {useTheme} from "../../../../ThemeProvider";
-import {ThemeObjectType} from "../../../../styles/ColorSheme";
 
 
 type RecommendationsCardStyledPropsType = {
-    icon: string
-    title: string
-    text: string
-    name: string
-    prof: string
-    src: string
-    srcSet: string
+    iconType: string
+    cardTitle: string
+    cardDescription: string
+    personName: string
+    profession: string
+    imageSrc: string
+    imageSrcSet: string
 }
 
 export const RecommendationsCard = (props: RecommendationsCardStyledPropsType) => {
     const { themeObj } = useTheme();
     return (
-        <RecommendationsCardFlexWrapper themeObj={themeObj}>
-            <Icon iconId={props.icon} height={"17.37"} width={"18"}/>
-            <Icon iconId={props.icon} height={"17.37"} width={"18"}/>
-            <Icon iconId={props.icon} height={"17.37"} width={"18"}/>
-            <Icon iconId={props.icon} height={"17.37"} width={"18"}/>
-            <RecommendationsCardTitle>{props.title}</RecommendationsCardTitle>
-            <RecommendationsCardText>{props.text}</RecommendationsCardText>
-            <RecommendationsCardImg src={props.src} srcSet={`${props.srcSet} 2x`}/>
+        <FlexWrapper themeObj={themeObj}
+                     bgColor={themeObj.colors.backgroundColorSection}
+                     minWidth={'290px'}
+                     wrap={'wrap'}
+                     padding={'25px'}
+                     gap={'15px'}
+                     marginRight={'20px'}
+                     align={'stretch'}
+        >
+            <Icon iconId={props.iconType} height={"17.37"} width={"18"}/>
+            <Icon iconId={props.iconType} height={"17.37"} width={"18"}/>
+            <Icon iconId={props.iconType} height={"17.37"} width={"18"}/>
+            <Icon iconId={props.iconType} height={"17.37"} width={"18"}/>
+            <RecommendationsCardTitle>{props.cardTitle}</RecommendationsCardTitle>
+            <RecommendationsCardText>{props.cardDescription}</RecommendationsCardText>
+            <RecommendationsCardImg src={props.imageSrc} srcSet={`${props.imageSrcSet} 2x`}/>
             <FlexWrapper
                 gap={'0'}
                 direction={'column'}
                 justify={"center"}
             >
-                <RecommendationsCardName>{props.name}</RecommendationsCardName>
-                <RecommendationsCardProfession>{props.prof}</RecommendationsCardProfession>
+                <RecommendationsCardName>{props.personName}</RecommendationsCardName>
+                <RecommendationsCardProfession>{props.profession}</RecommendationsCardProfession>
             </FlexWrapper>
-        </RecommendationsCardFlexWrapper>
+        </FlexWrapper>
     );
 };
 
-
-const RecommendationsCardFlexWrapper=styled.div<{themeObj: ThemeObjectType}>`
-  display: flex;
-  min-width: 290px;
-  flex-wrap: wrap;
-  padding: 25px;
-  background-color: ${({themeObj}) =>themeObj.colors.backgroundColorSection};
-  gap: 15px;
-  align-items: stretch;
-  margin-right: 20px;
-  
-  @media screen and (max-width: 500px) {
-    padding: 10px;
-  }
-`
 const RecommendationsCardTitle = styled.h4`
   font-weight: 500;
   width: 100%;

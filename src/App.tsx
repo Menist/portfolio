@@ -12,7 +12,7 @@ import {Map} from "./layout/section/map/Map";
 import {Sidebar} from "./layout/sideBar/Sidebar";
 import {NavBar} from "./layout/navBar/navBar";
 import {Footer} from "./layout/footer/Footer";
-import {Slider} from "./layout/section/recommendations/Slider";
+import {RecommendationsSlider} from "./layout/section/recommendations/RecommendationsSlider";
 import {Portfolio} from "./layout/section/portfolio/Portfolio";
 import {ThemeProvider} from "./ThemeProvider";
 
@@ -28,7 +28,7 @@ function App() {
                         <AboutMe/>
                         <Services/>
                         <Price/>
-                        <Slider/>
+                        <RecommendationsSlider/>
                         <Education/>
                         <Portfolio/>
                         <Blog/>
