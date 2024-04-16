@@ -39,7 +39,7 @@ const itemsData = [
 export const MenuTab = ({changeFilter}: { changeFilter: (filter: string) => void }) => {
     const { themeObj } = useTheme();
     return (
-        <StyledMenu themeObj={themeObj}>
+        <PortfolioMenu themeObj={themeObj}>
             <nav>
                 <ul>
                     <Fade cascade={true} damping={.2}>
@@ -51,10 +51,10 @@ export const MenuTab = ({changeFilter}: { changeFilter: (filter: string) => void
                     </Fade>
                 </ul>
             </nav>
-        </StyledMenu>
+        </PortfolioMenu>
     );
 };
-const StyledMenu = styled.div<{themeObj: ThemeObjectType}>`
+const PortfolioMenu = styled.div<{themeObj: ThemeObjectType}>`
 
   nav {
     display: flex;
@@ -100,12 +100,12 @@ const StyledMenu = styled.div<{themeObj: ThemeObjectType}>`
         }
       }
     }
+    
     @media screen and (max-width: 499px) {
       cursor: grab;
       overflow-x: scroll;
       padding-bottom: 10px;
       color: ${({themeObj}) =>themeObj.colors.primary};
-      
       max-width: calc(98vw - 60px);
 
       &::-webkit-scrollbar {

@@ -13,7 +13,7 @@ import {Sidebar} from "./layout/sideBar/Sidebar";
 import {NavBar} from "./layout/navBar/navBar";
 import {Footer} from "./layout/footer/Footer";
 import {Slider} from "./layout/section/recommendations/Slider";
-import {TabPortfolio} from "./layout/section/portfolioTab/TabPortfolio";
+import {Portfolio} from "./layout/section/portfolio/Portfolio";
 import {ThemeProvider} from "./ThemeProvider";
 
 function App() {
@@ -30,7 +30,7 @@ function App() {
                         <Price/>
                         <Slider/>
                         <Education/>
-                        <TabPortfolio/>
+                        <Portfolio/>
                         <Blog/>
                         <FormMainFile/>
                         <Map/>

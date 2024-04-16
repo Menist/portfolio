@@ -56,7 +56,6 @@ export const NavBar = () => {
     return (
         <Nav themeObj={themeObj}>
             <Fade cascade damping={.2}>
-
                 <ul>
                     <li>
                         <ToggleButton themeObj={themeObj} onClick={() => {
@@ -121,6 +120,8 @@ const Nav = styled.nav<{ themeObj: ThemeObjectType }>`
     width: 100%;
     height: auto;
     padding: 20px 0;
+    border-top: 1px solid  ${({themeObj}) => themeObj.colors.primary};
+ 
 
     ul {
       display: flex;
@@ -188,10 +189,10 @@ const LinkItem = styled.div<{ themeObj: ThemeObjectType }>`
     font-size: 15px;
     font-weight: 500;
     position: absolute;
-    bottom: 65px;
+    bottom: 60px;
     left: 50%;
     transform: translateX(-50%);
-    background-color: ${({themeObj}) => themeObj.colors.backgroundColorSection};
+    background-color: ${({themeObj}) => themeObj.colors.primary};
     color: ${({themeObj}) => themeObj.colors.backgroundColorSection};
     padding: 5px 15px;
     border-radius: 3px;
@@ -201,13 +202,13 @@ const LinkItem = styled.div<{ themeObj: ThemeObjectType }>`
   &:hover::before {
     content: '';
     position: absolute;
-    bottom: 120%;
+    bottom: 112%;
     left: 25%;
     width: 0;
     height: 0;
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
-    border-top: 13px solid ${({themeObj}) => themeObj.colors.backgroundColorSection};
+    border-top: 13px solid ${({themeObj}) => themeObj.colors.primary};
   }
 
 `;

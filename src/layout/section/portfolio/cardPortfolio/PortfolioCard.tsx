@@ -4,7 +4,7 @@ import {Fade} from "react-awesome-reveal";
 import {useTheme} from "../../../../ThemeProvider";
 import {ThemeObjectType} from "../../../../styles/ColorSheme";
 
-type CardPortfolioPropsType = {
+type PortfolioCardPropsType = {
     src: string
     srcSet: string
     overLay: string
@@ -12,27 +12,27 @@ type CardPortfolioPropsType = {
     type: string
 }
 
-export const TabCardPortfolio = (props: CardPortfolioPropsType) => {
+export const PortfolioCard = (props: PortfolioCardPropsType) => {
     const {themeObj} = useTheme()
     return (
         <Fade cascade damping={.9}>
-            <CardLink href={'#'} >
-                <CardImg src={props.src} srcSet={`${props.srcSet} 2x`}></CardImg>
-                <HoverOverlay themeObj={themeObj}>
-                    <OverlayImage src={props.overLay} srcSet={`${props.img} 2x`}></OverlayImage>
-                    <OverlayImage></OverlayImage>
-                </HoverOverlay>
-            </CardLink>
+            <PortfolioCardLink href={'#'} >
+                <PortfolioCardImg src={props.src} srcSet={`${props.srcSet} 2x`}></PortfolioCardImg>
+                <PortfolioHoverOverlay themeObj={themeObj}>
+                    <PortfolioOverlayImage src={props.overLay} srcSet={`${props.img} 2x`}></PortfolioOverlayImage>
+                    <PortfolioOverlayImage></PortfolioOverlayImage>
+                </PortfolioHoverOverlay>
+            </PortfolioCardLink>
         </Fade>
     );
 };
 
 
-const CardImg = styled.img`
+const PortfolioCardImg = styled.img`
   width: 100%;
 `;
 
-const CardLink = styled.a`
+const PortfolioCardLink = styled.a`
   width: 100%;
   background-size: cover;
   display: inline-block;
@@ -41,7 +41,7 @@ const CardLink = styled.a`
   max-width: 350px;
 `;
 
-const HoverOverlay = styled.div<{themeObj: ThemeObjectType}>`
+const PortfolioHoverOverlay = styled.div<{themeObj: ThemeObjectType}>`
   position: absolute;
   top: 0;
   left: 0;
@@ -59,7 +59,7 @@ const HoverOverlay = styled.div<{themeObj: ThemeObjectType}>`
   }
 `;
 
-const OverlayImage = styled.img`
+const PortfolioOverlayImage = styled.img`
   max-width: 100%;
   max-height: 100%;
   object-fit: cover;

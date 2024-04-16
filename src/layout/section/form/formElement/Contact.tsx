@@ -6,11 +6,11 @@ import {ThemeObjectType} from "../../../../styles/ColorSheme";
 import {FlexWrapper} from "../../../../components/FlexWrapper";
 
 type ContactPropsType = {
-    country: string
-    countryAnswer: string
-    city: string
-    cityAnswer: string
-    street: string
+    countryLabel: string
+    countryValue: string
+    cityLabel: string
+    cityValue: string
+    streetLabel: string
     streetAnswer: string
     showTitleInfo: boolean
     iconId: string
@@ -39,8 +39,8 @@ export const Contact = (props: ContactPropsType) => {
                     justify={'space-between'}
                     wrap={'nowrap'}>
 
-                    <Adress>{props.country}</Adress>
-                    <AdressAnswer>{props.countryAnswer}</AdressAnswer>
+                    <CountryLabel>{props.countryLabel}</CountryLabel >
+                    <CountryValue>{props.countryValue}</CountryValue >
                 </FlexWrapper>
 
                 <FlexWrapper
@@ -48,8 +48,8 @@ export const Contact = (props: ContactPropsType) => {
                     justify={'space-between'}
                     wrap={'nowrap'}>
 
-                    <Adress>{props.city}</Adress>
-                    <AdressAnswer>{props.cityAnswer}</AdressAnswer>
+                    <CountryLabel >{props.cityLabel}</CountryLabel >
+                    <CountryValue >{props.cityValue}</CountryValue >
                 </FlexWrapper>
 
                 <FlexWrapper
@@ -57,8 +57,8 @@ export const Contact = (props: ContactPropsType) => {
                     justify={'space-between'}
                     wrap={'nowrap'}>
 
-                    <Adress>{props.street}</Adress>
-                    <AdressAnswer>{props.streetAnswer}</AdressAnswer>
+                    <CountryLabel >{props.streetLabel}</CountryLabel >
+                    <CountryValue >{props.streetAnswer}</CountryValue >
                 </FlexWrapper>
             </FlexWrapper>
         </ContactInformation>
@@ -81,12 +81,12 @@ const ContactTitle = styled.h2`
     text-align: center;
   }
 `
-const Adress = styled.span`
+const CountryLabel  = styled.span`
   font-size: 18px;
   font-weight: 500;
   text-transform: capitalize;
 `
-const AdressAnswer = styled.span`
+const CountryValue  = styled.span`
   font-size: 15px;
   text-transform: capitalize;
 `

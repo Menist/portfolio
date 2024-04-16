@@ -9,12 +9,12 @@ type CardBtnPropsType={
 export const PriceCardBtn = (props: CardBtnPropsType) => {
     const { themeObj }= useTheme()
     return (
-        <ButtonPriceCard themeObj={themeObj}>
+        <PriceCardButton themeObj={themeObj}>
             {props.textBtn}
-        </ButtonPriceCard>
+        </PriceCardButton>
     );
 };
-const ButtonPriceCard=styled.button<{themeObj: ThemeObjectType}>`
+const PriceCardButton=styled.button<{themeObj: ThemeObjectType}>`
   max-width: 160px;
   padding: 10px 25px;
   border: none;

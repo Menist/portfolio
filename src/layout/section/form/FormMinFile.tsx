@@ -41,17 +41,17 @@ const itemsData = [
 export const FormMainFile = () => {
     return (
         <Fade cascade damping={19}>
-            <FormMinFileSection id={'contacts'}>
+            <FormMainFileSection id={'contacts'}>
                 <FlexWrapper justify={"space-between"}>
                     <Form></Form>
                     <FlexWrapper direction={"column"} wrap={"nowrap"}>
                         {itemsData.map((item, index)=>{
                             return <Contact
-                                country={item.country}
-                                countryAnswer={item.countryAnswer}
-                                city={item.city}
-                                cityAnswer={item.cityAnswer}
-                                street={item.street}
+                                countryLabel={item.country}
+                                countryValue={item.countryAnswer}
+                                cityLabel={item.city}
+                                cityValue={item.cityAnswer}
+                                streetLabel={item.street}
                                 streetAnswer={item.streetAnswer}
                                 showTitleInfo={item.showTitleInfo}
                                 iconId={item.iconId}
@@ -61,12 +61,12 @@ export const FormMainFile = () => {
                         })}
                     </FlexWrapper>
                 </FlexWrapper>
-            </FormMinFileSection>
+            </FormMainFileSection>
         </Fade>
     );
 };
 
-const FormMinFileSection = styled.section`
+const FormMainFileSection = styled.section`
   margin-top: 70px;
 
   @media screen and (max-width: 1209px) {

@@ -26,7 +26,9 @@ const FooterSection = styled.footer<{themeObj: ThemeObjectType}>`
 
   span {
     color:  ${({themeObj}) =>themeObj.colors.primary};
-    padding-right: 25px;
+    padding-right: 17px;
+    font-size: 20px;
+    vertical-align: bottom;
   }
 
   @media screen and (max-width: 1091px) {

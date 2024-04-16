@@ -8,14 +8,14 @@ import {useTheme} from "../../../../ThemeProvider";
 import {ThemeObjectType} from "../../../../styles/ColorSheme";
 
 type PriceCardPropType = {
-    name: string
-    price: string
-    description: string
-    iconId: string
-    services: string
-    height: string
-    width: string
-    span: string
+    CardTitle: string
+    CardPrice: string
+    CardDescription: string
+    CardIconId: string
+    CardServices: string
+    CardIconHeight: string
+    CardIconWidth: string
+    CardSpan: string
 }
 
 export const PriceCard = (props: PriceCardPropType) => {
@@ -23,27 +23,27 @@ export const PriceCard = (props: PriceCardPropType) => {
     return (
         <PriceCardStyled themeObj={themeObj}>
             <Fade direction={"up"}>
-                <PlansName>{props.name}</PlansName>
-                <PlansPrice themeObj={themeObj}>{props.price}
-                    <span>{props.span}</span>
+                <PlansName>{props.CardTitle}</PlansName>
+                <PlansPrice themeObj={themeObj}>{props.CardPrice}
+                    <span>{props.CardSpan}</span>
                 </PlansPrice>
-                <PlansDescription>{props.description}</PlansDescription>
+                <PlansDescription>{props.CardDescription}</PlansDescription>
                 <FlexWrapper gap={"10"} direction={"column"} width={"100%"}>
                     <FlexWrapper justify={"center"} width={"100%"} padding={"15px 0 0 10px"}>
-                        <Icon iconId={props.iconId} height={props.height} width={props.width}/>
-                        <PriceServices>{props.services}</PriceServices>
+                        <Icon iconId={props.CardIconId} height={props.CardIconWidth} width={props.CardIconWidth}/>
+                        <PriceServices>{props.CardServices}</PriceServices>
                     </FlexWrapper>
                     <FlexWrapper justify={"center"} width={"100%"} padding={"15px 0 0 10px"}>
-                        <Icon iconId={props.iconId} height={props.height} width={props.width}/>
-                        <PriceServices>{props.services}</PriceServices>
+                        <Icon iconId={props.CardIconId} height={props.CardIconHeight} width={props.CardIconWidth}/>
+                        <PriceServices>{props.CardServices}</PriceServices>
                     </FlexWrapper>
                     <FlexWrapper justify={"center"} width={"100%"} padding={"15px 0 0 10px"}>
-                        <Icon iconId={props.iconId} height={props.height} width={props.width}/>
-                        <PriceServices>{props.services}</PriceServices>
+                        <Icon iconId={props.CardIconId} height={props.CardIconHeight} width={props.CardIconWidth}/>
+                        <PriceServices>{props.CardServices}</PriceServices>
                     </FlexWrapper>
                     <FlexWrapper justify={"center"} width={"100%"} padding={"15px 0 0 10px"}>
-                        <Icon iconId={props.iconId} height={props.height} width={props.width}/>
-                        <PriceServices>{props.services}</PriceServices>
+                        <Icon iconId={props.CardIconId} height={props.CardIconHeight} width={props.CardIconWidth}/>
+                        <PriceServices>{props.CardServices}</PriceServices>
                     </FlexWrapper>
                 </FlexWrapper>
                 <PriceCardBtn textBtn={"order now"}></PriceCardBtn>

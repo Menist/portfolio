@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import styled from "styled-components";
 import {BlockTitle} from "../../../components/SectionTitle/BlockTitle";
-import {TabCardPortfolio} from "./cardPortfolio/TabCardPortfolio";
+import {PortfolioCard} from "./cardPortfolio/PortfolioCard";
 import img0 from "../../../assets/img/section/portfolio/OverlayPortfolio.webp";
 import img0x from "../../../assets/img/section@2x/portfolio/OverlayPortfolio_@2x.webp";
 import img1 from "../../../assets/img/section/portfolio/01.webp";
@@ -28,7 +28,7 @@ const projects = [
     {src: img5, type: 'landing page', srcSet: img5x, overLay: img0, img: img0x},
     {src: img6, type: 'react', srcSet: img6x, overLay: img0, img: img0x},
 ];
-export const TabPortfolio = () => {
+export const Portfolio = () => {
     const [currentFilterStatus, setCurrentFilterStatus] = useState('all');
 
     let filteredProjects = projects;
@@ -44,7 +44,7 @@ export const TabPortfolio = () => {
 
                 <MenuTab changeFilter={setCurrentFilterStatus}/>
 
-                <Container>
+                <GridWrap>
                     <AnimatePresence>
                         {filteredProjects.map((project, index) => {
                             return (
@@ -55,19 +55,19 @@ export const TabPortfolio = () => {
                                     transition={{ ease: "linear", duration: 1 }}
                                     key={index}
                                 >
-                                    <TabCardPortfolio type={project.type}
-                                                      src={project.src}
-                                                      srcSet={img1x}
-                                                      overLay={img0}
-                                                      img={img0x}
-                                                      key={index}
+                                    <PortfolioCard type={project.type}
+                                                   src={project.src}
+                                                   srcSet={img1x}
+                                                   overLay={img0}
+                                                   img={img0x}
+                                                   key={index}
                                     />
                                 </motion.div>
                             )
                         })
                         }
                     </AnimatePresence>
-                </Container>
+                </GridWrap>
             </PortfolioSection>
         </Fade>
     );
@@ -76,7 +76,7 @@ export const TabPortfolio = () => {
 const PortfolioSection = styled.section`
 
 `
-const Container = styled.div`
+const GridWrap = styled.div`
   display: grid;
   width: 100%;
   grid-template-columns: repeat(auto-fit, minmax(230px, .3fr));
@@ -86,11 +86,12 @@ const Container = styled.div`
 
   @media screen and (max-width: 1207px) {
     grid-template-columns: repeat(auto-fit, minmax(230px, .5fr));
-
   }
+  
   @media screen and (max-width: 1100px) {
     grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
   }
+  
   @media screen and (max-width: 539px) {
     justify-items: center;
   }
