@@ -32,7 +32,7 @@ const BlogCardStyled = styled(motion.div)`
   justify-content: space-between;
   flex-direction: column;
   flex: 0 0 31.5%;
-  
+
   a {
     padding-top: 0;
     font-size: 18px;

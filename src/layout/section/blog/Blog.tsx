@@ -35,32 +35,23 @@ const blogData = [
         textLink: "Learn more"
     }
 ];
+
 export const Blog = () => {
     return (
         <Fade cascade damping={.9}>
             <BlogSection id={'blog'}>
                 <BlockTitle title={'blog'}
                             subTitle={"Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. lorem ipsum"}></BlockTitle>
-                <FlexWrapper justify={"space-between"}>
-                    <AnimatePresence>
+                <AnimatePresence>
+                    <motion.div
+                        layout
+                        initial={{opacity: 0, scale: .2}}
+                        whileInView={{opacity: 1, scale: 1}}
+                        transition={{ease: "linear", duration: 1,}}
+                    >
+                        <FlexWrapper justify={"space-between"}>
+                            {blogData.map((blogItem, index) => (
 
-                        {blogData.map((blogItem, index) => (
-                            // <motion.div
-                            //     style={
-                            //         {
-                            //             display: "flex",
-                            //             flex: '0 0 31.5%',
-                            //             justifyContent: 'spaceBetween',
-                            //             flexDirection: 'column',
-                            //             flexWrap: 'nowrap'
-                            //         }
-                            //     }
-                            //     layout
-                            //     initial={{opacity: 0, scale: .2}}
-                            //     animate={{opacity: 1, scale: 1}}
-                            //     transition={{ease: "linear", duration: 1}}
-                            //     key={index}
-                            // >
                                 <BlogCard
                                     key={index}
                                     src={blogItem.src}
@@ -69,11 +60,10 @@ export const Blog = () => {
                                     text={blogItem.text}
                                     textLink={blogItem.textLink}
                                 />
-                             // </motion.div>
-                        ))}
-                    </AnimatePresence>
-
-                </FlexWrapper>
+                            ))}
+                        </FlexWrapper>
+                    </motion.div>
+                </AnimatePresence>
             </BlogSection>
         </Fade>
     );
@@ -84,10 +74,10 @@ const BlogSection = styled.section`
     @media screen and (max-width: 1290px) {
       flex: 0 0 80%;
     }
-    
+
     @media screen and (max-width: 1170px) {
       flex: 0 0 80%;
       justify-content: center;
     }
   }
-`
+`;
