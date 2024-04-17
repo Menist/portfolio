@@ -40,12 +40,10 @@ export const Education = () => {
                                             infoTitle={item.infoTitle} infoSubTitle={item.infoSubTitle}
                                             infoData={item.infoData} descriptionTitle={item.descriptionTitle}
                                             descriptionText={item.descriptionText}/>
-                })};
-
+                })}
                 </EducationSection>
         </Fade>
 );
-};
+}
 const EducationSection = styled.section`
-
 `

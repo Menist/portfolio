@@ -13,16 +13,15 @@ type SkillsFragmentPropsType = {
 export const SkillsFragment = (props: SkillsFragmentPropsType) => {
     const { themeObj } = useTheme();
 
-
     return (
         <ProgressBar>
             <FlexWrapper justify={"space-between"}>
                 <ProgressText themeObj={themeObj}>{props.textTitle}</ProgressText>
                 <ProgressText themeObj={themeObj}>{props.textProgress}</ProgressText>
             </FlexWrapper>
-            <SkillsProgress themeObj={themeObj}>
+            <SkillsProgressLine themeObj={themeObj}>
                 <Progress themeObj={themeObj} progress={props.progress}></Progress>
-            </SkillsProgress>
+            </SkillsProgressLine>
         </ProgressBar>
     );
 };
@@ -30,7 +29,7 @@ const ProgressBar = styled.div`
   padding: 15px 0 10px;
 `
 
-const SkillsProgress = styled.div<{themeObj: ThemeObjectType}>`
+const SkillsProgressLine = styled.div<{themeObj: ThemeObjectType}>`
   width: 100%;
   height: 100%;
   border: 1px solid ${({themeObj}) =>themeObj.colors.primary};

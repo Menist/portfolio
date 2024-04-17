@@ -57,7 +57,6 @@ export const FormMainFile = () => {
                                 iconId={item.iconId}
                             key={index}
                             />
-
                         })}
                     </FlexWrapper>
                 </FlexWrapper>

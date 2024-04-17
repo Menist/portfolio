@@ -2,7 +2,7 @@ import styled, {css} from "styled-components";
 import {Main} from "./section/main/Main";
 import {SidebarAbout} from "./section/about/SidebarAbout";
 import {LanguagesMain} from "./section/languages/LanguagesMain";
-import {SkillsMain} from "./section/skills/SkillsMain";
+import {Skills} from "./section/skills/Skills";
 import {ExtraSkillsMaine} from "./section/extraSkills/ExtraSkillsMaine";
 import {Btn} from "./section/button/Btn";
 import {  useTheme } from '../../ThemeProvider';
@@ -28,7 +28,7 @@ export const Sidebar = (props: Props) => {
                     <Main />
                     <SidebarAbout />
                     <LanguagesMain />
-                    <SkillsMain />
+                    <Skills />
                     <ExtraSkillsMaine />
                     <Btn />
                 </Container>
