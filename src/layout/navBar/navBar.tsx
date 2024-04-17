@@ -96,6 +96,8 @@ const Nav = styled.nav<{ themeObj: ThemeObjectType }>`
   min-width: 108px;
   background-color: ${({themeObj}) => themeObj.colors.backgroundColorSection};
   padding: 50px 22px 50px 25px;
+  overflow-y: scroll;
+  height: 100vh;
 
   ul {
     display: flex;
