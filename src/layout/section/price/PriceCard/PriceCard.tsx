@@ -1,59 +1,56 @@
 import React from 'react';
 import styled from "styled-components";
-import {Icon} from "../../../../components/icon/Icon";
-import {FlexWrapper} from "../../../../components/FlexWrapper";
-import {PriceCardBtn} from "../PriceCardBtn";
-import {Fade} from "react-awesome-reveal";
-import {useTheme} from "../../../../ThemeProvider";
-import {ThemeObjectType} from "../../../../styles/ColorSheme";
+import { Icon } from "../../../../components/icon/Icon";
+import { FlexWrapper } from "../../../../components/FlexWrapper";
+import { PriceCardBtn } from "../PriceCardBtn";
+import { Fade } from "react-awesome-reveal";
+import { useTheme } from "../../../../ThemeProvider";
+import { ThemeObjectType } from "../../../../styles/ColorSheme";
+import { itemType } from "../Price";
 
 type PriceCardPropType = {
-    CardTitle: string
-    CardPrice: string
-    CardDescription: string
-    CardIconId: string
-    CardServices: string
-    CardIconHeight: string
-    CardIconWidth: string
-    CardSpan: string
-}
+    item: itemType;
+};
 
 export const PriceCard = (props: PriceCardPropType) => {
     const { themeObj } = useTheme();
+
     return (
         <PriceCardStyled themeObj={themeObj}>
             <Fade direction={"up"}>
-                <PlansName>{props.CardTitle}</PlansName>
-                <PlansPrice themeObj={themeObj}>{props.CardPrice}
-                    <span>{props.CardSpan}</span>
-                </PlansPrice>
-                <PlansDescription>{props.CardDescription}</PlansDescription>
-                <FlexWrapper gap={"10"} direction={"column"} width={"100%"}>
-                    <FlexWrapper justify={"center"} width={"100%"} padding={"15px 0 0 10px"}>
-                        <Icon iconId={props.CardIconId} height={props.CardIconWidth} width={props.CardIconWidth}/>
-                        <PriceServices>{props.CardServices}</PriceServices>
-                    </FlexWrapper>
-                    <FlexWrapper justify={"center"} width={"100%"} padding={"15px 0 0 10px"}>
-                        <Icon iconId={props.CardIconId} height={props.CardIconHeight} width={props.CardIconWidth}/>
-                        <PriceServices>{props.CardServices}</PriceServices>
-                    </FlexWrapper>
-                    <FlexWrapper justify={"center"} width={"100%"} padding={"15px 0 0 10px"}>
-                        <Icon iconId={props.CardIconId} height={props.CardIconHeight} width={props.CardIconWidth}/>
-                        <PriceServices>{props.CardServices}</PriceServices>
-                    </FlexWrapper>
-                    <FlexWrapper justify={"center"} width={"100%"} padding={"15px 0 0 10px"}>
-                        <Icon iconId={props.CardIconId} height={props.CardIconHeight} width={props.CardIconWidth}/>
-                        <PriceServices>{props.CardServices}</PriceServices>
-                    </FlexWrapper>
-                </FlexWrapper>
-                <PriceCardBtn textBtn={"order now"}></PriceCardBtn>
-                </Fade>
-        </PriceCardStyled>
+                <PlansName>{props.item.title}</PlansName>
+                <PlansPrice themeObj={themeObj}>{props.item.price}</PlansPrice>
 
+                <PlansDescription>{props.item.description}</PlansDescription>
+
+                <FlexWrapper gap={"10"} direction={"column"} width={"100%"}>
+                    {props.item.services.map((service, index) => (
+                        <FlexWrapper
+                            key={index}
+                            justify={"flex-start"}
+                            width={"100%"}
+                            padding={"15px 0 0 10px"}
+                        >
+                            <Icon
+                                iconId={service.iconId ? "selected" : "noSelected"}
+                                height={props.item.iconWidth}
+                                width={props.item.iconWidth}
+                            />
+                            <PriceServices iconId={service.iconId} color={service.color}>
+                                <span>{service.name}</span>
+                            </PriceServices>
+                        </FlexWrapper>
+                    ))}
+                </FlexWrapper>
+
+                <PriceCardBtn textBtn={"order now"}></PriceCardBtn>
+            </Fade>
+        </PriceCardStyled>
     );
 };
-const PriceCardStyled = styled.div<{themeObj: ThemeObjectType}>`
-  background-color: ${({themeObj}) =>themeObj.colors.backgroundColorSection};
+
+const PriceCardStyled = styled.div<{ themeObj: ThemeObjectType }>`
+  background-color: ${({ themeObj }) => themeObj.colors.backgroundColorSection};
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -76,14 +73,14 @@ const PriceCardStyled = styled.div<{themeObj: ThemeObjectType}>`
     content: "most popular";
     width: 100%;
     display: inline-block;
-    background-color: ${({themeObj}) =>themeObj.colors.primary};
+    background-color: ${({ themeObj }) => themeObj.colors.primary};
     padding: 5px 0;
     font-size: 15px;
     position: absolute;
     left: 0;
     top: 0;
     text-transform: capitalize;
-    color: ${({themeObj}) =>themeObj.colors.headerText};
+    color: ${({ themeObj }) => themeObj.colors.headerText};
     text-align: center;
   }
 
@@ -100,54 +97,59 @@ const PriceCardStyled = styled.div<{themeObj: ThemeObjectType}>`
   @media screen and (max-width: 1340px) {
     flex: 1 0 45%;
   }
-}
 
-@media screen and (max-width: 1129px) {
-  flex: 1 0 65%;
-  ${FlexWrapper} {
-    justify-content: center;
+  @media screen and (max-width: 1129px) {
+    flex: 1 0 65%;
+    ${FlexWrapper} {
+      justify-content: center;
+    }
   }
-}
 
-@media screen and (max-width: 1091px) {
-  flex: 1 0 45%;
-}
+  @media screen and (max-width: 1091px) {
+    flex: 1 0 45%;
+  }
 
-@media screen and (max-width: 943px) {
-  flex: 1 0 75%;
-}
+  @media screen and (max-width: 943px) {
+    flex: 1 0 75%;
+  }
 
-@media screen and (max-width: 885px) {
-  flex: 1 0 40%;
-  justify-content: flex-start;
-}
+  @media screen and (max-width: 885px) {
+    flex: 1 0 40%;
+    justify-content: flex-start;
+  }
 
-@media screen and (max-width: 636px) {
-  flex: 1 0 100%;
-}
-`
+  @media screen and (max-width: 636px) {
+    flex: 1 0 100%;
+  }
+`;
 
 const PlansName = styled.h3`
   font-weight: 600;
   text-transform: capitalize;
-`
-const PlansPrice = styled.span<{themeObj: ThemeObjectType}>`
+`;
+
+const PlansPrice = styled.span<{ themeObj: ThemeObjectType }>`
   font-size: 32px;
   font-weight: 700;
-  color: ${({themeObj}) =>themeObj.colors.headerText};
-  
+  color: ${({ themeObj }) => themeObj.colors.headerText};
 
   > span {
-    font-size: ${({themeObj}) =>themeObj.text.textSize};
+    font-size: ${({ themeObj }) => themeObj.text.textSize};
     font-weight: 400;
     text-transform: capitalize;
     padding-left: 10px;
   }
+`;
 
-`
-const PriceServices = styled.div`
-`
+const PriceServices = styled.div<{ iconId: boolean; color: string }>`
+  text-transform: capitalize;
+  span {
+    color: ${({ color }) => color};
+    font-weight: ${({ iconId }) => (iconId ? "bold" : "normal")};
+  }
+`;
+
 const PlansDescription = styled.p`
   text-align: center;
   text-transform: capitalize;
-`
+`;
