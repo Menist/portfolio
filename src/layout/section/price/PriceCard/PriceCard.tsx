@@ -20,26 +20,17 @@ export const PriceCard = (props: PriceCardPropType) => {
             <Fade direction={"up"}>
                 <PlansName>{props.item.title}</PlansName>
                 <PlansPrice themeObj={themeObj}>{props.item.price}</PlansPrice>
-
                 <PlansDescription>{props.item.description}</PlansDescription>
-
-                <FlexWrapper gap={"10"} direction={"column"} width={"100%"}>
+                <FlexWrapper gap={"10"} direction={"column"} >
                     {props.item.services.map((service, index) => (
-                        <FlexWrapper
-                            key={index}
-                            justify={"flex-start"}
-                            width={"100%"}
-                            padding={"15px 0 0 10px"}
-                        >
-                            <Icon
-                                iconId={service.iconId ? "selected" : "noSelected"}
-                                height={props.item.iconWidth}
-                                width={props.item.iconWidth}
-                            />
                             <PriceServices iconId={service.iconId} color={service.color}>
+                                <Icon
+                                    iconId={service.iconId ? "selected" : "noSelected"}
+                                    height={props.item.iconWidth}
+                                    width={props.item.iconWidth}
+                                />
                                 <span>{service.name}</span>
                             </PriceServices>
-                        </FlexWrapper>
                     ))}
                 </FlexWrapper>
 
@@ -48,6 +39,23 @@ export const PriceCard = (props: PriceCardPropType) => {
         </PriceCardStyled>
     );
 };
+const PriceServices = styled.div<{ iconId: boolean; color: string }>`
+  display: flex;
+  align-items: center;
+  padding-bottom: 15px;
+  row-gap: 20px;
+  
+  svg{
+    margin-right: 15px;
+  }
+  
+  text-transform: capitalize;
+  span {
+    color: ${({ color }) => color};
+    font-weight: ${({ iconId }) => (iconId ? "bold" : "normal")};
+  }
+  
+`;
 
 const PriceCardStyled = styled.div<{ themeObj: ThemeObjectType }>`
   background-color: ${({ themeObj }) => themeObj.colors.backgroundColorSection};
@@ -57,9 +65,10 @@ const PriceCardStyled = styled.div<{ themeObj: ThemeObjectType }>`
   padding: 55px 30px 25px 35px;
   gap: 20px;
   position: relative;
-  min-width: 310px;
+  min-width: 290px;
   flex: 1 0 30%;
   max-width: 500px;
+
 
   ${FlexWrapper} {
     padding-top: 10px;
@@ -83,44 +92,6 @@ const PriceCardStyled = styled.div<{ themeObj: ThemeObjectType }>`
     color: ${({ themeObj }) => themeObj.colors.headerText};
     text-align: center;
   }
-
-  @media screen and (max-width: 1461px) {
-    min-width: 270px;
-  }
-
-  @media screen and (max-width: 1440px) {
-    ${FlexWrapper} {
-      flex: 1 0 20%;
-    }
-  }
-
-  @media screen and (max-width: 1340px) {
-    flex: 1 0 45%;
-  }
-
-  @media screen and (max-width: 1129px) {
-    flex: 1 0 65%;
-    ${FlexWrapper} {
-      justify-content: center;
-    }
-  }
-
-  @media screen and (max-width: 1091px) {
-    flex: 1 0 45%;
-  }
-
-  @media screen and (max-width: 943px) {
-    flex: 1 0 75%;
-  }
-
-  @media screen and (max-width: 885px) {
-    flex: 1 0 40%;
-    justify-content: flex-start;
-  }
-
-  @media screen and (max-width: 636px) {
-    flex: 1 0 100%;
-  }
 `;
 
 const PlansName = styled.h3`
@@ -138,14 +109,6 @@ const PlansPrice = styled.span<{ themeObj: ThemeObjectType }>`
     font-weight: 400;
     text-transform: capitalize;
     padding-left: 10px;
-  }
-`;
-
-const PriceServices = styled.div<{ iconId: boolean; color: string }>`
-  text-transform: capitalize;
-  span {
-    color: ${({ color }) => color};
-    font-weight: ${({ iconId }) => (iconId ? "bold" : "normal")};
   }
 `;
 

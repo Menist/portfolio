@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from "styled-components";
-import { FlexWrapper } from "../../../components/FlexWrapper";
 import { PriceCard } from "./PriceCard/PriceCard";
 import { BlockTitle } from "../../../components/SectionTitle/BlockTitle";
 import { Fade } from "react-awesome-reveal";
@@ -86,23 +85,29 @@ export const Price = () => {
             <PriceSection>
                 <BlockTitle title={'Price plans'}
                             subTitle={'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. lorem ipsum'} />
-                <FlexWrapper wrap={"wrap"} justify={"space-between"}>
+                <PriceGridWrapper >
                     {itemsData.map((item, index) => (
                         <PriceCard
                             item={item}
                             key={index}
                         />
                     ))}
-                </FlexWrapper>
+                </PriceGridWrapper>
             </PriceSection>
         </Fade>
     );
 };
 
-const PriceSection = styled.section`
-  @media screen and (max-width: 1340px) {
-    ${FlexWrapper} {
-      justify-content: center;
-    }
-  }
-`;
+
+const PriceGridWrapper = styled.div`
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  -webkit-column-gap: 20px;
+  column-gap: 20px;
+  row-gap: 20px;
+  justify-items: center;
+
+`
+
+const PriceSection = styled.section``;
