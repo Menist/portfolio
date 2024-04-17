@@ -33,26 +33,15 @@ export const themeNew = (isDarkTheme: boolean): ThemeObjectType => {
         backgroundWebsite: "#F0F0F6",
         iconNavBar:"#767676"
     };
-
-    // const darkColors: Colors = {
-    //     primary: "#6B5B95",
-    //     accent: "rgba(107,91,149,0.71)",
-    //     headerText: "#E0E0E0",
-    //     mainText: "#CCCCCC",
-    //     link: "#6B5B95",
-    //     backgroundColorSection: "#2B2B2B",
-    //     backgroundWebsite: "#1A1A1A",
-    //     iconNavBar:"#E0E0E0"
-    // };
-    const darkColors: Colors = {
-        primary: "#E63946",
-        accent: "rgba(230, 57, 70, 0.71)",
-        headerText: "#F1FAEE",
-        mainText: "#A8DADC",
-        link: "#E63946",
-        backgroundColorSection: "#011627",
-        backgroundWebsite: "#172440",
-        iconNavBar: "#A8DADC"
+    const darkColors: Colors  = {
+        primary: "#FFB400", // сохраняем жёлтый цвет
+        accent: "rgba(255, 180, 0, 0.71)", // сохраняем оранжевый акцент
+        headerText: "#FFFFFF", // белый текст для заголовков
+        mainText: "#E0E0E0", // серый текст
+        link: "#FFB400", // сохраняем жёлтый для ссылок
+        backgroundColorSection: "#2B2B2B", // тёмно-серый фон секций
+        backgroundWebsite: "#121212", // очень тёмный фон для всего сайта
+        iconNavBar:"#E0E0E0" // серые иконки для навигационной панели
     };
 
     const colors = isDarkTheme ? darkColors : lightColors;

@@ -1,7 +1,6 @@
 import {ThemeProvider} from "../ThemeProvider";
 import {createGlobalStyle} from "styled-components";
 
-
 export const GlobalStyle = ({children}: any) => {
     return (
         <ThemeProvider>
@@ -9,7 +8,6 @@ export const GlobalStyle = ({children}: any) => {
         </ThemeProvider>
     );
 };
-
 
 export const GlobalStyled = createGlobalStyle<{ themeObj: any }>`
   *,
