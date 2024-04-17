@@ -3,6 +3,7 @@ import styled from "styled-components";
 import {Icon} from "../../../../components/icon/Icon";
 import {FlexWrapper} from "../../../../components/FlexWrapper";
 import {useTheme} from "../../../../ThemeProvider";
+import {ThemeObjectType} from "../../../../styles/ColorSheme";
 
 
 type RecommendationsCardStyledPropsType = {
@@ -39,7 +40,7 @@ export const RecommendationsCard = (props: RecommendationsCardStyledPropsType) =
                 direction={'column'}
                 justify={"center"}
             >
-                <RecommendationsCardName>{props.personName}</RecommendationsCardName>
+                <RecommendationsCardName themeObj={themeObj}>{props.personName}</RecommendationsCardName>
                 <RecommendationsCardProfession>{props.profession}</RecommendationsCardProfession>
             </FlexWrapper>
         </FlexWrapper>
@@ -59,10 +60,10 @@ const RecommendationsCardText = styled.p`
   -webkit-line-clamp: 4;
 `
 const RecommendationsCardImg = styled.img``
-const RecommendationsCardName = styled.span`
+const RecommendationsCardName = styled.span<{ themeObj: ThemeObjectType }>`
   font-weight: 500;
   font-size: 18px;
-  color: #2B2B2B;
+  color: ${({themeObj}) => themeObj.colors.headerText};
 `
 const RecommendationsCardProfession = styled.span`
   font-weight: 500;

@@ -10,7 +10,7 @@ import img2x from "../../../assets/img/section@2x/blog/blog2_@2x.webp";
 import img3 from "../../../assets/img/section/blog/blog03.webp";
 import img3x from "../../../assets/img/section@2x/blog/blog3_@2x.webp";
 import {Fade} from "react-awesome-reveal";
-// import {AnimatePresence, motion} from "framer-motion"
+import {AnimatePresence, motion} from "framer-motion"
 
 const blogData = [
     {
@@ -42,7 +42,7 @@ export const Blog = () => {
                 <BlockTitle title={'blog'}
                             subTitle={"Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. lorem ipsum"}></BlockTitle>
                 <FlexWrapper justify={"space-between"}>
-                    {/*<AnimatePresence>*/}
+                    <AnimatePresence>
 
                         {blogData.map((blogItem, index) => (
                             // <motion.div
@@ -69,9 +69,9 @@ export const Blog = () => {
                                     text={blogItem.text}
                                     textLink={blogItem.textLink}
                                 />
-                            // </motion.div>
+                             // </motion.div>
                         ))}
-                    {/*</AnimatePresence>*/}
+                    </AnimatePresence>
 
                 </FlexWrapper>
             </BlogSection>

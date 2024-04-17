@@ -34,7 +34,6 @@ export const GlobalStyled = createGlobalStyle<{ themeObj: any }>`
   &::-webkit-scrollbar-thumb {
     border-radius: 30px;
     background-color: ${({ themeObj }) => themeObj.colors.primary};
- 
   }
 
   &::-webkit-scrollbar-thumb:hover {

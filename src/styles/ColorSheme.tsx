@@ -34,26 +34,26 @@ export const themeNew = (isDarkTheme: boolean): ThemeObjectType => {
         iconNavBar:"#767676"
     };
 
-    const darkColors: Colors = {
-        primary: "#6B5B95",
-        accent: "rgba(107,91,149,0.71)",
-        headerText: "#E0E0E0",
-        mainText: "#CCCCCC",
-        link: "#6B5B95",
-        backgroundColorSection: "#2B2B2B",
-        backgroundWebsite: "#1A1A1A",
-        iconNavBar:"#E0E0E0"
-    };
     // const darkColors: Colors = {
-    //     primary: "#E63946",
-    //     accent: "rgba(230, 57, 70, 0.71)",
-    //     headerText: "#F1FAEE",
-    //     mainText: "#A8DADC",
-    //     link: "#E63946",
-    //     backgroundColorSection: "#011627",
-    //     backgroundWebsite: "#172440",
-    //     iconNavBar: "#A8DADC"
+    //     primary: "#6B5B95",
+    //     accent: "rgba(107,91,149,0.71)",
+    //     headerText: "#E0E0E0",
+    //     mainText: "#CCCCCC",
+    //     link: "#6B5B95",
+    //     backgroundColorSection: "#2B2B2B",
+    //     backgroundWebsite: "#1A1A1A",
+    //     iconNavBar:"#E0E0E0"
     // };
+    const darkColors: Colors = {
+        primary: "#E63946",
+        accent: "rgba(230, 57, 70, 0.71)",
+        headerText: "#F1FAEE",
+        mainText: "#A8DADC",
+        link: "#E63946",
+        backgroundColorSection: "#011627",
+        backgroundWebsite: "#172440",
+        iconNavBar: "#A8DADC"
+    };
 
     const colors = isDarkTheme ? darkColors : lightColors;
 

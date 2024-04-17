@@ -36,7 +36,10 @@ export const Education = () => {
                             subTitle={'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. lorem ipsum'}></BlockTitle>
 
                 {itemsData.map((item, index)=>{
-                    return <EducationStyled key={index} infoTitle={item.infoTitle} infoSubTitle={item.infoSubTitle} infoData={item.infoData} descriptionTitle={item.descriptionTitle} descriptionText={item.descriptionText}/>
+                    return <EducationStyled key={index}
+                                            infoTitle={item.infoTitle} infoSubTitle={item.infoSubTitle}
+                                            infoData={item.infoData} descriptionTitle={item.descriptionTitle}
+                                            descriptionText={item.descriptionText}/>
                 })};
 
                 </EducationSection>

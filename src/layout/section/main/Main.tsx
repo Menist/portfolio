@@ -23,7 +23,8 @@ export const AboutMe = () => {
     return (
         <Fade cascade damping={.9}>
             <MainSection themeObj={themeObj}>
-                <FlexWrapper align={"center"}
+                <FlexWrapper
+                             align={'center'}
                              justify={"space-around"}
                              padding={"30px 50px 0 50px"}
                 >
