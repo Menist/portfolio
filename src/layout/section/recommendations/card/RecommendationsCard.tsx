@@ -3,7 +3,7 @@ import styled from "styled-components";
 import {Icon} from "../../../../components/icon/Icon";
 import {FlexWrapper} from "../../../../components/FlexWrapper";
 import {useTheme} from "../../../../ThemeProvider";
-import {ThemeObjectType} from "../../../../styles/ColorSheme";
+import {themeobjectType} from "../../../../styles/ColorSheme";
 
 
 type RecommendationsCardStyledPropsType = {
@@ -17,10 +17,10 @@ type RecommendationsCardStyledPropsType = {
 }
 
 export const RecommendationsCard = (props: RecommendationsCardStyledPropsType) => {
-    const { themeObj } = useTheme();
+    const { themeobj } = useTheme();
     return (
-        <FlexWrapper themeObj={themeObj}
-                     bgColor={themeObj.colors.backgroundColorSection}
+        <FlexWrapper themeobj={themeobj}
+                     bgColor={themeobj.colors.backgroundColorSection}
                      minWidth={'290px'}
                      wrap={'wrap'}
                      padding={'25px'}
@@ -28,10 +28,10 @@ export const RecommendationsCard = (props: RecommendationsCardStyledPropsType) =
                      marginRight={'20px'}
                      align={'stretch'}
         >
-            <Icon iconId={props.iconType} height={"17.37"} width={"18"}/>
-            <Icon iconId={props.iconType} height={"17.37"} width={"18"}/>
-            <Icon iconId={props.iconType} height={"17.37"} width={"18"}/>
-            <Icon iconId={props.iconType} height={"17.37"} width={"18"}/>
+            <Icon iconId={props.iconType} height={17} width={18}/>
+            <Icon iconId={props.iconType} height={17} width={18}/>
+            <Icon iconId={props.iconType} height={17} width={18}/>
+            <Icon iconId={props.iconType} height={17} width={18}/>
             <RecommendationsCardTitle>{props.cardTitle}</RecommendationsCardTitle>
             <RecommendationsCardText>{props.cardDescription}</RecommendationsCardText>
             <RecommendationsCardImg src={props.imageSrc} srcSet={`${props.imageSrcSet} 2x`}/>
@@ -40,7 +40,7 @@ export const RecommendationsCard = (props: RecommendationsCardStyledPropsType) =
                 direction={'column'}
                 justify={"center"}
             >
-                <RecommendationsCardName themeObj={themeObj}>{props.personName}</RecommendationsCardName>
+                <RecommendationsCardName themeobj={themeobj}>{props.personName}</RecommendationsCardName>
                 <RecommendationsCardProfession>{props.profession}</RecommendationsCardProfession>
             </FlexWrapper>
         </FlexWrapper>
@@ -60,10 +60,10 @@ const RecommendationsCardText = styled.p`
   -webkit-line-clamp: 4;
 `
 const RecommendationsCardImg = styled.img``
-const RecommendationsCardName = styled.span<{ themeObj: ThemeObjectType }>`
+const RecommendationsCardName = styled.span<{ themeobj: themeobjectType }>`
   font-weight: 500;
   font-size: 18px;
-  color: ${({themeObj}) => themeObj.colors.headerText};
+  color: ${({themeobj}) => themeobj.colors.headerText};
 `
 const RecommendationsCardProfession = styled.span`
   font-weight: 500;

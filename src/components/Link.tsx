@@ -2,24 +2,24 @@ import React from 'react';
 import { Icon } from "./icon/Icon";
 import styled from "styled-components";
 import {useTheme} from "../ThemeProvider";
-import {ThemeObjectType} from "../styles/ColorSheme";
+import {themeobjectType} from "../styles/ColorSheme";
 
 type CardLinkPropsType = {
     link: string
 };
 
 export const CardLink = (props: CardLinkPropsType) => {
-    const { themeObj } = useTheme();
+    const { themeobj } = useTheme();
     return (
-        <Link href={"#"} themeObj={themeObj}>
+        <Link href={"#"} themeobj={themeobj}>
             {props.link}
-            <Icon iconId={"angleBracket"} width={"4.71"} height={"7.79"} color={"#fffff"} viewBox={"0 0 4.71 7.79"}/>
+            <Icon iconId={"angleBracket"} width={5} height={8} color={"#fffff"} viewBox={"0 0 5 8"}/>
         </Link>
     );
 };
 
-const Link = styled.a<{themeObj: ThemeObjectType}>`
-  color: ${({themeObj}) => themeObj.colors.link};
+const Link = styled.a<{themeobj: themeobjectType}>`
+  color: ${({themeobj}) => themeobj.colors.primary};
 
   padding-top: 20px;
   display: flex;
@@ -30,13 +30,13 @@ const Link = styled.a<{themeObj: ThemeObjectType}>`
     margin-left: 8px;
 
     &:hover {
-      color: ${({themeObj}) => themeObj.colors.headerText};
+      color: ${({themeobj}) => themeobj.colors.headerText};
       transition: color 0.3s ease-out;
     }
   }
 
   &:hover {
-    color: ${({themeObj}) => themeObj.colors.headerText};
-    transition: ${({themeObj}) => themeObj.animation.transitionColor};
+    color: ${({themeobj}) => themeobj.colors.headerText};
+    transition: ${({themeobj}) => themeobj.animation.transitionColor};
   }
 `;

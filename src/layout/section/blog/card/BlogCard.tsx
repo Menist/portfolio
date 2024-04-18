@@ -2,7 +2,7 @@ import React from 'react';
 import styled from "styled-components";
 import {CardLink} from "../../../../components/Link";
 import {useTheme} from "../../../../ThemeProvider";
-import {ThemeObjectType} from "../../../../styles/ColorSheme";
+import {themeobjectType} from "../../../../styles/ColorSheme";
 import {AnimatePresence, motion} from "framer-motion"
 
 type BlogCardPropsType = {
@@ -13,7 +13,7 @@ type BlogCardPropsType = {
     srcSet: string
 }
 export const BlogCard = (props: BlogCardPropsType) => {
-    const { themeObj } = useTheme();
+    const { themeobj } = useTheme();
 
     return (
                 <BlogCardStyled>
@@ -25,7 +25,7 @@ export const BlogCard = (props: BlogCardPropsType) => {
                             transition={{ease: "linear", duration: 1,}}
                         >
                     <BlogCardImg image={props.src} srcSet={props.srcSet}/>
-                    <BlogCardWrapper themeObj={themeObj}>
+                    <BlogCardWrapper themeobj={themeobj}>
                         <BlogCardTitle >{props.title}</BlogCardTitle>
                         <BlogCardText>{props.text}</BlogCardText>
                         <CardLink link={"Lean more"}></CardLink>
@@ -57,9 +57,9 @@ const BlogCardStyled = styled(motion.div)`
     align-items: center;
   }
 `
-const BlogCardWrapper = styled.div<{themeObj: ThemeObjectType}>`
+const BlogCardWrapper = styled.div<{themeobj: themeobjectType}>`
   padding: 25px;
-  background-color: ${ ({themeObj}) => themeObj.colors.backgroundColorSection};
+  background-color: ${ ({themeobj}) => themeobj.colors.backgroundColorSection};
 
   a {
     display: inline-block;

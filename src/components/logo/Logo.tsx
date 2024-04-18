@@ -7,7 +7,7 @@ export const Logo = () => {
     return (
         <HeaderLogo>
             <button onClick={()=>{scroll.scrollToTop()}}>
-                <Icon iconId={'webDevelopment'} width={"68"} height={"68"} viewBox={"0 0 67 60"}/>
+                <Icon iconId={'webDevelopment'} width={68} height={68} viewBox={"0 0 67 60"}/>
             </button>
         </HeaderLogo>
     );

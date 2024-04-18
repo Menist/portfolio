@@ -6,11 +6,11 @@ import {InputFragment} from "./InputForm";
 import {TextareaStyled} from "./Textarea";
 import emailjs from '@emailjs/browser';
 import {useTheme} from "../../../../ThemeProvider";
-import {ThemeObjectType} from "../../../../styles/ColorSheme";
+import {themeobjectType} from "../../../../styles/ColorSheme";
 
 export const Form = () => {
     const form = useRef<ElementRef<'form'>>(null);
-    const { themeObj } = useTheme();
+    const { themeobj } = useTheme();
     const sendEmail = (e: any) => {
         e.preventDefault();
         if (!form.current) return
@@ -34,7 +34,7 @@ export const Form = () => {
         <FlexWrapper flex={"0 0 55%"} minWidth={"300px"} gap={"0"}>
             <FormTitle>Leave us your info</FormTitle>
             <FormSection ref={form} onSubmit={sendEmail}>
-                <FlexWrapperFlexWrapper themeObj={themeObj}>
+                <FlexWrapperFlexWrapper themeobj={themeobj}>
                     <InputFragment
                         inputLabelName={"Your Full Name (Required)"}
                         inputPlaceholder={"Your text"}
@@ -73,9 +73,9 @@ export const Form = () => {
     );
 };
 
-const FlexWrapperFlexWrapper = styled.div<{themeObj: ThemeObjectType}>`
+const FlexWrapperFlexWrapper = styled.div<{themeobj: themeobjectType}>`
 
-  background-color: ${({themeObj}) =>themeObj.colors.backgroundColorSection};
+  background-color: ${({themeobj}) =>themeobj.colors.backgroundColorSection};
   display: flex;
   flex-direction: column;
   padding: 25px 25px 25px 25px;

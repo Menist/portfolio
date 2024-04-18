@@ -12,13 +12,13 @@ export type itemType = {
     span: string;
     description: string;
     iconId?: boolean;
-    iconHeight: string;
-    iconWidth: string;
+    iconHeight: number;
+    iconWidth: number;
     services: { name: string; iconId: boolean; color: string }[];
 };
 
 export const Price = () => {
-    const { themeObj } = useTheme();
+    const { themeobj } = useTheme();
 
     const itemsData: itemType[] = [
         {
@@ -27,17 +27,17 @@ export const Price = () => {
             span: "/hour",
             description: "For most businesses that want to optimize web queries",
             iconId: true,
-            iconHeight: "12.020996",
-            iconWidth: "17.596924",
+            iconHeight: 12,
+            iconWidth: 18,
             services: [
-                { name: 'ui design', iconId: true, color: themeObj.colors.headerText },
-                { name: 'web development', iconId: true, color: themeObj.colors.headerText },
-                { name: 'logo design', iconId: false, color: themeObj.colors.mainText },
-                { name: 'seo optimization', iconId: false, color: themeObj.colors.mainText },
-                { name: 'wordPress integration', iconId: false, color: themeObj.colors.mainText },
-                { name: '5 Websites', iconId: false, color: themeObj.colors.mainText },
-                { name: 'unlimited user', iconId: false, color: themeObj.colors.mainText },
-                { name: '20 gB bandwith', iconId: false, color: themeObj.colors.mainText }
+                { name: 'ui design', iconId: true, color: themeobj.colors.headerText },
+                { name: 'web development', iconId: true, color: themeobj.colors.headerText },
+                { name: 'logo design', iconId: false, color: themeobj.colors.mainText },
+                { name: 'seo optimization', iconId: false, color: themeobj.colors.mainText },
+                { name: 'wordPress integration', iconId: false, color: themeobj.colors.mainText },
+                { name: '5 Websites', iconId: false, color: themeobj.colors.mainText },
+                { name: 'unlimited user', iconId: false, color: themeobj.colors.mainText },
+                { name: '20 gB bandwith', iconId: false, color: themeobj.colors.mainText }
             ]
         },
         {
@@ -46,17 +46,17 @@ export const Price = () => {
             span: "/hour",
             description: "For most businesses that want to optimize web queries",
             iconId: false,
-            iconHeight: "12.020996",
-            iconWidth: "17.596924",
+            iconHeight: 12,
+            iconWidth: 18,
             services: [
-                { name: 'ui design', iconId: true, color: themeObj.colors.headerText },
-                { name: 'web development', iconId: true, color: themeObj.colors.headerText },
-                { name: 'logo design', iconId: true, color: themeObj.colors.headerText },
-                { name: 'seo optimization', iconId: true, color: themeObj.colors.headerText },
-                { name: 'wordPress integration', iconId: false, color: themeObj.colors.mainText },
-                { name: '5 Websites', iconId: false, color: themeObj.colors.mainText },
-                { name: 'unlimited user', iconId: false, color: themeObj.colors.mainText },
-                { name: '20 gB bandwith', iconId: false, color: themeObj.colors.mainText }
+                { name: 'ui design', iconId: true, color: themeobj.colors.headerText },
+                { name: 'web development', iconId: true, color: themeobj.colors.headerText },
+                { name: 'logo design', iconId: true, color: themeobj.colors.headerText },
+                { name: 'seo optimization', iconId: true, color: themeobj.colors.headerText },
+                { name: 'wordPress integration', iconId: false, color: themeobj.colors.mainText },
+                { name: '5 Websites', iconId: false, color: themeobj.colors.mainText },
+                { name: 'unlimited user', iconId: false, color: themeobj.colors.mainText },
+                { name: '20 gB bandwith', iconId: false, color: themeobj.colors.mainText }
             ]
         },
         {
@@ -65,17 +65,17 @@ export const Price = () => {
             span: "/hour",
             description: "For most businesses that want to optimize web queries",
             iconId: true,
-            iconHeight: "12.020996",
-            iconWidth: "17.596924",
+            iconHeight: 12,
+            iconWidth: 18,
             services: [
-                { name: 'ui design', iconId: true, color: themeObj.colors.headerText },
-                { name: 'web development', iconId: true, color: themeObj.colors.headerText },
-                { name: 'logo design', iconId: true, color: themeObj.colors.headerText },
-                { name: 'seo optimization', iconId: true, color: themeObj.colors.headerText },
-                { name: 'wordPress integration', iconId: true, color: themeObj.colors.headerText },
-                { name: '5 Websites', iconId: true, color: themeObj.colors.headerText },
-                { name: 'unlimited user', iconId: true, color: themeObj.colors.headerText },
-                { name: '20 gB bandwith', iconId: true, color: themeObj.colors.headerText }
+                { name: 'ui design', iconId: true, color: themeobj.colors.headerText },
+                { name: 'web development', iconId: true, color: themeobj.colors.headerText },
+                { name: 'logo design', iconId: true, color: themeobj.colors.headerText },
+                { name: 'seo optimization', iconId: true, color: themeobj.colors.headerText },
+                { name: 'wordPress integration', iconId: true, color: themeobj.colors.headerText },
+                { name: '5 Websites', iconId: true, color: themeobj.colors.headerText },
+                { name: 'unlimited user', iconId: true, color: themeobj.colors.headerText },
+                { name: '20 gB bandwith', iconId: true, color: themeobj.colors.headerText }
             ]
         }
     ];

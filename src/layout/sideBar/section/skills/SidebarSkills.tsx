@@ -1,13 +1,13 @@
 import React from 'react';
 import styled from "styled-components";
 import {SidebarSectionTitle} from "../../SidebarSectionTitle";
-import {ThemeObjectType} from "../../../../styles/ColorSheme";
+import {themeobjectType} from "../../../../styles/ColorSheme";
 import {useTheme} from "../../../../ThemeProvider";
 import {Fade} from "react-awesome-reveal";
 import {ProgressBarFragment} from "../../ProgressBar";
 
 export const SidebarSkills = () => {
-    const {themeObj} = useTheme();
+    const {themeobj} = useTheme();
 
     // Массив с данными о навыках и их прогрессе
     const skillsData = [
@@ -20,7 +20,7 @@ export const SidebarSkills = () => {
 
     return (
         <Fade cascade damping={.9}>
-            <SidebarSkillsStyled themeObj={themeObj}>
+            <SidebarSkillsStyled themeobj={themeobj}>
                 <SidebarSectionTitle text={"Skills"}></SidebarSectionTitle>
                 {skillsData.map((skill, index) => (
                     <ProgressBarFragment
@@ -35,8 +35,8 @@ export const SidebarSkills = () => {
     );
 };
 
-const SidebarSkillsStyled = styled.div<{ themeObj: ThemeObjectType }>`
-  border-bottom: 1px solid ${({themeObj}) => themeObj.colors.backgroundWebsite};
+const SidebarSkillsStyled = styled.div<{ themeobj: themeobjectType }>`
+  border-bottom: 1px solid ${({themeobj}) => themeobj.colors.backgroundWebsite};
   margin: 25px 0;
   padding-bottom: 25px;
 `;

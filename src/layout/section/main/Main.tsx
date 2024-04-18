@@ -3,7 +3,7 @@ import styled from "styled-components";
 import img1 from '../../../assets/img/section/main/mainImg.webp';
 import img1x from "../../../assets/img/section@2x/main/mainImg_@2x.webp";
 import {FlexWrapper} from "../../../components/FlexWrapper";
-import {MaineLink} from "../../../components/MaineLink";
+import {MainLink} from "../../../components/MainLink";
 import Typewriter from 'typewriter-effect';
 import {Fade} from "react-awesome-reveal";
 import {useTheme} from "../../../ThemeProvider";
@@ -14,15 +14,15 @@ import img5 from '../../../assets/img/section/main/decoration/4.svg';
 import img6 from '../../../assets/img/section/main/decoration/5.svg';
 import img7 from '../../../assets/img/section/main/decoration/6.svg';
 import img8 from '../../../assets/img/section/main/decoration/8.svg';
-import {ThemeObjectType} from "../../../styles/ColorSheme";
+import {themeobjectType} from "../../../styles/ColorSheme";
 
 export const AboutMe = () => {
 
-    const {themeObj} = useTheme();
+    const {themeobj} = useTheme();
 
     return (
         <Fade cascade damping={.9}>
-            <MainSection themeObj={themeObj}>
+            <MainSection themeobj={themeobj}>
                 <FlexWrapper
                              align={'center'}
                              justify={"space-around"}
@@ -33,7 +33,7 @@ export const AboutMe = () => {
                         gap={'20px 0'}
                         direction={'column'}>
                         <Fade direction={"down"}>
-                            <MaineTextTitle theme={themeObj}>I’m Rayan Adlrdard
+                            <MaineTextTitle theme={themeobj}>I’m Rayan Adlrdard
                                 <p>I’m Rayan Adlrdard <span>Front-end</span> Developer</p>
                                 <Typewriter options={{
                                         strings: ['<span>Front-end</span> Developer'],
@@ -49,7 +49,7 @@ export const AboutMe = () => {
                                 placerat lobortis.Natoque rutrum semper sed suspendisse nunc lectus.</MaineTextSubTitle>
                         </Fade>
                         <Fade direction={"up"}>
-                            <MaineLink textBtn={"hire me"}></MaineLink>
+                            <MainLink textBtn={"hire me"}></MainLink>
                         </Fade>
                     </FlexWrapper>
                     <FlexWrapper
@@ -64,7 +64,7 @@ export const AboutMe = () => {
     );
 };
 
-const MainSection = styled.section<{ themeObj: ThemeObjectType }>`
+const MainSection = styled.section<{ themeobj: themeobjectType }>`
 
   ${FlexWrapper}:first-child {
     background: url("${img2}") top 5% left 3% no-repeat,
@@ -74,7 +74,7 @@ const MainSection = styled.section<{ themeObj: ThemeObjectType }>`
     url("${img6}") bottom 22% left 40% no-repeat,
     url("${img7}") bottom 10% left 58% no-repeat,
     url("${img8}") bottom 7% right 2% no-repeat;
-    background-color: ${({themeObj}) => themeObj.colors.backgroundColorSection};
+    background-color: ${({themeobj}) => themeobj.colors.backgroundColorSection};
   }
 
   @media screen and (max-width: 1280px) {

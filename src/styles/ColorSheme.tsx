@@ -8,7 +8,7 @@ interface Colors {
     backgroundColorSection?: string;
     iconNavBar?:string
 }
-export type ThemeObjectType = {
+export type themeobjectType = {
     colors: Colors,
     text: {
         textSize: string,
@@ -21,7 +21,7 @@ export type ThemeObjectType = {
         transitionColor:string
     }
 }
-export const themeNew = (isDarkTheme: boolean): ThemeObjectType => {
+export const themeNew = (isDarkTheme: boolean): themeobjectType => {
 
     const lightColors: Colors  = {
         primary: "#FFB400",

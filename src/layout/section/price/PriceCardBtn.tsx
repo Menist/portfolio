@@ -1,20 +1,20 @@
 import React from 'react';
 import styled from "styled-components";
 import {useTheme} from "../../../ThemeProvider";
-import {ThemeObjectType} from "../../../styles/ColorSheme";
+import {themeobjectType} from "../../../styles/ColorSheme";
 type CardBtnPropsType={
     textBtn:string
 }
 
 export const PriceCardBtn = (props: CardBtnPropsType) => {
-    const { themeObj }= useTheme()
+    const { themeobj }= useTheme()
     return (
-        <PriceCardButton themeObj={themeObj}>
+        <PriceCardButton themeobj={themeobj}>
             {props.textBtn}
         </PriceCardButton>
     );
 };
-const PriceCardButton=styled.button<{themeObj: ThemeObjectType}>`
+const PriceCardButton=styled.button<{themeobj: themeobjectType}>`
   max-width: 160px;
   padding: 10px 25px;
   border: none;
@@ -28,8 +28,8 @@ const PriceCardButton=styled.button<{themeObj: ThemeObjectType}>`
   font-size: 14px;
   
   &:hover{
-    background-color: ${({themeObj}) =>themeObj.colors.primary};
-    transition: ${({themeObj}) =>themeObj.animation.transitionBackground};
+    background-color: ${({themeobj}) =>themeobj.colors.primary};
+    transition: ${({themeobj}) =>themeobj.animation.transitionBackground};
     }
   }
 `

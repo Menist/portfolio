@@ -5,12 +5,12 @@ import {FlexWrapper} from "../../components/FlexWrapper";
 import {Menu} from "./Menu";
 import {MobileMenu} from "../mobileMenu/MobileMenu";
 import {useTheme} from "../../ThemeProvider";
-import {ThemeObjectType} from "../../styles/ColorSheme";
+import {themeobjectType} from "../../styles/ColorSheme";
 
 export const Header = () => {
-    const { themeObj } = useTheme();
+    const { themeobj } = useTheme();
     return (
-        <HeaderMenu id={'home'} themeObj={themeObj}>
+        <HeaderMenu id={'home'} themeobj={themeobj}>
             <MobileMenu />
             <FlexWrapper justify={"flex-start"}
                          align={"center"}
@@ -21,18 +21,18 @@ export const Header = () => {
         </HeaderMenu>
     );
 };
-const HeaderMenu = styled.header<{themeObj: ThemeObjectType}>`
+const HeaderMenu = styled.header<{themeobj: themeobjectType}>`
   position: relative;
   
   ${FlexWrapper} {
-    background-color: ${({themeObj}) =>themeObj.colors.backgroundColorSection};
-    border-bottom: 2px solid ${({themeObj}) =>themeObj.colors.backgroundWebsite};
+    background-color: ${({themeobj}) =>themeobj.colors.backgroundColorSection};
+    border-bottom: 2px solid ${({themeobj}) =>themeobj.colors.backgroundWebsite};
   }
 
   &::after {
     content: "";
     display: block;
-    background-color: ${({themeObj}) =>themeObj.colors.backgroundColorSection};
+    background-color: ${({themeobj}) =>themeobj.colors.backgroundColorSection};
     height: 1px;
   }
 

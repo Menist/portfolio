@@ -1,17 +1,17 @@
 import styled from "styled-components";
-import {ThemeObjectType} from "../../../../styles/ColorSheme";
+import {themeobjectType} from "../../../../styles/ColorSheme";
 import {ComponentPropsWithoutRef, FC, forwardRef, ReactNode} from "react";
 import {useTheme} from "../../../../ThemeProvider";
 
 type ButtonProps =  {children: ReactNode} & ComponentPropsWithoutRef<'button'>
 
 export const Button: FC<ButtonProps> = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
-    const { themeObj } = useTheme();
-    return <FormBtn ref={ref} themeObj={themeObj}{...props}/>
+    const { themeobj } = useTheme();
+    return <FormBtn ref={ref} themeobj={themeobj}{...props}/>
 })
-export const FormBtn = styled.button<{themeObj:ThemeObjectType}>`
+export const FormBtn = styled.button<{themeobj:themeobjectType}>`
   padding: 9px 25px;
-  background-color: ${({themeObj}) =>themeObj.colors.primary};
+  background-color: ${({themeobj}) =>themeobj.colors.primary};
   text-transform: uppercase;
   font-weight: bold;
   margin-top: 25px;
@@ -20,9 +20,9 @@ export const FormBtn = styled.button<{themeObj:ThemeObjectType}>`
   border: 2px solid transparent;
 
   &:hover {
-    border: 2px solid ${({themeObj}) =>themeObj.colors.primary};
-    background-color: ${({themeObj}) =>themeObj.colors.backgroundColorSection};
-    transition: ${({themeObj}) =>themeObj.animation.transitionBackground};
+    border: 2px solid ${({themeobj}) =>themeobj.colors.primary};
+    background-color: ${({themeobj}) =>themeobj.colors.backgroundColorSection};
+    transition: ${({themeobj}) =>themeobj.animation.transitionBackground};
   }
 }
 `

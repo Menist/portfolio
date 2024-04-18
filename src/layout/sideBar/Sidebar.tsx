@@ -6,25 +6,25 @@ import {SidebarSkills} from "./section/skills/SidebarSkills";
 import {SidebarExtraSkills} from "./section/extraSkills/SidebarExtraSkills";
 import {SidebarBtn} from "./section/button/SidebarBtn";
 import {  useTheme } from '../../ThemeProvider';
-import {ThemeObjectType} from "../../styles/ColorSheme";
+import {themeobjectType} from "../../styles/ColorSheme";
 
 type Props = {
     menuIsOpen: boolean
     setMenuIsOpen: (menuIsOpen: boolean) => void
 }
 export const Sidebar = (props: Props) => {
-    const { themeObj } = useTheme();
+    const { themeobj } = useTheme();
     const onMobileSideBarClick = () => {
         props.setMenuIsOpen(!props.menuIsOpen);
     };
     return (
         <>
-            <BurgerBtn themeObj={themeObj} isOpen={props.menuIsOpen} onClick={onMobileSideBarClick}>
+            <BurgerBtn themeobj={themeobj} isOpen={props.menuIsOpen} onClick={onMobileSideBarClick}>
                 <span></span>
             </BurgerBtn>
 
-            <SidebarStyled themeObj={themeObj} isOpen={props.menuIsOpen}>
-                <Container themeObj={themeObj}>
+            <SidebarStyled themeobj={themeobj} isOpen={props.menuIsOpen}>
+                <Container themeobj={themeobj}>
                     <Main />
                     <SidebarAbout />
                     <Languages />
@@ -50,32 +50,32 @@ const OverLay = styled.div`
   z-index: -1;
   right: 0;
 `
-const SidebarStyled = styled.aside<{ isOpen: boolean, themeObj: ThemeObjectType }>`
+const SidebarStyled = styled.aside<{ isOpen: boolean, themeobj: themeobjectType }>`
   position: relative;
   left: ${props => !props.isOpen ? '-310px' : '0'};
-  transition:${({themeObj}) =>themeObj.animation.transitionAll};
+  transition:${({themeobj}) =>themeobj.animation.transitionAll};
   z-index: 100;
 
   @media screen and (max-width: 800px) {
     left: ${props => !props.isOpen ? '0' : '-310px'};
     position: fixed;
     height: 100%;
-    ${props => !props.isOpen && css<{ isOpen: boolean, themeObj: ThemeObjectType }>`
+    ${props => !props.isOpen && css<{ isOpen: boolean, themeobj: themeobjectType }>`
       background-color: rgba(37, 37, 37, 0.79);
       top: 0;
       right: 0;
       bottom: 0;
       backdrop-filter: blur(4px);
-      transition:${({themeObj}) =>themeObj.animation.transitionAll};
+      transition:${({themeobj}) =>themeobj.animation.transitionAll};
       z-index: 103;
     `}
   }
 `
-export const Container = styled.div<{themeObj: ThemeObjectType}>`
+export const Container = styled.div<{themeobj: themeobjectType}>`
   position: fixed;
   min-width: 310px;
   height: 100vh;
-  background-color: ${({themeObj}) =>themeObj.colors.backgroundColorSection};
+  background-color: ${({themeobj}) =>themeobj.colors.backgroundColorSection};
   padding: 50px 30px 25px 28px;
   overflow-y: scroll;
 
@@ -83,7 +83,7 @@ export const Container = styled.div<{themeObj: ThemeObjectType}>`
     padding: 25px 30px 25px 28px;
   }
 `
-const BurgerBtn = styled.button<{ isOpen: boolean, themeObj: ThemeObjectType }>`
+const BurgerBtn = styled.button<{ isOpen: boolean, themeobj: themeobjectType }>`
   position: fixed;
   z-index: 103;
   top: 5px;
@@ -92,9 +92,9 @@ const BurgerBtn = styled.button<{ isOpen: boolean, themeObj: ThemeObjectType }>`
   cursor: pointer;
   transform: ${(props) => props.isOpen ? 'translateX(290px)' : 'translateX(0px)'};
   width: 14px;
-  background-color: ${({themeObj}) =>themeObj.colors.primary};
+  background-color: ${({themeobj}) =>themeobj.colors.primary};
   transition: all .9s ease;
-  border: 2px solid transparent;
+  border: 2px solid  ${({themeobj}) =>themeobj.colors.backgroundWebsite};
   border-radius: 3px;
 
   @media screen and (max-width: 800px) {
@@ -111,7 +111,7 @@ const BurgerBtn = styled.button<{ isOpen: boolean, themeObj: ThemeObjectType }>`
     position: absolute;
     left: 2px;
     bottom: 31px;
-    background-color:  ${({themeObj}) =>themeObj.colors.headerText};
+    background-color:  ${({themeobj}) =>themeobj.colors.backgroundWebsite};
     cursor: pointer;
 
     &::before {
@@ -121,7 +121,7 @@ const BurgerBtn = styled.button<{ isOpen: boolean, themeObj: ThemeObjectType }>`
       width: 6px;
       height: 6px;
       border-radius: 5px;
-      background-color:  ${({themeObj}) =>themeObj.colors.headerText};
+      background-color:  ${({themeobj}) =>themeobj.colors.backgroundWebsite};
       top: 10px;
     }
 
@@ -132,13 +132,13 @@ const BurgerBtn = styled.button<{ isOpen: boolean, themeObj: ThemeObjectType }>`
       width: 6px;
       height: 6px;
       border-radius: 5px;
-      background-color:  ${({themeObj}) =>themeObj.colors.headerText};
+      background-color:  ${({themeobj}) =>themeobj.colors.backgroundWebsite};
       bottom: -20px;
     }
   }
   &:hover{
-    border: 2px solid  ${({themeObj}) =>themeObj.colors.primary};
-    background-color:  ${({themeObj}) =>themeObj.colors.backgroundColorSection};
+    border: 2px solid  ${({themeobj}) =>themeobj.colors.primary};
+    background-color:  ${({themeobj}) =>themeobj.colors.backgroundWebsite};
     border-radius: 3px;
   }
 `

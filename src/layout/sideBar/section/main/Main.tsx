@@ -4,16 +4,16 @@ import img1 from '../../../../assets/img/section/sidebar/SidebarMain.webp'
 import img1x from '../../../../assets/img/section@2x/sidebar/sidebarMain_@2x.webp'
 import {FlexWrapper} from "../../../../components/FlexWrapper";
 import {MainIcon} from "./MainIcon";
-import {ThemeObjectType} from "../../../../styles/ColorSheme";
+import {themeobjectType} from "../../../../styles/ColorSheme";
 import {useTheme} from "../../../../ThemeProvider";
 import {Fade} from "react-awesome-reveal";
 
 
 export const Main = () => {
-    const {themeObj} = useTheme();
+    const {themeobj} = useTheme();
     return (
         <Fade cascade damping={.9}>
-            <SidebarMain themeObj={themeObj}>
+            <SidebarMain themeobj={themeobj}>
                 <FlexWrapper direction={"column"} align={"center"}>
                     <SidebarMainImg></SidebarMainImg>
                     <SidebarMainTitle>Rayan Adlardard</SidebarMainTitle>
@@ -24,8 +24,8 @@ export const Main = () => {
         </Fade>
     );
 };
-const SidebarMain = styled.div<{ themeObj: ThemeObjectType }>`
-  border-bottom: 1px solid ${({themeObj}) => themeObj.colors.backgroundWebsite};
+const SidebarMain = styled.div<{ themeobj: themeobjectType }>`
+  border-bottom: 1px solid ${({themeobj}) => themeobj.colors.backgroundWebsite};
   margin: 25px 0;
   padding-bottom: 25px;
 `

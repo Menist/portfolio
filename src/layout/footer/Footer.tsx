@@ -2,30 +2,30 @@ import React from 'react';
 import styled from "styled-components";
 import {Fade} from "react-awesome-reveal";
 import {useTheme} from "../../ThemeProvider";
-import {ThemeObjectType} from "../../styles/ColorSheme";
+import {themeobjectType} from "../../styles/ColorSheme";
 
 export const Footer = () => {
-    const { themeObj } = useTheme();
+    const { themeobj } = useTheme();
 
     return (
         <Fade cascade damping={.3} >
-            <FooterSection themeObj={themeObj}>
+            <FooterSection themeobj={themeobj}>
                 <p><span>&#169;</span>2021 All Rights Reserved.Ojjomedia</p>
             </FooterSection>
         </Fade>
     );
 };
-const FooterSection = styled.footer<{themeObj: ThemeObjectType}>`
+const FooterSection = styled.footer<{themeobj: themeobjectType}>`
   p {
-    color:  ${({themeObj}) =>themeObj.colors.headerText};
-    background-color: ${({themeObj}) =>themeObj.colors.backgroundColorSection};
+    color:  ${({themeobj}) =>themeobj.colors.headerText};
+    background-color: ${({themeobj}) =>themeobj.colors.backgroundColorSection};
     padding-top: 18px;
     padding-bottom: 18px;
     text-align: center;
   }
 
   span {
-    color:  ${({themeObj}) =>themeObj.colors.primary};
+    color:  ${({themeobj}) =>themeobj.colors.primary};
     padding-right: 17px;
     font-size: 20px;
     vertical-align: bottom;

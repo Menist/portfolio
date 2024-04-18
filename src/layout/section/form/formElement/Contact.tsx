@@ -2,7 +2,7 @@ import React from 'react';
 import {Icon} from "../../../../components/icon/Icon";
 import styled from "styled-components";
 import {useTheme} from "../../../../ThemeProvider";
-import {ThemeObjectType} from "../../../../styles/ColorSheme";
+import {themeobjectType} from "../../../../styles/ColorSheme";
 import {FlexWrapper} from "../../../../components/FlexWrapper";
 
 type ContactPropsType = {
@@ -16,22 +16,22 @@ type ContactPropsType = {
     iconId: string
 }
 export const Contact = (props: ContactPropsType) => {
-    const { themeObj } = useTheme();
+    const { themeobj } = useTheme();
 
     return (
-        <ContactInformation themeObj={themeObj}>
+        <ContactInformation themeobj={themeobj}>
             {props.showTitleInfo ? <ContactTitle>Contact information</ContactTitle> : null}
             <FlexWrapper
                 direction={'column'}
                 align={'center'}
                 gap={'20px'}
                 padding={'32px'}
-                bgColor={themeObj.colors.backgroundColorSection}
+                bgColor={themeobj.colors.backgroundColorSection}
                 >
                 <Icon
                     iconId={props.iconId}
-                    width={"40"}
-                    height={"40"}
+                    width={40}
+                    height={40}
                 />
                 
                 <FlexWrapper
@@ -65,7 +65,7 @@ export const Contact = (props: ContactPropsType) => {
     );
 };
 
-const ContactInformation = styled.div<{themeObj: ThemeObjectType}>`
+const ContactInformation = styled.div<{themeobj: themeobjectType}>`
   max-width: 500px;
   
   @media screen and (max-width: 1209px) {

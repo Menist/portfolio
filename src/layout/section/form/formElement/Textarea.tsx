@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from "styled-components";
 import {useTheme} from "../../../../ThemeProvider";
-import {ThemeObjectType} from "../../../../styles/ColorSheme";
+import {themeobjectType} from "../../../../styles/ColorSheme";
 
 type InputFormPropsType={
     textareaLabelName:string
@@ -11,12 +11,12 @@ type InputFormPropsType={
     textareaName: string;
 }
 export const TextareaStyled = (props: InputFormPropsType) => {
-    const { themeObj } = useTheme();
+    const { themeobj } = useTheme();
 
     return (
         <TextareaForm>
             <TextareaLabel id={props.id}>{props.textareaLabelName}</TextareaLabel>
-            <Textarea required name={props.textareaName} placeholder={props.placeholder} id={props.id} themeObj={themeObj}/>
+            <Textarea required name={props.textareaName} placeholder={props.placeholder} id={props.id} themeobj={themeobj}/>
             {props.children}
         </TextareaForm>
     );
@@ -26,17 +26,17 @@ const TextareaLabel = styled.label`
   width: 100%;
   padding: 20px 0 10px 0;
 `
-const Textarea = styled.textarea<{themeObj: ThemeObjectType}>`
+const Textarea = styled.textarea<{themeobj: themeobjectType}>`
   font-family: 'Inter', sans-serif;
   padding-left: 10px;
   padding-top: 10px;
-  color: ${({themeObj}) =>themeObj.colors.mainText};
+  color: ${({themeobj}) =>themeobj.colors.mainText};
   width: 100%;
   min-height: 210px;
   resize: none;
-  background-color: ${({themeObj}) =>themeObj.colors.backgroundWebsite};
+  background-color: ${({themeobj}) =>themeobj.colors.backgroundWebsite};
   border: none;
-  outline-color: ${({themeObj}) =>themeObj.colors.mainText};
+  outline-color: ${({themeobj}) =>themeobj.colors.mainText};
   &:not(:focus)::placeholder{
     opacity: 1;
     transition: opacity .7s ease;

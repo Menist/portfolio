@@ -3,7 +3,7 @@ import styled from "styled-components";
 import {FlexWrapper} from "../../../components/FlexWrapper";
 import {Fade} from "react-awesome-reveal";
 import {useTheme} from "../../../ThemeProvider";
-import {ThemeObjectType} from "../../../styles/ColorSheme";
+import {themeobjectType} from "../../../styles/ColorSheme";
 
 
 type EducationStyledComponentPropsType = {
@@ -14,19 +14,19 @@ type EducationStyledComponentPropsType = {
     descriptionText: string
 }
 export const EducationStyled = (props: EducationStyledComponentPropsType) => {
-    const {themeObj} = useTheme();
+    const {themeobj} = useTheme();
 
     return (
-        <EducationStyledComponent themeObj={themeObj}>
+        <EducationStyledComponent themeobj={themeobj}>
             <Fade cascade damping={.5}>
                 <FlexWrapper align={'flex-start'} gap={"12%"}>
                     <FlexWrapper flex={"0 1 25%"} gap={"25px"}>
-                        <EducationInfoTitle themeObj={themeObj}>{props.infoTitle}</EducationInfoTitle>
+                        <EducationInfoTitle themeobj={themeobj}>{props.infoTitle}</EducationInfoTitle>
                         <EducationInfoSubTitle>{props.infoSubTitle}</EducationInfoSubTitle>
-                        <EducationInfoData themeObj={themeObj}>{props.infoData}</EducationInfoData>
+                        <EducationInfoData themeobj={themeobj}>{props.infoData}</EducationInfoData>
                     </FlexWrapper>
                     <FlexWrapper flex={"0 1 63%"} gap={"20px 0"}>
-                        <EducationDescriptionTitle themeObj={themeObj}>{props.descriptionTitle}</EducationDescriptionTitle>
+                        <EducationDescriptionTitle themeobj={themeobj}>{props.descriptionTitle}</EducationDescriptionTitle>
                         <EducationDescriptionText>{props.descriptionText}</EducationDescriptionText>
                     </FlexWrapper>
                 </FlexWrapper>
@@ -35,10 +35,10 @@ export const EducationStyled = (props: EducationStyledComponentPropsType) => {
     );
 };
 
-const EducationStyledComponent = styled.div<{themeObj: ThemeObjectType}>`
-  background-color: ${({themeObj}) =>themeObj.colors.backgroundColorSection};
+const EducationStyledComponent = styled.div<{themeobj: themeobjectType}>`
+  background-color: ${({themeobj}) =>themeobj.colors.backgroundColorSection};
   padding: 37px 29px 30px 38px;
-  border-bottom:1px solid ${({themeObj}) =>themeObj.colors.backgroundWebsite};
+  border-bottom:1px solid ${({themeobj}) =>themeobj.colors.backgroundWebsite};
   
   @media screen and (max-width: 1300px) {
     ${FlexWrapper} {
@@ -69,22 +69,22 @@ const EducationStyledComponent = styled.div<{themeObj: ThemeObjectType}>`
   }
 `
 
-const EducationInfoTitle = styled.h4<{themeObj: ThemeObjectType}>`
+const EducationInfoTitle = styled.h4<{themeobj: themeobjectType}>`
   width: 100%;
   font-weight: 500;
   text-transform: capitalize;
-  color:${({themeObj}) =>themeObj.colors.headerText};
+  color:${({themeobj}) =>themeobj.colors.headerText};
   gap: 25px;
 `
 const EducationInfoSubTitle = styled.span`
   font-weight: 500;
 `
-const EducationInfoData = styled.span<{themeObj: ThemeObjectType}>`
+const EducationInfoData = styled.span<{themeobj: themeobjectType}>`
   font-weight: 400;
   font-size: 10px;
-  background-color: ${({themeObj}) =>themeObj.colors.backgroundColorSection};
+  color: ${({themeobj}) =>themeobj.colors.backgroundColorSection};
   
-  background-color: ${({themeObj}) =>themeObj.colors.primary};
+  background-color: ${({themeobj}) =>themeobj.colors.primary};
   padding: 5px 10px;
 `
 const EducationDescriptionTitle = styled(EducationInfoTitle)``

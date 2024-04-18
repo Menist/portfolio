@@ -12,7 +12,7 @@ import 'react-alice-carousel/lib/alice-carousel.css';
 import {RecommendationsCard} from "./card/RecommendationsCard";
 import {Fade} from "react-awesome-reveal";
 import {useTheme} from "../../../ThemeProvider";
-import {ThemeObjectType} from "../../../styles/ColorSheme";
+import {themeobjectType} from "../../../styles/ColorSheme";
 
 const items = [
     <RecommendationsCard
@@ -104,10 +104,10 @@ const responsive = {
 };
 
 export const RecommendationsSlider = () => {
-    const {themeObj} = useTheme();
+    const {themeobj} = useTheme();
     return (
         <Fade cascade damping={.3}>
-            <RecommendationsStyled themeObj={themeObj}>
+            <RecommendationsStyled themeobj={themeobj}>
                 <BlockTitle
                     title={"recommendations"}
                     subTitle={"Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. lorem ipsum"}></BlockTitle>
@@ -127,7 +127,7 @@ export const RecommendationsSlider = () => {
     );
 };
 
-const RecommendationsStyled = styled.section<{ themeObj: ThemeObjectType }>`
+const RecommendationsStyled = styled.section<{ themeobj: themeobjectType }>`
   .alice-carousel {
     max-width: calc(99vw - 480px);
   }
@@ -149,6 +149,6 @@ const RecommendationsStyled = styled.section<{ themeObj: ThemeObjectType }>`
   }
 
   .alice-carousel__dots-item:not(.__custom):hover, .alice-carousel__dots-item:not(.__custom).__active {
-    background-color: ${({themeObj}) => themeObj.colors.primary};
+    background-color: ${({themeobj}) => themeobj.colors.primary};
   }
 `

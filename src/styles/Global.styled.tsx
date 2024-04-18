@@ -9,7 +9,7 @@ export const GlobalStyle = ({children}: any) => {
     );
 };
 
-export const GlobalStyled = createGlobalStyle<{ themeObj: any }>`
+export const GlobalStyled = createGlobalStyle<{ themeobj: any }>`
   *,
   *::before,
   *::after {
@@ -20,39 +20,39 @@ export const GlobalStyled = createGlobalStyle<{ themeObj: any }>`
 
   & {
     scrollbar-width: thin;
-    scrollbar-color: ${({ themeObj }) => themeObj.colors.primary};
+    scrollbar-color: ${({ themeobj }) => themeobj.colors.primary};
   }
 
   &::-webkit-scrollbar {
     width: 5px;
-    border:${({ themeObj }) => themeObj.colors.accent}
+    border:${({ themeobj }) => themeobj.colors.accent}
     border-radius: 30px;
   }
 
   &::-webkit-scrollbar-thumb {
     border-radius: 30px;
-    background-color: ${({ themeObj }) => themeObj.colors.primary};
+    background-color: ${({ themeobj }) => themeobj.colors.primary};
   }
 
   &::-webkit-scrollbar-thumb:hover {
-    background-color: ${({ themeObj }) => themeObj.colors.accent};
+    background-color: ${({ themeobj }) => themeobj.colors.accent};
   }
 
   body {
     margin: 0;
-    color: ${({ themeObj }) => themeObj.colors.mainText};
-    background-color: ${({ themeObj }) => themeObj.colors.backgroundWebsite};
+    color: ${({ themeobj }) => themeobj.colors.mainText};
+    background-color: ${({ themeobj }) => themeobj.colors.backgroundWebsite};
 
     font-family: "Inter", -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-size: ${({ themeObj }) => themeObj.text.textSize};
+    font-size: ${({ themeobj }) => themeobj.text.textSize};
     
 
     p {
-      line-height: ${({ themeObj }) => themeObj.text.lineHeight};
+      line-height: ${({ themeobj }) => themeobj.text.lineHeight};
     }
   }
 
@@ -71,7 +71,7 @@ export const GlobalStyled = createGlobalStyle<{ themeObj: any }>`
 
   h1, h2, h3, h4, h5, h6 {
     font-weight: bold;
-    color: ${({ themeObj }) => themeObj.colors.headerText};
+    color: ${({ themeobj }) => themeobj.colors.headerText};
     
   }
 

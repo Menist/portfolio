@@ -5,7 +5,7 @@ import { FlexWrapper } from "../../../../components/FlexWrapper";
 import { PriceCardBtn } from "../PriceCardBtn";
 import { Fade } from "react-awesome-reveal";
 import { useTheme } from "../../../../ThemeProvider";
-import { ThemeObjectType } from "../../../../styles/ColorSheme";
+import { themeobjectType } from "../../../../styles/ColorSheme";
 import { itemType } from "../Price";
 
 type PriceCardPropType = {
@@ -13,13 +13,13 @@ type PriceCardPropType = {
 };
 
 export const PriceCard = (props: PriceCardPropType) => {
-    const { themeObj } = useTheme();
+    const { themeobj } = useTheme();
 
     return (
-        <PriceCardStyled themeObj={themeObj}>
+        <PriceCardStyled themeobj={themeobj}>
             <Fade direction={"up"}>
                 <PlansName>{props.item.title}</PlansName>
-                <PlansPrice themeObj={themeObj}>{props.item.price}</PlansPrice>
+                <PlansPrice themeobj={themeobj}>{props.item.price}</PlansPrice>
                 <PlansDescription>{props.item.description}</PlansDescription>
                 <FlexWrapper gap={"10"} direction={"column"} >
                     {props.item.services.map((service, index) => (
@@ -57,8 +57,8 @@ const PriceServices = styled.div<{ iconId: boolean; color: string }>`
   
 `;
 
-const PriceCardStyled = styled.div<{ themeObj: ThemeObjectType }>`
-  background-color: ${({ themeObj }) => themeObj.colors.backgroundColorSection};
+const PriceCardStyled = styled.div<{ themeobj: themeobjectType }>`
+  background-color: ${({ themeobj }) => themeobj.colors.backgroundColorSection};
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -82,14 +82,14 @@ const PriceCardStyled = styled.div<{ themeObj: ThemeObjectType }>`
     content: "most popular";
     width: 100%;
     display: inline-block;
-    background-color: ${({ themeObj }) => themeObj.colors.primary};
+    background-color: ${({ themeobj }) => themeobj.colors.primary};
     padding: 5px 0;
     font-size: 15px;
     position: absolute;
     left: 0;
     top: 0;
     text-transform: capitalize;
-    color: ${({ themeObj }) => themeObj.colors.headerText};
+    color: ${({ themeobj }) => themeobj.colors.headerText};
     text-align: center;
   }
 `;
@@ -99,13 +99,13 @@ const PlansName = styled.h3`
   text-transform: capitalize;
 `;
 
-const PlansPrice = styled.span<{ themeObj: ThemeObjectType }>`
+const PlansPrice = styled.span<{ themeobj: themeobjectType }>`
   font-size: 32px;
   font-weight: 700;
-  color: ${({ themeObj }) => themeObj.colors.headerText};
+  color: ${({ themeobj }) => themeobj.colors.headerText};
 
   > span {
-    font-size: ${({ themeObj }) => themeObj.text.textSize};
+    font-size: ${({ themeobj }) => themeobj.text.textSize};
     font-weight: 400;
     text-transform: capitalize;
     padding-left: 10px;

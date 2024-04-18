@@ -10,7 +10,7 @@ export const SidebarExtraSkillsFragment = (props: ExtraSkillsFragmentPropsType) 
     return (
         <SidebarExtraSkills>
             <FlexWrapper align={"center"} gap={"15px"}>
-                <Icon iconId={"squareSidebar"} height={"15"} width={"15"}/>
+                <Icon iconId={"squareSidebar"} height={15} width={15}/>
                 <SidebarExtraSkillsText>{props.text}</SidebarExtraSkillsText>
             </FlexWrapper>
         </SidebarExtraSkills>

@@ -2,7 +2,7 @@ import React from 'react';
 import styled from "styled-components";
 import {Fade} from "react-awesome-reveal";
 import {useTheme} from "../../../../ThemeProvider";
-import {ThemeObjectType} from "../../../../styles/ColorSheme";
+import {themeobjectType} from "../../../../styles/ColorSheme";
 
 type PortfolioCardPropsType = {
     src: string
@@ -13,12 +13,12 @@ type PortfolioCardPropsType = {
 }
 
 export const PortfolioCard = (props: PortfolioCardPropsType) => {
-    const {themeObj} = useTheme()
+    const {themeobj} = useTheme()
     return (
         <Fade cascade damping={.9}>
             <PortfolioCardLink href={'#'} >
                 <PortfolioCardImg src={props.src} srcSet={`${props.srcSet} 2x`}></PortfolioCardImg>
-                <PortfolioHoverOverlay themeObj={themeObj}>
+                <PortfolioHoverOverlay themeobj={themeobj}>
                     <PortfolioOverlayImage src={props.overLay} srcSet={`${props.img} 2x`}></PortfolioOverlayImage>
                     <PortfolioOverlayImage></PortfolioOverlayImage>
                 </PortfolioHoverOverlay>
@@ -41,13 +41,13 @@ const PortfolioCardLink = styled.a`
   max-width: 350px;
 `;
 
-const PortfolioHoverOverlay = styled.div<{themeObj: ThemeObjectType}>`
+const PortfolioHoverOverlay = styled.div<{themeobj: themeobjectType}>`
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: ${({themeObj}) =>themeObj.colors.accent};
+  background-color: ${({themeobj}) =>themeobj.colors.accent};
   opacity: 0;
   transition: opacity .3s ease-in-out;
   display: flex;

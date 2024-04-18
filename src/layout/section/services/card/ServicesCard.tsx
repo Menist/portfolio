@@ -4,7 +4,7 @@ import styled from "styled-components";
 import {CardLink} from "../../../../components/Link";
 import {Fade} from "react-awesome-reveal";
 import {useTheme} from "../../../../ThemeProvider";
-import {ThemeObjectType} from "../../../../styles/ColorSheme";
+import {themeobjectType} from "../../../../styles/ColorSheme";
 
 type ServicesCardPropsType = {
     iconId: string
@@ -13,11 +13,11 @@ type ServicesCardPropsType = {
     link: string
 }
 export const ServicesCard = (props: ServicesCardPropsType) => {
-    const { themeObj } = useTheme();
+    const { themeobj } = useTheme();
     return (
-        <ServicesCardStyled themeObj ={themeObj }>
+        <ServicesCardStyled themeobj ={themeobj }>
             <Fade cascade damping={.2}>
-            {props.iconId && <Icon iconId={props.iconId} height={"75"} width={"75"} viewBox={"0 0 75 75"}/>}
+            {props.iconId && <Icon iconId={props.iconId} height= {75} width={75} viewBox={"0 0 75 75"}/>}
             <ServicesCardTitle>{props.title}</ServicesCardTitle>
             <ServicesCardText>{props.text}</ServicesCardText>
             {props.link && <CardLink link={"order now"}></CardLink>}
@@ -27,9 +27,9 @@ export const ServicesCard = (props: ServicesCardPropsType) => {
     );
 };
 
-const ServicesCardStyled = styled.div<{themeObj: ThemeObjectType}>`
+const ServicesCardStyled = styled.div<{themeobj: themeobjectType}>`
   padding: 30px 25px 33px;
-  background-color: ${({themeObj}) =>themeObj.colors.backgroundColorSection};
+  background-color: ${({themeobj}) =>themeobj.colors.backgroundColorSection};
   display: flex;
   flex-direction: column;
   flex: 0 0 31.9%;

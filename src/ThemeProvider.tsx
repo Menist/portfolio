@@ -23,13 +23,12 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
 
     const theme = isDarkTheme ? 'dark' : 'light';
 
-    const themeObj = themeNew(isDarkTheme);
+    const themeobj = themeNew(isDarkTheme);
 
     return (
-        <ThemeContext.Provider value={{ theme, themeObj, toggleTheme }}>
+        <ThemeContext.Provider value={{ theme, themeobj, toggleTheme }}>
 
-
-            <GlobalStyled themeObj={themeObj}/>
+            <GlobalStyled themeobj={themeobj}/>
             {children}
 
         </ThemeContext.Provider>

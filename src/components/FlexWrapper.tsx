@@ -1,5 +1,5 @@
 import styled, {CSSProperties} from "styled-components";
-import {ThemeObjectType} from "../styles/ColorSheme";
+import {themeobjectType} from "../styles/ColorSheme";
 
 type FlexWrapperPropsType = {
     direction?: CSSProperties['flexDirection']
@@ -14,7 +14,7 @@ type FlexWrapperPropsType = {
     width?: CSSProperties['width']
     minWidth?: CSSProperties['minWidth']
     bgColor? : string
-    themeObj?:ThemeObjectType
+    themeobj?:themeobjectType
     marginRight?:CSSProperties['marginRight']
 }
 

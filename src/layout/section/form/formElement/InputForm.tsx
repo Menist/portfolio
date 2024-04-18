@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from "styled-components";
 import {useTheme} from "../../../../ThemeProvider";
-import {ThemeObjectType} from "../../../../styles/ColorSheme";
+import {themeobjectType} from "../../../../styles/ColorSheme";
 
 type InputFormPropsType={
     inputLabelName:string
@@ -14,12 +14,12 @@ type InputFormPropsType={
 
 
 export const InputFragment = (props:InputFormPropsType) => {
-    const { themeObj } = useTheme();
+    const { themeobj } = useTheme();
 
     return (
         <InputForm>
             <InputLabel id={props.inputId}>{props.inputLabelName}</InputLabel>
-            <Input name={props.inputName} type={props.inputType} placeholder={props.inputPlaceholder} id={props.inputId} themeObj={themeObj} />
+            <Input name={props.inputName} type={props.inputType} placeholder={props.inputPlaceholder} id={props.inputId} themeobj={themeobj} />
             {props.children}
         </InputForm>
     );
@@ -32,14 +32,14 @@ const InputLabel = styled.label`
   width: 100%;
   padding: 20px 0 10px 0;
 `
-const Input = styled.input <{themeObj: ThemeObjectType}>`
+const Input = styled.input <{themeobj: themeobjectType}>`
   padding-left: 10px;
   font-family: 'Inter', sans-serif;
-  outline-color: ${({themeObj}) =>themeObj.colors.mainText};
-  color: ${({themeObj}) =>themeObj.colors.mainText};
+  outline-color: ${({themeobj}) =>themeobj.colors.mainText};
+  color: ${({themeobj}) =>themeobj.colors.mainText};
   width: 100%;
   min-height: 50px;
-  background-color: ${({themeObj}) =>themeObj.colors.backgroundWebsite};
+  background-color: ${({themeobj}) =>themeobj.colors.backgroundWebsite};
   border: none;
   
   &:not(:focus)::placeholder{

@@ -3,7 +3,7 @@ import styled from "styled-components";
 import {Link} from "react-scroll";
 import {Fade} from "react-awesome-reveal";
 import {useTheme} from "../../ThemeProvider";
-import {ThemeObjectType} from "../../styles/ColorSheme";
+import {themeobjectType} from "../../styles/ColorSheme";
 
 const itemsData = [
     {
@@ -28,11 +28,11 @@ const itemsData = [
     }
 ]
 export const Menu = () => {
-    const { themeObj } = useTheme();
+    const { themeobj } = useTheme();
 
     return (
         <Fade cascade damping={.3}>
-        <StyledMenu themeObj={themeObj}>
+        <StyledMenu themeobj={themeobj}>
             <ul>
                 {itemsData.map((item, index) => {
                     return <li key={index}>
@@ -53,7 +53,7 @@ export const Menu = () => {
 };
 
 const MenuLink = styled(Link)``
- const StyledMenu = styled.nav<{themeObj: ThemeObjectType}>`
+ const StyledMenu = styled.nav<{themeobj: themeobjectType}>`
        
   text-transform: capitalize;
 
@@ -64,7 +64,7 @@ const MenuLink = styled(Link)``
     font-size: 18px;
 
     &:hover, &.active {
-      border-bottom-color: ${({themeObj}) =>themeObj.colors.primary};
+      border-bottom-color: ${({themeobj}) =>themeobj.colors.primary};
     }
 
     @media screen and (max-width: 820px) {
@@ -76,7 +76,7 @@ const MenuLink = styled(Link)``
   }
 
   a {
-    color: ${({themeObj}) =>themeObj.colors.primary};
+    color: ${({themeobj}) =>themeobj.colors.primary};
     position: relative;
     cursor: pointer;
 
@@ -87,8 +87,8 @@ const MenuLink = styled(Link)``
       left: 0;
       width: 0;
       height: 2px;
-      background-color: ${({themeObj}) =>themeObj.colors.primary};
-      transition: ${({themeObj}) =>themeObj.animation.transitionWidth};
+      background-color: ${({themeobj}) =>themeobj.colors.primary};
+      transition: ${({themeobj}) =>themeobj.animation.transitionWidth};
     }
 
     &:hover:after {
@@ -109,7 +109,7 @@ const MenuLink = styled(Link)``
       transition: .25s 0s ease-in-out;
 
       &:hover {
-        border-bottom-color: ${({themeObj}) =>themeObj.colors.primary};
+        border-bottom-color: ${({themeobj}) =>themeobj.colors.primary};
       }
 
       li {

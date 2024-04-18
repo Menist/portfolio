@@ -40,10 +40,10 @@ const servicesData = [
 ];
 
 export const Services = () => {
-    const { themeObj } = useTheme();
+    const { themeobj } = useTheme();
     return (
         <Fade cascade damping={0.9}>
-            <ServicesSection theme={themeObj} id={'services'}>
+            <ServicesSection theme={themeobj} id={'services'}>
                 <BlockTitle title={"my services"} subTitle={"Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. lorem ipsum"} />
                 <Container>
                     {servicesData.map(service => (

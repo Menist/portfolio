@@ -3,68 +3,68 @@ import styled from "styled-components";
 import {Icon} from "../../components/icon/Icon";
 import {Link} from "react-scroll";
 import {useTheme} from "../../ThemeProvider";
-import {ThemeObjectType} from "../../styles/ColorSheme";
+import {themeobjectType} from "../../styles/ColorSheme";
 import {Fade} from "react-awesome-reveal";
 
-const items = [
+const itemsData = [
     {
         title: 'Home',
         href: 'home',
         iconId: 'navBarHome',
-        iconIdWidth: '40px',
-        iconIdHeight: '40px'
+        iconIdWidth: 40,
+        iconIdHeight: 40
     },
     {
         title: 'Service',
         href: 'services',
         iconId: 'navBarService',
-        iconIdWidth: '40px',
-        iconIdHeight: '40px'
+        iconIdWidth: 40,
+        iconIdHeight:40
     },
     {
         title: 'Education',
         href: 'education',
         iconId: 'navBarEducation',
-        iconIdWidth: '40px',
-        iconIdHeight: '40px'
+        iconIdWidth: 40,
+        iconIdHeight: 40
     },
     {
         title: 'Portfolio',
         href: 'portfolio',
         iconId: 'navBarPortfolio',
-        iconIdWidth: '40px',
-        iconIdHeight: '40px'
+        iconIdWidth: 40,
+        iconIdHeight: 40
     },
     {
         title: 'Blog',
         href: 'blog',
         iconId: 'navBarBlog',
-        iconIdWidth: '40px',
-        iconIdHeight: '40px'
+        iconIdWidth: 40,
+        iconIdHeight: 40,
     },
     {
         title: 'Contact',
         href: 'contacts',
         iconId: 'navBarContact',
-        iconIdWidth: '40px',
-        iconIdHeight: '40px'
+        iconIdWidth: 40,
+        iconIdHeight: 40,
     }
 ]
 export const NavBar = () => {
-    const {themeObj, toggleTheme} = useTheme();
+    const {themeobj, toggleTheme} = useTheme();
 
     return (
-        <Nav themeObj={themeObj}>
+        <Nav themeobj={themeobj}>
             <Fade cascade damping={.2}>
                 <ul>
                     <li>
-                        <ButtonTheme themeObj={themeObj} onClick={() => {
-                            toggleTheme(themeObj === 'dark' ? 'light' : 'dark');}}
-                        ><Icon iconId={'navBarContrast'} width={'30px'} height={'30px'}
-                               fill={themeObj.colors.backgroundWebsite}/>
+                        <ButtonTheme themeobj={themeobj} onClick={() => {
+                            toggleTheme(themeobj === 'dark' ? 'light' : 'dark');}}
+                        ><Icon iconId={'navBarContrast'} width={30} height={30}
+                               fill={themeobj.colors.backgroundWebsite}/>
                         </ButtonTheme>
                     </li>
-                    {items.map((item, index) => {
+                    {itemsData.map((item, index) => {
                         return (
                             <li key={index}>
                                 <NavMenu
@@ -74,13 +74,13 @@ export const NavBar = () => {
                                     spy={true}
                                 >
                                     <NavLinkItem
-                                        themeObj={themeObj}
+                                        themeobj={themeobj}
                                         title={item.title}>
 
                                         <Icon iconId={item.iconId}
                                               width={item.iconIdWidth}
                                               height={item.iconIdWidth}
-                                              fill={themeObj.colors.primary}/>
+                                              fill={themeobj.colors.primary}/>
                                     </NavLinkItem>
                                 </NavMenu>
                             </li>
@@ -94,12 +94,12 @@ export const NavBar = () => {
 
 const NavMenu = styled(Link)``;
 
-const Nav = styled.nav<{ themeObj: ThemeObjectType }>`
+const Nav = styled.nav<{ themeobj: themeobjectType }>`
   position: fixed;
   right: 0;
   z-index: 100;
   min-width: 108px;
-  background-color: ${({themeObj}) => themeObj.colors.backgroundColorSection};
+  background-color: ${({themeobj}) => themeobj.colors.backgroundColorSection};
   padding: 50px 22px 50px 25px;
   overflow-y: scroll;
   height: 100vh;
@@ -123,11 +123,11 @@ const Nav = styled.nav<{ themeObj: ThemeObjectType }>`
   @media screen and (max-width: 1091px) {
     position: fixed;
     bottom: 0;
-    background-color: ${({themeObj}) => themeObj.colors.backgroundColorSection};
+    background-color: ${({themeobj}) => themeobj.colors.backgroundColorSection};
     width: 100%;
     height: auto;
-    padding: 20px 0;
-    border-top: 1px solid  ${({themeObj}) => themeObj.colors.primary};
+    padding: 18px 0;
+    border-top: 1px solid  ${({themeobj}) => themeobj.colors.primary};
  
 
     ul {
@@ -176,17 +176,17 @@ const Nav = styled.nav<{ themeObj: ThemeObjectType }>`
     }
   }
 `;
-const NavLinkItem = styled.div<{ themeObj: ThemeObjectType }>`
+const NavLinkItem = styled.div<{ themeobj: themeobjectType }>`
   position: relative;
   cursor: pointer;
 
   svg {
-    color: ${({themeObj}) => themeObj.colors.primary};
+    color: ${({themeobj}) => themeobj.colors.primary};
     transition: all .3s ease;
   }
 
   &:hover svg {
-    color: ${({themeObj}) => themeObj.colors.primary};
+    color: ${({themeobj}) => themeobj.colors.primary};
     transform: scale(1.3);
     transition: all .3s ease;
   }
@@ -199,11 +199,14 @@ const NavLinkItem = styled.div<{ themeObj: ThemeObjectType }>`
     bottom: 60px;
     left: 50%;
     transform: translateX(-50%);
-    background-color: ${({themeObj}) => themeObj.colors.primary};
-    color: ${({themeObj}) => themeObj.colors.backgroundColorSection};
+    background-color: ${({themeobj}) => themeobj.colors.primary};
+    color: ${({themeobj}) => themeobj.colors.backgroundColorSection};
     padding: 5px 15px;
     border-radius: 3px;
     white-space: nowrap;
+    @media screen and (max-width: 1091px) {
+      content: none;
+    }
   }
 
   &:hover::before {
@@ -215,16 +218,16 @@ const NavLinkItem = styled.div<{ themeObj: ThemeObjectType }>`
     height: 0;
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
-    border-top: 13px solid ${({themeObj}) => themeObj.colors.primary};
+    border-top: 13px solid ${({themeobj}) => themeobj.colors.primary};
   }
 
 `;
-const ButtonTheme = styled(NavLinkItem)<{ themeObj: ThemeObjectType }>`
+const ButtonTheme = styled(NavLinkItem)<{ themeobj: themeobjectType }>`
   margin: 50px 0 125px 0;
   text-align: center;
 
   svg {
-    color: ${({themeObj}) => themeObj.colors.primary};
+    color: ${({themeobj}) => themeobj.colors.primary};
     transition: all .3s ease;
   }
 

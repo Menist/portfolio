@@ -3,14 +3,14 @@ import styled from "styled-components";
 import {SidebarSectionTitle} from "../../SidebarSectionTitle";
 import {SidebarExtraSkillsFragment} from "./SidebarExtraSkillsFragment";
 import {useTheme} from "../../../../ThemeProvider";
-import {ThemeObjectType} from "../../../../styles/ColorSheme";
+import {themeobjectType} from "../../../../styles/ColorSheme";
 import {Fade} from "react-awesome-reveal";
 
 export const SidebarExtraSkills = () => {
-    const {themeObj} = useTheme();
+    const {themeobj} = useTheme();
     return (
         <Fade cascade damping={.9}>
-            <SidebarExtraSkillsContainer themeObj={themeObj}>
+            <SidebarExtraSkillsContainer themeobj={themeobj}>
                 <SidebarSectionTitle text={"Extra Skills"}></SidebarSectionTitle>
                 <SidebarExtraSkillsFragment text={"Bootstrap, Materialize"}></SidebarExtraSkillsFragment>
                 <SidebarExtraSkillsFragment text={"Stylus, Sass, Less"}></SidebarExtraSkillsFragment>
@@ -20,8 +20,8 @@ export const SidebarExtraSkills = () => {
         </Fade>
     );
 };
-const SidebarExtraSkillsContainer = styled.div <{ themeObj: ThemeObjectType }>`
-  border-bottom: 1px solid ${({themeObj}) => themeObj.colors.backgroundWebsite};
+const SidebarExtraSkillsContainer = styled.div <{ themeobj: themeobjectType }>`
+  border-bottom: 1px solid ${({themeobj}) => themeobj.colors.backgroundWebsite};
   margin: 25px 0;
   padding-bottom: 25px;
 `

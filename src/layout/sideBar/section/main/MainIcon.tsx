@@ -3,10 +3,10 @@ import { Icon } from "../../../../components/icon/Icon";
 import { FlexWrapper } from "../../../../components/FlexWrapper";
 import styled from "styled-components";
 import { useTheme } from "../../../../ThemeProvider";
-import {ThemeObjectType} from "../../../../styles/ColorSheme";
+import {themeobjectType} from "../../../../styles/ColorSheme";
 
 export const MainIcon = () => {
-    const { themeObj } = useTheme();
+    const { themeobj } = useTheme();
 
     const icons = [
         { id: "SidebarIconFacebook", href: "#" },
@@ -20,8 +20,8 @@ export const MainIcon = () => {
     return (
         <SidebarIconContainer>
             {icons.map(icon => (
-                <SidebarLink themeObj={themeObj} key={icon.id} href={icon.href}>
-                    <Icon iconId={icon.id} width={"24"} height={"24"} />
+                <SidebarLink themeobj={themeobj} key={icon.id} href={icon.href}>
+                    <Icon iconId={icon.id} width={24} height={24} />
                 </SidebarLink>
             ))}
         </SidebarIconContainer>
@@ -32,11 +32,11 @@ const SidebarIconContainer = styled(FlexWrapper)`
   gap: 20px; 
 `;
 
-const SidebarLink = styled.a<{ themeObj: ThemeObjectType }>`
-  transition: ${({themeObj}) =>themeObj.animation.transitionAll};
+const SidebarLink = styled.a<{ themeobj: themeobjectType }>`
+  transition: ${({themeobj}) =>themeobj.animation.transitionAll};
 
   &:hover svg {
-    color: ${({themeObj}) =>themeObj.colors.backgroundWebsite};
+    color: ${({themeobj}) =>themeobj.colors.backgroundWebsite};
     transform: scale(1.3);
     transition: .5s;
   }

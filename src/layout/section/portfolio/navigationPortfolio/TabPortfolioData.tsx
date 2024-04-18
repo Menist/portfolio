@@ -2,7 +2,7 @@ import React from 'react';
 import styled from "styled-components";
 import {Fade} from "react-awesome-reveal";
 import {useTheme} from "../../../../ThemeProvider";
-import {ThemeObjectType} from "../../../../styles/ColorSheme";
+import {themeobjectType} from "../../../../styles/ColorSheme";
 
 const itemsData = [
     {
@@ -37,9 +37,9 @@ const itemsData = [
     }
 ];
 export const MenuTab = ({changeFilter}: { changeFilter: (filter: string) => void }) => {
-    const { themeObj } = useTheme();
+    const { themeobj } = useTheme();
     return (
-        <PortfolioMenu themeObj={themeObj}>
+        <PortfolioMenu themeobj={themeobj}>
             <nav>
                 <ul>
                     <Fade cascade={true} damping={.2}>
@@ -54,7 +54,7 @@ export const MenuTab = ({changeFilter}: { changeFilter: (filter: string) => void
         </PortfolioMenu>
     );
 };
-const PortfolioMenu = styled.div<{themeObj: ThemeObjectType}>`
+const PortfolioMenu = styled.div<{themeobj: themeobjectType}>`
 
   nav {
     display: flex;
@@ -70,14 +70,14 @@ const PortfolioMenu = styled.div<{themeObj: ThemeObjectType}>`
     }
 
     button {
-      color: ${({themeObj}) =>themeObj.colors.headerText};
+      color: ${({themeobj}) =>themeobj.colors.headerText};
       cursor: pointer;
       font-size: 18px;
 
 
       &:hover {
-        color: ${({themeObj}) =>themeObj.colors.primary};
-        transition: ${({themeObj}) =>themeObj.colors.primary};
+        color: ${({themeobj}) =>themeobj.colors.primary};
+        transition: ${({themeobj}) =>themeobj.colors.primary};
       }
     }
 
@@ -92,7 +92,7 @@ const PortfolioMenu = styled.div<{themeObj: ThemeObjectType}>`
         font-size: 18px;
 
         &:hover {
-          border-bottom-color: ${({themeObj}) =>themeObj.colors.primary};
+          border-bottom-color: ${({themeobj}) =>themeobj.colors.primary};
         }
 
         li {
@@ -105,18 +105,18 @@ const PortfolioMenu = styled.div<{themeObj: ThemeObjectType}>`
       cursor: grab;
       overflow-x: scroll;
       padding-bottom: 10px;
-      color: ${({themeObj}) =>themeObj.colors.primary};
+      color: ${({themeobj}) =>themeobj.colors.primary};
       max-width: calc(98vw - 60px);
 
       &::-webkit-scrollbar {
         height: 5px;
-        border: 1px solid ${({themeObj}) =>themeObj.colors.accent};
+        border: 1px solid ${({themeobj}) =>themeobj.colors.accent};
         border-radius: 30px;
       }
 
       &::-webkit-scrollbar-thumb {
         border-radius: 30px;
-        background-color: ${({themeObj}) =>themeObj.colors.primary};
+        background-color: ${({themeobj}) =>themeobj.colors.primary};
       }
 
       ul {
