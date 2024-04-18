@@ -5,14 +5,14 @@ import {animateScroll as scroll} from "react-scroll";
 
 export const Logo = () => {
     return (
-        <LogoHeader>
+        <HeaderLogo>
             <button onClick={()=>{scroll.scrollToTop()}}>
                 <Icon iconId={'webDevelopment'} width={"68"} height={"68"} viewBox={"0 0 67 60"}/>
             </button>
-        </LogoHeader>
+        </HeaderLogo>
     );
 };
-const LogoHeader = styled.div`
+const HeaderLogo = styled.div`
   button{
     cursor: pointer;
   }

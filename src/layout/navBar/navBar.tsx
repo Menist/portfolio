@@ -58,26 +58,31 @@ export const NavBar = () => {
             <Fade cascade damping={.2}>
                 <ul>
                     <li>
-                        <ToggleButton themeObj={themeObj} onClick={() => {
-                            toggleTheme(themeObj === 'dark' ? 'light' : 'dark');
-                        }}
+                        <ButtonTheme themeObj={themeObj} onClick={() => {
+                            toggleTheme(themeObj === 'dark' ? 'light' : 'dark');}}
                         ><Icon iconId={'navBarContrast'} width={'30px'} height={'30px'}
-                               fill={themeObj.colors.backgroundWebsite}/></ToggleButton>
+                               fill={themeObj.colors.backgroundWebsite}/>
+                        </ButtonTheme>
                     </li>
                     {items.map((item, index) => {
                         return (
                             <li key={index}>
-                                <MenuLink
+                                <NavMenu
                                     smooth={true}
                                     to={item.href}
                                     activeClass="active"
                                     spy={true}
                                 >
-                                    <LinkItem themeObj={themeObj} title={item.title}>
-                                        <Icon iconId={item.iconId} width={item.iconIdWidth} height={item.iconIdWidth}
+                                    <NavLinkItem
+                                        themeObj={themeObj}
+                                        title={item.title}>
+
+                                        <Icon iconId={item.iconId}
+                                              width={item.iconIdWidth}
+                                              height={item.iconIdWidth}
                                               fill={themeObj.colors.primary}/>
-                                    </LinkItem>
-                                </MenuLink>
+                                    </NavLinkItem>
+                                </NavMenu>
                             </li>
                         );
                     })}
@@ -87,7 +92,7 @@ export const NavBar = () => {
     );
 };
 
-const MenuLink = styled(Link)``;
+const NavMenu = styled(Link)``;
 
 const Nav = styled.nav<{ themeObj: ThemeObjectType }>`
   position: fixed;
@@ -171,7 +176,7 @@ const Nav = styled.nav<{ themeObj: ThemeObjectType }>`
     }
   }
 `;
-const LinkItem = styled.div<{ themeObj: ThemeObjectType }>`
+const NavLinkItem = styled.div<{ themeObj: ThemeObjectType }>`
   position: relative;
   cursor: pointer;
 
@@ -214,7 +219,7 @@ const LinkItem = styled.div<{ themeObj: ThemeObjectType }>`
   }
 
 `;
-const ToggleButton = styled(LinkItem)<{ themeObj: ThemeObjectType }>`
+const ButtonTheme = styled(NavLinkItem)<{ themeObj: ThemeObjectType }>`
   margin: 50px 0 125px 0;
   text-align: center;
 

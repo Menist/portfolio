@@ -1,40 +1,40 @@
 import React from 'react';
 import styled, {CSSProperties} from "styled-components";
-import {FlexWrapper} from "../../../../components/FlexWrapper";
-import {useTheme} from "../../../../ThemeProvider";
-import {ThemeObjectType} from "../../../../styles/ColorSheme";
 import {Fade} from "react-awesome-reveal";
+import {useTheme} from "../../ThemeProvider";
+import {FlexWrapper} from "../../components/FlexWrapper";
+import {ThemeObjectType} from "../../styles/ColorSheme";
 
-type LanguagesFragmentPropsType = {
+type LanguagesFragmentPropsType1 = {
     textTitle: string;
     textProgress: string;
     progress: CSSProperties['width'];
 }
 
-export const SidebarLanguagesFragment = (props: LanguagesFragmentPropsType) => {
+export const ProgressBarFragment = (props: LanguagesFragmentPropsType1) => {
     const {themeObj} = useTheme();
 
     return (
         <Fade cascade damping={.9}>
-            <SidebarProgressBar>
+            <ProgressBarContainer>
                 <FlexWrapper justify={"space-between"}>
-                    <SidebarProgressTitle themeObj={themeObj}>{props.textTitle}</SidebarProgressTitle>
-                    <SidebarProgressNumber themeObj={themeObj}>{props.textProgress}</SidebarProgressNumber>
+                    <ProgressBarTitle themeObj={themeObj}>{props.textTitle}</ProgressBarTitle>
+                    <ProgressBarNumber themeObj={themeObj}>{props.textProgress}</ProgressBarNumber>
                 </FlexWrapper>
                 <Fade cascade damping={.9}>
-                    <SidebarProgressContainer themeObj={themeObj}>
-                        <SidebarProgressLine themeObj={themeObj} progress={props.progress}></SidebarProgressLine>
-                    </SidebarProgressContainer>
+                    <ProgressBarContainerLine themeObj={themeObj}>
+                        <ProgressBarLine themeObj={themeObj} progress={props.progress}></ProgressBarLine>
+                    </ProgressBarContainerLine>
                 </Fade>
-            </SidebarProgressBar>
+            </ProgressBarContainer>
         </Fade>
     );
 };
-const SidebarProgressBar = styled.div`
+const ProgressBarContainer = styled.div`
   padding: 15px 0 10px;
 `
 
-const SidebarProgressContainer = styled.div<{ themeObj: ThemeObjectType }>`
+const ProgressBarContainerLine = styled.div<{ themeObj: ThemeObjectType }>`
   width: 100%;
   height: 100%;
   border: 1px solid ${({themeObj}) => themeObj.colors.primary};
@@ -42,7 +42,7 @@ const SidebarProgressContainer = styled.div<{ themeObj: ThemeObjectType }>`
   padding: 1px;
   color: ${({themeObj}) => themeObj.colors.primary};
 `
-const SidebarProgressLine = styled.div<
+const ProgressBarLine = styled.div<
     { progress: CSSProperties['width'], themeObj: ThemeObjectType }
 >`
   width: ${props => props.progress || "0%"};
@@ -65,9 +65,9 @@ const SidebarProgressLine = styled.div<
   }
 }
 `
-const SidebarProgressTitle = styled.span <{ themeObj: ThemeObjectType }>`
+const ProgressBarTitle = styled.span <{ themeObj: ThemeObjectType }>`
   padding-bottom: 5px;
   color: ${({themeObj}) => themeObj.colors.mainText};
 `
-const SidebarProgressNumber = styled.span <{ themeObj: ThemeObjectType }>`
+const ProgressBarNumber = styled.span <{ themeObj: ThemeObjectType }>`
 `

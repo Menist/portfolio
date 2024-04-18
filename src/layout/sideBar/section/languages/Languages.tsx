@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from "styled-components";
-import {SidebarLanguagesTitle} from "../../../../components/SidebarLanguagesTitle";
+import {SidebarSectionTitle} from "../../SidebarSectionTitle";
 import {ThemeObjectType} from "../../../../styles/ColorSheme";
 import {useTheme} from "../../../../ThemeProvider";
 import {Fade} from "react-awesome-reveal";
-import {SidebarLanguagesFragment} from "./SidebarLanguagesFragment";
+import {ProgressBarFragment} from "../../ProgressBar";
 
 export const Languages = () => {
     const {themeObj} = useTheme();
@@ -18,9 +18,9 @@ export const Languages = () => {
     return (
         <Fade cascade damping={.9}>
             <SidebarLanguages themeObj={themeObj}>
-                <SidebarLanguagesTitle text={"Languages"}></SidebarLanguagesTitle>
+                <SidebarSectionTitle text={"Languages"}></SidebarSectionTitle>
                 {languagesData.map((language, index) => (
-                    <SidebarLanguagesFragment
+                    <ProgressBarFragment
                         key={index}
                         textTitle={language.title}
                         textProgress={language.progress}

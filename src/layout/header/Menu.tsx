@@ -5,7 +5,7 @@ import {Fade} from "react-awesome-reveal";
 import {useTheme} from "../../ThemeProvider";
 import {ThemeObjectType} from "../../styles/ColorSheme";
 
-const items = [
+const itemsData = [
     {
         title: 'Services',
         href: 'services'
@@ -34,7 +34,7 @@ export const Menu = () => {
         <Fade cascade damping={.3}>
         <StyledMenu themeObj={themeObj}>
             <ul>
-                {items.map((item, index) => {
+                {itemsData.map((item, index) => {
                     return <li key={index}>
                         <MenuLink
                             smooth={true}
@@ -53,8 +53,7 @@ export const Menu = () => {
 };
 
 const MenuLink = styled(Link)``
- const StyledMenu = styled.nav<{themeObj: ThemeObjectType}>
-     `
+ const StyledMenu = styled.nav<{themeObj: ThemeObjectType}>`
        
   text-transform: capitalize;
 

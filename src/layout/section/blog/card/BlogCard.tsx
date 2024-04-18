@@ -3,7 +3,7 @@ import styled from "styled-components";
 import {CardLink} from "../../../../components/Link";
 import {useTheme} from "../../../../ThemeProvider";
 import {ThemeObjectType} from "../../../../styles/ColorSheme";
-import {motion} from "framer-motion";
+import {AnimatePresence, motion} from "framer-motion"
 
 type BlogCardPropsType = {
     title: string
@@ -17,13 +17,23 @@ export const BlogCard = (props: BlogCardPropsType) => {
 
     return (
                 <BlogCardStyled>
+                    <AnimatePresence>
+                        <motion.div
+                            layout
+                            initial={{opacity: 0, scale: .2}}
+                            whileInView={{opacity: 1, scale: 1}}
+                            transition={{ease: "linear", duration: 1,}}
+                        >
                     <BlogCardImg image={props.src} srcSet={props.srcSet}/>
                     <BlogCardWrapper themeObj={themeObj}>
                         <BlogCardTitle >{props.title}</BlogCardTitle>
                         <BlogCardText>{props.text}</BlogCardText>
                         <CardLink link={"Lean more"}></CardLink>
                     </BlogCardWrapper>
+                        </motion.div>
+                    </AnimatePresence>
                 </BlogCardStyled>
+
     );
 };
 

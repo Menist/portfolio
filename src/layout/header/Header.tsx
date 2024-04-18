@@ -10,7 +10,7 @@ import {ThemeObjectType} from "../../styles/ColorSheme";
 export const Header = () => {
     const { themeObj } = useTheme();
     return (
-        <StyledHeader id={'home'} themeObj={themeObj}>
+        <HeaderMenu id={'home'} themeObj={themeObj}>
             <MobileMenu />
             <FlexWrapper justify={"flex-start"}
                          align={"center"}
@@ -18,10 +18,10 @@ export const Header = () => {
                 <Logo/>
                 <Menu></Menu>
             </FlexWrapper>
-        </StyledHeader>
+        </HeaderMenu>
     );
 };
-const StyledHeader = styled.header<{themeObj: ThemeObjectType}>`
+const HeaderMenu = styled.header<{themeObj: ThemeObjectType}>`
   position: relative;
   
   ${FlexWrapper} {

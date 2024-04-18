@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from "styled-components";
-import {SidebarLanguagesTitle} from "../../../../components/SidebarLanguagesTitle";
+import {SidebarSectionTitle} from "../../SidebarSectionTitle";
 import {SidebarExtraSkillsFragment} from "./SidebarExtraSkillsFragment";
 import {useTheme} from "../../../../ThemeProvider";
 import {ThemeObjectType} from "../../../../styles/ColorSheme";
@@ -11,7 +11,7 @@ export const SidebarExtraSkills = () => {
     return (
         <Fade cascade damping={.9}>
             <SidebarExtraSkillsContainer themeObj={themeObj}>
-                <SidebarLanguagesTitle text={"Extra Skills"}></SidebarLanguagesTitle>
+                <SidebarSectionTitle text={"Extra Skills"}></SidebarSectionTitle>
                 <SidebarExtraSkillsFragment text={"Bootstrap, Materialize"}></SidebarExtraSkillsFragment>
                 <SidebarExtraSkillsFragment text={"Stylus, Sass, Less"}></SidebarExtraSkillsFragment>
                 <SidebarExtraSkillsFragment text={"Gulp, Webpack, Grunt"}></SidebarExtraSkillsFragment>

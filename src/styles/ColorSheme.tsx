@@ -34,14 +34,14 @@ export const themeNew = (isDarkTheme: boolean): ThemeObjectType => {
         iconNavBar:"#767676"
     };
     const darkColors: Colors  = {
-        primary: "#FFB400", // сохраняем жёлтый цвет
-        accent: "rgba(255, 180, 0, 0.71)", // сохраняем оранжевый акцент
-        headerText: "#FFFFFF", // белый текст для заголовков
-        mainText: "#E0E0E0", // серый текст
-        link: "#FFB400", // сохраняем жёлтый для ссылок
-        backgroundColorSection: "#2B2B2B", // тёмно-серый фон секций
-        backgroundWebsite: "#121212", // очень тёмный фон для всего сайта
-        iconNavBar:"#E0E0E0" // серые иконки для навигационной панели
+        primary: "#e5b64a",
+        accent: "rgba(255, 209, 102, 0.71)",
+        headerText: "#FFFFFF",
+        mainText: "#E0E0E0",
+        link: "#FFB400",
+        backgroundColorSection: "#2B2B2B",
+        backgroundWebsite: "#121212",
+        iconNavBar:"#E0E0E0"
     };
 
     const colors = isDarkTheme ? darkColors : lightColors;

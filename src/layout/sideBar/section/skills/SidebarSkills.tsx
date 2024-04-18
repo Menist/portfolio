@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from "styled-components";
-import {SidebarLanguagesTitle} from "../../../../components/SidebarLanguagesTitle";
+import {SidebarSectionTitle} from "../../SidebarSectionTitle";
 import {ThemeObjectType} from "../../../../styles/ColorSheme";
 import {useTheme} from "../../../../ThemeProvider";
 import {Fade} from "react-awesome-reveal";
-import {SidebarSkillsFragment} from "./SidebarSkillsFragment";
+import {ProgressBarFragment} from "../../ProgressBar";
 
 export const SidebarSkills = () => {
     const {themeObj} = useTheme();
@@ -21,9 +21,9 @@ export const SidebarSkills = () => {
     return (
         <Fade cascade damping={.9}>
             <SidebarSkillsStyled themeObj={themeObj}>
-                <SidebarLanguagesTitle text={"Skills"}></SidebarLanguagesTitle>
+                <SidebarSectionTitle text={"Skills"}></SidebarSectionTitle>
                 {skillsData.map((skill, index) => (
-                    <SidebarSkillsFragment
+                    <ProgressBarFragment
                         key={index}
                         textTitle={skill.title}
                         textProgress={skill.progress}
