@@ -10,10 +10,14 @@ type SidebarAboutTextPropsType = {
     color?: CSSProperties['color']
 }
 
-export const SidebarAboutContent = (props: SidebarAboutTextPropsType ) => {
+export const SidebarAboutFragment = (props: SidebarAboutTextPropsType ) => {
     const { themeObj } = useTheme();
     return (
-        <SidebarAboutText themeObj={themeObj}{...props} color={props.color} bgColor={props.bgColor}>{props.text}</SidebarAboutText>
+        <SidebarAboutText
+            themeObj={themeObj}{...props}
+            color={props.color}
+            bgColor={props.bgColor}>{props.text}
+        </SidebarAboutText>
     );
 };
 
@@ -21,4 +25,5 @@ const SidebarAboutText = styled.span<{ bgColor: CSSProperties['color'], themeObj
   padding: 5px;
   background-color: ${(props) => props.bgColor || "inherit"};
   color: ${props => props.color || props.themeObj.colors.headerText};
+  max-width: fit-content;
 `;

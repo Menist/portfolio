@@ -4,7 +4,7 @@ import styled from "styled-components";
 type TitleSidebarPropsType={
     text:string
 }
-export const SidebarTitle = (props: TitleSidebarPropsType) => {
+export const SidebarLanguagesTitle = (props: TitleSidebarPropsType) => {
     return (
         <Title>{props.text}</Title>
     );

@@ -1,12 +1,12 @@
 import React from 'react';
 import styled from "styled-components";
-import {SidebarTitle} from "../../../../components/SidebarTitle";
+import {SidebarLanguagesTitle} from "../../../../components/SidebarLanguagesTitle";
 import {ThemeObjectType} from "../../../../styles/ColorSheme";
 import {useTheme} from "../../../../ThemeProvider";
 import {Fade} from "react-awesome-reveal";
-import {SkillsFragment} from "./SkillsFragment";
+import {SidebarSkillsFragment} from "./SidebarSkillsFragment";
 
-export const Skills = () => {
+export const SidebarSkills = () => {
     const {themeObj} = useTheme();
 
     // Массив с данными о навыках и их прогрессе
@@ -20,22 +20,22 @@ export const Skills = () => {
 
     return (
         <Fade cascade damping={.9}>
-            <SkillsStyled themeObj={themeObj}>
-                <SidebarTitle text={"Skills"}></SidebarTitle>
+            <SidebarSkillsStyled themeObj={themeObj}>
+                <SidebarLanguagesTitle text={"Skills"}></SidebarLanguagesTitle>
                 {skillsData.map((skill, index) => (
-                    <SkillsFragment
+                    <SidebarSkillsFragment
                         key={index}
                         textTitle={skill.title}
                         textProgress={skill.progress}
                         progress={skill.progress}
                     />
                 ))}
-            </SkillsStyled>
+            </SidebarSkillsStyled>
         </Fade>
     );
 };
 
-const SkillsStyled = styled.div<{ themeObj: ThemeObjectType }>`
+const SidebarSkillsStyled = styled.div<{ themeObj: ThemeObjectType }>`
   border-bottom: 1px solid ${({themeObj}) => themeObj.colors.backgroundWebsite};
   margin: 25px 0;
   padding-bottom: 25px;

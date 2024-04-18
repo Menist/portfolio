@@ -11,30 +11,30 @@ type LanguagesFragmentPropsType = {
     progress: CSSProperties['width'];
 }
 
-export const LanguagesFragment = (props: LanguagesFragmentPropsType) => {
+export const SidebarLanguagesFragment = (props: LanguagesFragmentPropsType) => {
     const {themeObj} = useTheme();
 
     return (
         <Fade cascade damping={.9}>
-            <ProgressBar>
+            <SidebarProgressBar>
                 <FlexWrapper justify={"space-between"}>
-                    <ProgressText themeObj={themeObj}>{props.textTitle}</ProgressText>
-                    <ProgressText themeObj={themeObj}>{props.textProgress}</ProgressText>
+                    <SidebarProgressTitle themeObj={themeObj}>{props.textTitle}</SidebarProgressTitle>
+                    <SidebarProgressNumber themeObj={themeObj}>{props.textProgress}</SidebarProgressNumber>
                 </FlexWrapper>
                 <Fade cascade damping={.9}>
-                    <LanguagesProgress themeObj={themeObj}>
-                        <Progress themeObj={themeObj} progress={props.progress}></Progress>
-                    </LanguagesProgress>
+                    <SidebarProgressContainer themeObj={themeObj}>
+                        <SidebarProgressLine themeObj={themeObj} progress={props.progress}></SidebarProgressLine>
+                    </SidebarProgressContainer>
                 </Fade>
-            </ProgressBar>
+            </SidebarProgressBar>
         </Fade>
     );
 };
-const ProgressBar = styled.div`
+const SidebarProgressBar = styled.div`
   padding: 15px 0 10px;
 `
 
-const LanguagesProgress = styled.div<{ themeObj: ThemeObjectType }>`
+const SidebarProgressContainer = styled.div<{ themeObj: ThemeObjectType }>`
   width: 100%;
   height: 100%;
   border: 1px solid ${({themeObj}) => themeObj.colors.primary};
@@ -42,7 +42,7 @@ const LanguagesProgress = styled.div<{ themeObj: ThemeObjectType }>`
   padding: 1px;
   color: ${({themeObj}) => themeObj.colors.primary};
 `
-const Progress = styled.div<
+const SidebarProgressLine = styled.div<
     { progress: CSSProperties['width'], themeObj: ThemeObjectType }
 >`
   width: ${props => props.progress || "0%"};
@@ -53,7 +53,7 @@ const Progress = styled.div<
   --time: 3s;
   transform-origin: left top;
   transform: scaleX(0);
-  animation: scale var(--time) infinite;
+  animation: scale var(--time) linear;
 }
 
 @keyframes scale {
@@ -65,7 +65,9 @@ const Progress = styled.div<
   }
 }
 `
-const ProgressText = styled.span <{ themeObj: ThemeObjectType }>`
+const SidebarProgressTitle = styled.span <{ themeObj: ThemeObjectType }>`
   padding-bottom: 5px;
   color: ${({themeObj}) => themeObj.colors.mainText};
+`
+const SidebarProgressNumber = styled.span <{ themeObj: ThemeObjectType }>`
 `

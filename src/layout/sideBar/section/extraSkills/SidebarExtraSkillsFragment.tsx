@@ -6,20 +6,19 @@ import {FlexWrapper} from "../../../../components/FlexWrapper";
 type ExtraSkillsFragmentPropsType = {
     text: string
 }
-export const ExtraSkillsFragment = (props: ExtraSkillsFragmentPropsType) => {
+export const SidebarExtraSkillsFragment = (props: ExtraSkillsFragmentPropsType) => {
     return (
-        <ExtraSkills>
+        <SidebarExtraSkills>
             <FlexWrapper align={"center"} gap={"15px"}>
                 <Icon iconId={"squareSidebar"} height={"15"} width={"15"}/>
-                <ExtraSkillsText>{props.text}</ExtraSkillsText>
+                <SidebarExtraSkillsText>{props.text}</SidebarExtraSkillsText>
             </FlexWrapper>
-        </ExtraSkills>
+        </SidebarExtraSkills>
     );
 };
 
-const ExtraSkills = styled.div`
+const SidebarExtraSkills = styled.div`
   padding-top: 15px;
-
 `
-const ExtraSkillsText = styled.div`
+const SidebarExtraSkillsText = styled.div`
 `

@@ -31,7 +31,7 @@ export const MaineLink = (props: StraightButtonPropsType) => {
 const MaineLinkStyled = styled.div<{themeObj: ThemeObjectType}>`
   display: flex;
   cursor: pointer;
-  
+  max-width: fit-content;
   @media screen and (max-width: 1156px) {
     justify-content: center;
   }

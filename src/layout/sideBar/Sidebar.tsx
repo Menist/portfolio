@@ -1,10 +1,10 @@
 import styled, {css} from "styled-components";
 import {Main} from "./section/main/Main";
 import {SidebarAbout} from "./section/about/SidebarAbout";
-import {LanguagesMain} from "./section/languages/LanguagesMain";
-import {Skills} from "./section/skills/Skills";
-import {ExtraSkillsMaine} from "./section/extraSkills/ExtraSkillsMaine";
-import {Btn} from "./section/button/Btn";
+import {Languages} from "./section/languages/Languages";
+import {SidebarSkills} from "./section/skills/SidebarSkills";
+import {SidebarExtraSkills} from "./section/extraSkills/SidebarExtraSkills";
+import {SidebarBtn} from "./section/button/SidebarBtn";
 import {  useTheme } from '../../ThemeProvider';
 import {ThemeObjectType} from "../../styles/ColorSheme";
 
@@ -27,10 +27,10 @@ export const Sidebar = (props: Props) => {
                 <Container themeObj={themeObj}>
                     <Main />
                     <SidebarAbout />
-                    <LanguagesMain />
-                    <Skills />
-                    <ExtraSkillsMaine />
-                    <Btn />
+                    <Languages />
+                    <SidebarSkills />
+                    <SidebarExtraSkills />
+                    <SidebarBtn />
                 </Container>
                 <OverLay
                     onClick={() => {

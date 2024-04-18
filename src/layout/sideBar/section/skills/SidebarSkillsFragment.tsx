@@ -10,26 +10,26 @@ type SkillsFragmentPropsType = {
     progress: CSSProperties['width'];
 }
 
-export const SkillsFragment = (props: SkillsFragmentPropsType) => {
+export const SidebarSkillsFragment = (props: SkillsFragmentPropsType) => {
     const { themeObj } = useTheme();
 
     return (
-        <ProgressBar>
+        <SidebarProgressBar>
             <FlexWrapper justify={"space-between"}>
-                <ProgressText themeObj={themeObj}>{props.textTitle}</ProgressText>
-                <ProgressText themeObj={themeObj}>{props.textProgress}</ProgressText>
+                <SidebarProgressText themeObj={themeObj}>{props.textTitle}</SidebarProgressText>
+                <SidebarProgressNumber themeObj={themeObj}>{props.textProgress}</SidebarProgressNumber>
             </FlexWrapper>
-            <SkillsProgressLine themeObj={themeObj}>
-                <Progress themeObj={themeObj} progress={props.progress}></Progress>
-            </SkillsProgressLine>
-        </ProgressBar>
+            <SidebarProgressContainer themeObj={themeObj}>
+                <SidebarProgressLine themeObj={themeObj} progress={props.progress}></SidebarProgressLine>
+            </SidebarProgressContainer>
+        </SidebarProgressBar>
     );
 };
-const ProgressBar = styled.div`
+const SidebarProgressBar = styled.div`
   padding: 15px 0 10px;
 `
 
-const SkillsProgressLine = styled.div<{themeObj: ThemeObjectType}>`
+const SidebarProgressContainer = styled.div<{themeObj: ThemeObjectType}>`
   width: 100%;
   height: 100%;
   border: 1px solid ${({themeObj}) =>themeObj.colors.primary};
@@ -37,7 +37,7 @@ const SkillsProgressLine = styled.div<{themeObj: ThemeObjectType}>`
   padding: 1px;
   color: ${({themeObj}) =>themeObj.colors.primary};
 `
-const Progress = styled.div<
+const SidebarProgressLine = styled.div<
     { progress: CSSProperties['width'], themeObj: ThemeObjectType}
 >`
   width: ${props=>props.progress || "0%"};
@@ -45,9 +45,10 @@ const Progress = styled.div<
   height: 2px;
   background-color: ${({themeObj}) =>themeObj.colors.primary};
   transition: width 0.3s ease-in-out;
-
 `
-const ProgressText = styled.span<{themeObj: ThemeObjectType}>`
+const SidebarProgressText = styled.span<{themeObj: ThemeObjectType}>`
   padding-bottom: 5px;
   color: ${({themeObj}) =>themeObj.colors.mainText};
+`
+const SidebarProgressNumber = styled.span<{themeObj: ThemeObjectType}>`
 `

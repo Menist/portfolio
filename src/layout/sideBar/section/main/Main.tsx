@@ -3,7 +3,7 @@ import styled from "styled-components";
 import img1 from '../../../../assets/img/section/sidebar/SidebarMain.webp'
 import img1x from '../../../../assets/img/section@2x/sidebar/sidebarMain_@2x.webp'
 import {FlexWrapper} from "../../../../components/FlexWrapper";
-import {SidebarIcon} from "./SidebarIcon";
+import {MainIcon} from "./MainIcon";
 import {ThemeObjectType} from "../../../../styles/ColorSheme";
 import {useTheme} from "../../../../ThemeProvider";
 import {Fade} from "react-awesome-reveal";
@@ -11,7 +11,6 @@ import {Fade} from "react-awesome-reveal";
 
 export const Main = () => {
     const {themeObj} = useTheme();
-
     return (
         <Fade cascade damping={.9}>
             <SidebarMain themeObj={themeObj}>
@@ -19,7 +18,7 @@ export const Main = () => {
                     <SidebarMainImg></SidebarMainImg>
                     <SidebarMainTitle>Rayan Adlardard</SidebarMainTitle>
                     <SidebarMainSubtitle>Font-end Developer</SidebarMainSubtitle>
-                    <SidebarIcon></SidebarIcon>
+                    <MainIcon></MainIcon>
                 </FlexWrapper>
             </SidebarMain>
         </Fade>

@@ -5,17 +5,18 @@ import {useTheme} from "../../../../ThemeProvider";
 import {ThemeObjectType} from "../../../../styles/ColorSheme";
 import {Fade} from "react-awesome-reveal";
 
-export const Btn = () => {
+export const SidebarBtn = () => {
     const {themeObj} = useTheme();
     return (
         <Fade cascade damping={.9}>
-            <Button themeObj={themeObj}>Download cv
-                <Icon iconId={"downloadSidebar"} color={'currentColor'} width={"14"} height={"16"}/>
-            </Button>
+            <SidebarButton themeObj={themeObj}>Download cv
+                <Icon iconId={"SidebarDownload"} color={'currentColor'} width={"14"} height={"16"}/>
+            </SidebarButton>
         </Fade>
     );
 };
-const Button = styled.button <{ themeObj: ThemeObjectType }>`
+
+const SidebarButton = styled.button <{ themeObj: ThemeObjectType }>`
   display: flex;
   gap: 20px;
   align-items: center;
