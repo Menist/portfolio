@@ -23,7 +23,7 @@ export const PriceCard = (props: PriceCardPropType) => {
                 <PlansDescription>{props.item.description}</PlansDescription>
                 <FlexWrapper gap={"10"} direction={"column"} >
                     {props.item.services.map((service, index) => (
-                            <PriceServices iconId={service.iconId} color={service.color}>
+                            <PriceServices key={index} iconId={service.iconId} color={service.color}>
                                 <Icon
                                     iconId={service.iconId ? "selected" : "noSelected"}
                                     height={props.item.iconWidth}
