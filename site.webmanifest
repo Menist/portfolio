@@ -11,6 +11,26 @@
             "src": "/android-chrome-512x512.png",
             "sizes": "512x512",
             "type": "image/png"
+        },{
+            "src": "/mstile-150x150.png",
+            "sizes": "150x150",
+            "type": "image/png"
+        },{
+            "src": "/favicon-32x32.png",
+            "sizes": "332x32",
+            "type": "image/png"
+        },{
+            "src": "/favicon-16x16.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        },{
+            "src": "/favicon.svg",
+            "sizes": "68x68",
+            "type": "image/svg"
+        },{
+            "src": "/favicon.ico",
+            "sizes": "32x32",
+            "type": "image/ico"
         }
     ],
     "theme_color": "#ffffff",
