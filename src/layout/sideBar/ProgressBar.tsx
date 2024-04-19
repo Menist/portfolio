@@ -22,20 +22,21 @@ export const ProgressBarFragment = (props: LanguagesFragmentPropsType1) => {
                     <ProgressBarTitle themeobj={themeobj}>{props.textTitle}</ProgressBarTitle>
                     <ProgressBarNumber themeobj={themeobj}>{props.textProgress}</ProgressBarNumber>
                 </FlexWrapper>
-
+                <AnimatePresence>
                 <ProgressBarContainerLine themeobj={themeobj}>
-                    <AnimatePresence>
                         <motion.div
                             layout
-                            initial={{opacity: 1, scale: 0}}
-                            whileInView={{opacity: 1, scale: 1}}
+                            initial={{ opacity: 1, scale: 0, marginLeft: '-100%' }}
+                            whileInView={{ opacity: 1, scale: 1, marginLeft: '0%' }}
                             transition={{ease: "linear", duration: 1}}
                         >
-                            <ProgressBarLine themeobj={themeobj} progress={props.progress}></ProgressBarLine>
+                            <ProgressBarLine
+                                themeobj={themeobj}
+                                progress={props.progress}>
+                            </ProgressBarLine>
                         </motion.div>
-                    </AnimatePresence>
                 </ProgressBarContainerLine>
-
+                </AnimatePresence>
             </ProgressBarContainer>
         </Fade>
     );
@@ -46,6 +47,7 @@ const ProgressBarContainer = styled.div`
 `;
 
 const ProgressBarContainerLine = styled.div<{ themeobj: themeobjectType }>`
+  overflow: hidden;
   width: 100%;
   height: 100%;
   border: 1px solid ${({themeobj}) => themeobj.colors.primary};
@@ -57,18 +59,17 @@ const ProgressBarContainerLine = styled.div<{ themeobj: themeobjectType }>`
 const ProgressBarLine = styled.div<
     { progress: CSSProperties['width'], themeobj: themeobjectType }
 >`
-  width: ${props => props.progress || "0%"};
+  width: ${props => props.progress || "100%"};
   border-radius: 30px;
   height: 2px;
   background-color: ${({themeobj}) => themeobj.colors.primary};
-  transition: width 0.3s ease-in-out;
+  //transition: width 0.3s ease-in-out;
   --time: 3s;
-  transform-origin: left top;
-  transform: scaleX(0);
+  //transform-origin: left top;
+  //transform: scaleX(0);
   animation: scale var(--time) linear;
   animation-fill-mode: forwards;
 
-  /* Добавляем анимацию scale */
   @keyframes scale {
     0% {
       transform: scaleX(0);

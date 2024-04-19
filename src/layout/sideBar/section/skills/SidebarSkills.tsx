@@ -9,7 +9,6 @@ import {ProgressBarFragment} from "../../ProgressBar";
 export const SidebarSkills = () => {
     const {themeobj} = useTheme();
 
-    // Массив с данными о навыках и их прогрессе
     const skillsData = [
         { title: "Html", progress: "50%" },
         { title: "CSS", progress: "15%" },
