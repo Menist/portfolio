@@ -6,7 +6,6 @@ import {FlexWrapper} from "../../components/FlexWrapper";
 import {themeobjectType} from "../../styles/ColorSheme";
 import {AnimatePresence, motion} from "framer-motion";
 
-
 type LanguagesFragmentPropsType1 = {
     textTitle: string;
     textProgress: string;
