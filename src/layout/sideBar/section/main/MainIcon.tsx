@@ -36,7 +36,7 @@ const SidebarLink = styled.a<{ themeobj: themeobjectType }>`
   transition: ${({themeobj}) =>themeobj.animation.transitionAll};
 
   &:hover svg {
-    color: ${({themeobj}) =>themeobj.colors.backgroundWebsite};
+    color: ${({themeobj}) =>themeobj.colors.primary};
     transform: scale(1.3);
     transition: .5s;
   }

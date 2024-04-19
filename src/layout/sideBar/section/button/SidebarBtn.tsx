@@ -32,6 +32,7 @@ const SidebarButton = styled.button <{ themeobj: themeobjectType }>`
   &:hover {
     border: 2px solid ${({themeobj}) => themeobj.colors.primary};
     background-color: ${({themeobj}) => themeobj.colors.backgroundColorSection};
+    color: ${({themeobj}) => themeobj.colors.primary};
     transition: ${({themeobj}) => themeobj.animation.transitionAll};
   }
 

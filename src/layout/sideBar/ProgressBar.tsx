@@ -4,6 +4,7 @@ import {Fade} from "react-awesome-reveal";
 import {useTheme} from "../../ThemeProvider";
 import {FlexWrapper} from "../../components/FlexWrapper";
 import {themeobjectType} from "../../styles/ColorSheme";
+import {AnimatePresence, motion} from "framer-motion";
 
 type LanguagesFragmentPropsType1 = {
     textTitle: string;
@@ -21,18 +22,28 @@ export const ProgressBarFragment = (props: LanguagesFragmentPropsType1) => {
                     <ProgressBarTitle themeobj={themeobj}>{props.textTitle}</ProgressBarTitle>
                     <ProgressBarNumber themeobj={themeobj}>{props.textProgress}</ProgressBarNumber>
                 </FlexWrapper>
-                <Fade cascade damping={.9}>
-                    <ProgressBarContainerLine themeobj={themeobj}>
-                        <ProgressBarLine themeobj={themeobj} progress={props.progress}></ProgressBarLine>
-                    </ProgressBarContainerLine>
-                </Fade>
+
+                <ProgressBarContainerLine themeobj={themeobj}>
+                    <AnimatePresence>
+                        <motion.div
+                            layout
+                            initial={{opacity: 1, scale: 0}}
+                            whileInView={{opacity: 1, scale: 1}}
+                            transition={{ease: "linear", duration: 1}}
+                        >
+                            <ProgressBarLine themeobj={themeobj} progress={props.progress}></ProgressBarLine>
+                        </motion.div>
+                    </AnimatePresence>
+                </ProgressBarContainerLine>
+
             </ProgressBarContainer>
         </Fade>
     );
 };
+
 const ProgressBarContainer = styled.div`
   padding: 15px 0 10px;
-`
+`;
 
 const ProgressBarContainerLine = styled.div<{ themeobj: themeobjectType }>`
   width: 100%;
@@ -41,7 +52,8 @@ const ProgressBarContainerLine = styled.div<{ themeobj: themeobjectType }>`
   border-radius: 30px;
   padding: 1px;
   color: ${({themeobj}) => themeobj.colors.primary};
-`
+`;
+
 const ProgressBarLine = styled.div<
     { progress: CSSProperties['width'], themeobj: themeobjectType }
 >`
@@ -54,21 +66,23 @@ const ProgressBarLine = styled.div<
   transform-origin: left top;
   transform: scaleX(0);
   animation: scale var(--time) linear;
-  animation-fill-mode:forwards;
-}
+  animation-fill-mode: forwards;
 
-@keyframes scale {
-  0% {
-    transform: scaleX(0);
+  /* Добавляем анимацию scale */
+  @keyframes scale {
+    0% {
+      transform: scaleX(0);
+    }
+    100% {
+      transform: scaleX(1);
+    }
   }
-  100% {
-    transform: scaleX(1);
-  }
-}
-`
-const ProgressBarTitle = styled.span <{ themeobj: themeobjectType }>`
+`;
+
+const ProgressBarTitle = styled.span<{ themeobj: themeobjectType }>`
   padding-bottom: 5px;
   color: ${({themeobj}) => themeobj.colors.mainText};
-`
-const ProgressBarNumber = styled.span <{ themeobj: themeobjectType }>`
-`
+`;
+
+const ProgressBarNumber = styled.span<{ themeobj: themeobjectType }>`
+`;

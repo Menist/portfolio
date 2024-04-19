@@ -50,7 +50,7 @@ const Container = styled.div`
 `
 const Main = styled.main<{ isOpen: boolean }>`
   padding-left: ${props => props.isOpen ? '310px' : 'inherit'};
-  padding-right: 108px;
+  padding-right: 110px;
   transition: all .9s ease;
   flex: 1;
 

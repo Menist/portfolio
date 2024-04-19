@@ -17,10 +17,11 @@ export const PriceCardBtn = (props: CardBtnPropsType) => {
 const PriceCardButton=styled.button<{themeobj: themeobjectType}>`
   max-width: 160px;
   padding: 10px 25px;
-  border: none;
+  border: 2px solid transparent;
   border-radius: 30px;
   box-shadow: 0 1px 10px 0 #00000026;
-  background-color: white;
+  background-color: ${({themeobj}) => themeobj.colors.primary};
+  color: ${({themeobj}) => themeobj.colors.backgroundWebsite};
   margin-top: 20px;
   cursor: pointer;
   text-transform: uppercase;
@@ -28,8 +29,10 @@ const PriceCardButton=styled.button<{themeobj: themeobjectType}>`
   font-size: 14px;
   
   &:hover{
-    background-color: ${({themeobj}) =>themeobj.colors.primary};
-    transition: ${({themeobj}) =>themeobj.animation.transitionBackground};
+    border: 2px solid ${({themeobj}) => themeobj.colors.primary};
+    background-color: ${({themeobj}) => themeobj.colors.backgroundColorSection};
+    color: ${({themeobj}) => themeobj.colors.primary};
+    transition: ${({themeobj}) => themeobj.animation.transitionBackground};
     }
   }
 `

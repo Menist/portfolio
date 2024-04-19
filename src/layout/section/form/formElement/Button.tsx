@@ -11,7 +11,8 @@ export const Button: FC<ButtonProps> = forwardRef<HTMLButtonElement, ButtonProps
 })
 export const FormBtn = styled.button<{themeobj:themeobjectType}>`
   padding: 9px 25px;
-  background-color: ${({themeobj}) =>themeobj.colors.primary};
+  background-color: ${({themeobj}) => themeobj.colors.primary};
+  color: ${({themeobj}) => themeobj.colors.backgroundWebsite};
   text-transform: uppercase;
   font-weight: bold;
   margin-top: 25px;
@@ -20,9 +21,10 @@ export const FormBtn = styled.button<{themeobj:themeobjectType}>`
   border: 2px solid transparent;
 
   &:hover {
-    border: 2px solid ${({themeobj}) =>themeobj.colors.primary};
-    background-color: ${({themeobj}) =>themeobj.colors.backgroundColorSection};
-    transition: ${({themeobj}) =>themeobj.animation.transitionBackground};
+    border: 2px solid ${({themeobj}) => themeobj.colors.primary};
+    background-color: ${({themeobj}) => themeobj.colors.backgroundColorSection};
+    color: ${({themeobj}) => themeobj.colors.primary};
+    transition: ${({themeobj}) => themeobj.animation.transitionBackground};
   }
 }
 `

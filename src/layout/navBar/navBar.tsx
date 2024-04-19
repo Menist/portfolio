@@ -98,7 +98,7 @@ const Nav = styled.nav<{ themeobj: themeobjectType }>`
   position: fixed;
   right: 0;
   z-index: 100;
-  min-width: 108px;
+  min-width: 110px;
   background-color: ${({themeobj}) => themeobj.colors.backgroundColorSection};
   padding: 50px 22px 50px 25px;
   overflow-y: scroll;
@@ -171,7 +171,7 @@ const Nav = styled.nav<{ themeobj: themeobjectType }>`
     @media screen and (max-width: 425px) {
       padding: 10px 0;
       ul {
-        gap: 10px;
+        gap: 25px;
       }
     }
   }
