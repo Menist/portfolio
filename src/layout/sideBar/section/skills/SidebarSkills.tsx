@@ -10,8 +10,8 @@ export const SidebarSkills = () => {
     const {themeobj} = useTheme();
 
     const skillsData = [
-        { title: "Html", progress: "50%" },
-        { title: "CSS", progress: "15%" },
+        { title: "Html", progress: "80%" },
+        { title: "CSS", progress: "90%" },
         { title: "Js", progress: "20%" },
         { title: "PHP", progress: "0%" },
         { title: "WordPress", progress: "0%" }

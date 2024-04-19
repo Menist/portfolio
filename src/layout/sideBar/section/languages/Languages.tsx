@@ -10,9 +10,9 @@ export const Languages = () => {
     const {themeobj} = useTheme();
 
     const languagesData = [
-        { title: "Bangla", progress: "50%" },
-        { title: "English", progress: "80%" },
-        { title: "Spanish", progress: "20%" }
+        { title: "English", progress: "100%" },
+        { title: "Belarusian", progress: "80%" },
+        { title: "Russian", progress: "20%" }
     ];
 
     return (

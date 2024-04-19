@@ -6,6 +6,7 @@ import {FlexWrapper} from "../../components/FlexWrapper";
 import {themeobjectType} from "../../styles/ColorSheme";
 import {AnimatePresence, motion} from "framer-motion";
 
+
 type LanguagesFragmentPropsType1 = {
     textTitle: string;
     textProgress: string;
@@ -22,11 +23,12 @@ export const ProgressBarFragment = (props: LanguagesFragmentPropsType1) => {
                     <ProgressBarTitle themeobj={themeobj}>{props.textTitle}</ProgressBarTitle>
                     <ProgressBarNumber themeobj={themeobj}>{props.textProgress}</ProgressBarNumber>
                 </FlexWrapper>
+
                 <AnimatePresence>
                 <ProgressBarContainerLine themeobj={themeobj}>
                         <motion.div
                             layout
-                            initial={{ opacity: 1, scale: 0, marginLeft: '-100%' }}
+                            initial={{ opacity: 1, scale: 0, marginLeft: '100%' }}
                             whileInView={{ opacity: 1, scale: 1, marginLeft: '0%' }}
                             transition={{ease: "linear", duration: 1}}
                         >
@@ -64,11 +66,11 @@ const ProgressBarLine = styled.div<
   height: 2px;
   background-color: ${({themeobj}) => themeobj.colors.primary};
   //transition: width 0.3s ease-in-out;
-  --time: 3s;
+  //--time: 3s;
   //transform-origin: left top;
   //transform: scaleX(0);
-  animation: scale var(--time) linear;
-  animation-fill-mode: forwards;
+  //animation: scale var(--time) linear;
+  //animation-fill-mode: forwards;
 
   @keyframes scale {
     0% {

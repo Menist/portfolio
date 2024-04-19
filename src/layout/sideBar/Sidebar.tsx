@@ -138,7 +138,7 @@ const BurgerBtn = styled.button<{ isOpen: boolean, themeobj: themeobjectType }>`
   }
   &:hover{
     border: 2px solid  ${({themeobj}) =>themeobj.colors.primary};
-    background-color:  ${({themeobj}) =>themeobj.colors.backgroundWebsite};
+    background-color:  ${({themeobj}) =>themeobj.colors.primary};
     border-radius: 3px;
   }
 `
