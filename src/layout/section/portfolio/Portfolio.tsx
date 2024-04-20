@@ -3,7 +3,6 @@ import styled from "styled-components";
 import {BlockTitle} from "../../../components/SectionTitle/BlockTitle";
 import {PortfolioCard} from "./cardPortfolio/PortfolioCard";
 import img0 from "../../../assets/img/section/portfolio/OverlayPortfolio.webp";
-import img0x from "../../../assets/img/section@2x/portfolio/OverlayPortfolio_@2x.webp";
 import img1 from "../../../assets/img/section/portfolio/01.webp";
 import img1x from "../../../assets/img/section@2x/portfolio/portfolio1_@2x.webp";
 import img2 from "../../../assets/img/section/portfolio/02.webp";
@@ -21,12 +20,12 @@ import {MenuTab} from "./navigationPortfolio/TabPortfolioData";
 import {AnimatePresence, motion} from "framer-motion"
 
 const projects = [
-    {src: img1, type: 'spa', srcSet: img1x, overLay: img0, img: img0x},
-    {src: img2, type: 'react', srcSet: img2x, overLay: img0, img: img0x},
-    {src: img3, type: 'spa', srcSet: img3x, overLay: img0, img: img0x},
-    {src: img4, type: 'react', srcSet: img4x, overLay: img0, img: img0x},
-    {src: img5, type: 'landing page', srcSet: img5x, overLay: img0, img: img0x},
-    {src: img6, type: 'react', srcSet: img6x, overLay: img0, img: img0x},
+    {src: img1, type: 'spa', srcSet: img1x, overLay: img0},
+    {src: img2, type: 'react', srcSet: img2x, overLay: img0},
+    {src: img3, type: 'spa', srcSet: img3x, overLay: img0},
+    {src: img4, type: 'react', srcSet: img4x, overLay: img0},
+    {src: img5, type: 'landing page', srcSet: img5x, overLay: img0},
+    {src: img6, type: 'react', srcSet: img6x, overLay: img0},
 ];
 export const Portfolio = () => {
     const [currentFilterStatus, setCurrentFilterStatus] = useState('all');
@@ -59,7 +58,6 @@ export const Portfolio = () => {
                                                    src={project.src}
                                                    srcSet={img1x}
                                                    overLay={img0}
-                                                   img={img0x}
                                                    key={index}
                                     />
                                 </motion.div>

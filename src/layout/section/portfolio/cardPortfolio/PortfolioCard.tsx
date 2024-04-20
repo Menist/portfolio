@@ -8,7 +8,6 @@ type PortfolioCardPropsType = {
     src: string
     srcSet: string
     overLay: string
-    img: string
     type: string
 }
 
@@ -19,7 +18,7 @@ export const PortfolioCard = (props: PortfolioCardPropsType) => {
             <PortfolioCardLink href={'#'} >
                 <PortfolioCardImg src={props.src} srcSet={`${props.srcSet} 2x`}></PortfolioCardImg>
                 <PortfolioHoverOverlay themeobj={themeobj}>
-                    <PortfolioOverlayImage src={props.overLay} srcSet={`${props.img} 2x`}></PortfolioOverlayImage>
+                    <PortfolioOverlayImage src={props.overLay}></PortfolioOverlayImage>
                     <PortfolioOverlayImage></PortfolioOverlayImage>
                 </PortfolioHoverOverlay>
             </PortfolioCardLink>
