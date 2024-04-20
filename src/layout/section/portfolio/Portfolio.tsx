@@ -83,9 +83,11 @@ const GridWrap = styled.div`
   column-gap: 20px;
   row-gap: 20px;
   margin-top: 30px;
+  justify-content: center;
 
   @media screen and (max-width: 1207px) {
     grid-template-columns: repeat(auto-fit, minmax(230px, .5fr));
+    justify-items: center;
   }
   
   @media screen and (max-width: 1100px) {
