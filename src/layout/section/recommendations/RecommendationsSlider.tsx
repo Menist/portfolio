@@ -117,7 +117,7 @@ export const RecommendationsSlider = () => {
                     autoPlayStrategy="none"
                     autoPlayInterval={1500}
                     animationDuration={1500}
-                    infinite
+{/*                     infinite */}
                     touchTracking={false}
                     disableButtonsControls
                     items={items}
