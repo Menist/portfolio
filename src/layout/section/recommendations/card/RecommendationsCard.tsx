@@ -59,7 +59,10 @@ const RecommendationsCardText = styled.p`
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 4;
 `
-const RecommendationsCardImg = styled.img``
+const RecommendationsCardImg = styled.img`
+max-width: 80px;
+max-height: 80px;
+`
 const RecommendationsCardName = styled.span<{ themeobj: themeobjectType }>`
   font-weight: 500;
   font-size: 18px;
