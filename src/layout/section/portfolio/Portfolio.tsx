@@ -3,8 +3,8 @@ import styled from "styled-components";
 import {BlockTitle} from "../../../components/SectionTitle/BlockTitle";
 import {PortfolioCard} from "./cardPortfolio/PortfolioCard";
 import img0 from "../../../assets/img/section/portfolio/OverlayPortfolio.webp";
-import img1 from "../../../assets/img/section/portfolio/01.webp";
-import img1x from "../../../assets/img/section@2x/portfolio/portfolio1_@2x.webp";
+// import img1 from "../../../assets/img/section/portfolio/01.webp";
+// import img1x from "../../../assets/img/section@2x/portfolio/portfolio1_@2x.webp";
 import img2 from "../../../assets/img/section/portfolio/02.webp";
 import img2x from "../../../assets/img/section@2x/portfolio/portfolio2_@2x.webp";
 import img3 from "../../../assets/img/section/portfolio/03.webp";
@@ -20,7 +20,7 @@ import {MenuTab} from "./navigationPortfolio/TabPortfolioData";
 import {AnimatePresence, motion} from "framer-motion"
 
 const projects = [
-    {src: img1, type: 'spa', srcSet: img1x},
+    // {src: img1, type: 'spa', srcSet: img1x},
     {src: img2, type: 'react', srcSet: img2x},
     {src: img3, type: 'spa', srcSet: img3x},
     {src: img4, type: 'react', srcSet: img4x},
@@ -56,7 +56,7 @@ export const Portfolio = () => {
                                 >
                                     <PortfolioCard type={project.type}
                                                    src={project.src}
-                                                   srcSet={img1x}
+                                                   srcSet={project.srcSet}
                                                    overLay={img0}
                                                    key={index}
                                     />
