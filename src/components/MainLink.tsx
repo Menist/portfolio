@@ -51,6 +51,7 @@ const Links = styled(Link)<{ themeobj: themeobjectType }>`
   margin-bottom: 10px;
   transition: .3s;
   align-self: flex-start;
+  white-space: nowrap;
 
   &:hover {
     border: 2px solid ${({themeobj}) => themeobj.colors.primary};
