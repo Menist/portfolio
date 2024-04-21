@@ -20,12 +20,12 @@ import {MenuTab} from "./navigationPortfolio/TabPortfolioData";
 import {AnimatePresence, motion} from "framer-motion"
 
 const projects = [
-    {src: img1, type: 'spa', srcSet: img1x, overLay: img0},
-    {src: img2, type: 'react', srcSet: img2x, overLay: img0},
-    {src: img3, type: 'spa', srcSet: img3x, overLay: img0},
-    {src: img4, type: 'react', srcSet: img4x, overLay: img0},
-    {src: img5, type: 'landing page', srcSet: img5x, overLay: img0},
-    {src: img6, type: 'react', srcSet: img6x, overLay: img0},
+    {src: img1, type: 'spa', srcSet: img1x},
+    {src: img2, type: 'react', srcSet: img2x},
+    {src: img3, type: 'spa', srcSet: img3x},
+    {src: img4, type: 'react', srcSet: img4x},
+    {src: img5, type: 'landing page', srcSet: img5x},
+    {src: img6, type: 'react', srcSet: img6x},
 ];
 export const Portfolio = () => {
     const [currentFilterStatus, setCurrentFilterStatus] = useState('all');
@@ -60,7 +60,7 @@ export const Portfolio = () => {
                                                    overLay={img0}
                                                    key={index}
                                     />
-                                </motion.div>
+                                  </motion.div>
                             )
                         })
                         }
