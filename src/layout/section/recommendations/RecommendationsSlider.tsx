@@ -113,7 +113,7 @@ export const RecommendationsSlider = () => {
                     subTitle={"Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. lorem ipsum"}></BlockTitle>
                 <AliceCarousel
                     responsive={responsive}
-                    // autoPlay
+                    autoPlay
                     autoPlayStrategy="none"
                     autoPlayInterval={1500}
                     animationDuration={1500}
